@@ -2,16 +2,17 @@ package com.itest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableDiscoveryClient
-public class ItestLogin8001Application {
+@EnableFeignClients(basePackages = {"com.itest"})
+public class ItestConsumer80Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ItestLogin8001Application.class, args);
+        SpringApplication.run(ItestConsumer80Application.class, args);
     }
 
 }

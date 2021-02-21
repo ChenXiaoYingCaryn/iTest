@@ -1,7 +1,7 @@
 package com.itest.controller;
 
 import com.itest.pojo.User;
-import com.itest.service.LoginService;
+
 import com.itest.service.UserService;
 import com.itest.utils.MsgUtils;
 import org.apache.commons.lang.StringUtils;
@@ -21,7 +21,7 @@ public class UserController {
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public MsgUtils login(@RequestBody User user){
+    public MsgUtils userLogin(@RequestBody User user){
         //登录前初步校验
         if(StringUtils.isBlank(user.getUser_id()) || StringUtils.isBlank(user.getUser_id())) {
             return MsgUtils.build(400, "账号或密码不能为空");
@@ -31,7 +31,7 @@ public class UserController {
 
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
     @ResponseBody
-    public MsgUtils createuser(@RequestBody User user) {
+    public MsgUtils userRegister(@RequestBody User user) {
         return userService.userRegister(user);
     }
 

@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * @author ChanV
- * @create 2021-02-21-15:03
+ * @create 2021-02-21-19:41
  */
 @Service
 @Repository
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         map.put("user_id", user.getUser_id());
         map.put("user_name", user.getUser_name());
         String token = JWTUtils.getToken(map);
-        return MsgUtils.build(200, token, JSONUtils.objectToJson(user));
+        return MsgUtils.build(200,token, JSONUtils.objectToJson(user));
     }
 
     @Override
@@ -51,5 +51,4 @@ public class UserServiceImpl implements UserService {
             return MsgUtils.build(100,e.getMessage());
         }
     }
-
 }

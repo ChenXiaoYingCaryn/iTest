@@ -3,15 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.itest</groupId>
-    <artifactId>itest-login-8001</artifactId>
+    <artifactId>itest-consumer-80</artifactId>
     <parent>
         <artifactId>iTest</artifactId>
         <groupId>groupId</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <version>0.0.1-SNAPSHOT</version>
-    <name>itest-login-8001</name>
-    <description>itest-login-8001</description>
+    <name>itest-consumer-80</name>
+    <description>itest-consumer-80</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,53 +21,26 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
+        <!--Ribbon-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-ribbon -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
             <version>1.4.6.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>groupId</groupId>
-            <artifactId>itest-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-
-
-        <!--加入Eureka依赖-->
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
+        <!--eureka-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-            <version>1.4.6.RELEASE</version>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!--actuator完善监控信息-->
+        <!--Feign-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.7.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -76,21 +49,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>com.itest</groupId>
-            <artifactId>itest-uitls</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
         </dependency>
 
         <dependency>
@@ -100,12 +61,17 @@
         </dependency>
 
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
+            <groupId>groupId</groupId>
+            <artifactId>itest-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>itest-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
@@ -124,7 +90,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.4.1</version>
                 <configuration>
-                    <mainClass>com.itest.ItestLogin8001Application</mainClass>
+                    <mainClass>com.itest.ItestConsumer80Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
