@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container_header_root">
-      <div class="container_header_title_large">相關影片</div>
+      <div class="container_header_title_large">相关视频</div>
     </div>
 
   </div>

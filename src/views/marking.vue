@@ -40,8 +40,6 @@ export default {
 <style scoped>
 .containers {
   background-color: #302f2d;
-  width: 100%;
-  height: 1000px;
 }
 
 .banner {
@@ -56,8 +54,8 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(../components/marking/marking-img/iPhone12.jpg);
-  box-shadow:0 0 1px 1px #232322 inset;
+  background-image: url(../components/marking/marking-img/redmik30u.jpg);
+  box-shadow:0 0 5px 5px #232322 inset;
 }
 .top-img::before{
   content: '';
@@ -69,7 +67,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image:  url(../components/marking/marking-img/iPhone12.jpg);
+  background-image:  url(../components/marking/marking-img/redmik30u.jpg);
   z-index: -1;
   filter: blur(8px);
 }
