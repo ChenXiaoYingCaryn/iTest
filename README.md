@@ -1,4 +1,4 @@
-# igame
+# itest
 
 ## Project setup
 ```

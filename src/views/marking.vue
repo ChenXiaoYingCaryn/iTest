@@ -8,14 +8,13 @@
       </div>
       <div class="content">
         <!-- 评分系统 -->
-        <div class="indent">
-        </div>
+        <marking-indent></marking-indent>
         <!-- 相关视频 -->
-        <div class="related-vedio"></div>
+        <related-vedio></related-vedio>
         <!-- 评价列表 -->
-        <div class="review-list"></div>
-        <!-- 推荐游戏 -->
-        <div class="recommendations"></div>
+        <review-list></review-list>
+        <!-- 推荐产品 -->
+        <recommendations></recommendations>
       </div>
       <div class="footer"></div>
     </div>
@@ -23,9 +22,13 @@
 </template>
 
 <script>
+import MarkingIndent from '../components/marking/marking-indent.vue'
+import Recommendations from '../components/marking/recommendations.vue'
+import RelatedVedio from '../components/marking/related-vedio.vue'
+import ReviewList from '../components/marking/review-list.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav },
+  components: { topNav, RelatedVedio, ReviewList, Recommendations, MarkingIndent },
   name: 'marking',
   data () {
     return {
@@ -49,14 +52,13 @@ export default {
 .top-img {
   width: 100%;
   height: 440px;
-  background-position: top center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../components/marking/marking-img/guigu.jpg);
+  background-size: contain;
+  background-image: url(../components/marking/marking-img/iPhone12.jpg);
   box-shadow:0 0 1px 1px #232322 inset;
 }
-/*第二种方案
-  .top-img::before{
+.top-img::before{
   content: '';
   display: block;
   position: absolute;
@@ -66,9 +68,9 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image:  url(../components/marking/marking-img/lss.jpg);
+  background-image:  url(../components/marking/marking-img/iPhone12.jpg);
   z-index: -1;
   filter: blur(8px);
-} */
+}
 
 </style>

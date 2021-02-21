@@ -1,19 +1,19 @@
 <template>
     <el-container class="topNav">
-        <el-contaniner class="navContent">
+        <el-container class="navContent">
             <!-- logo区域 -->
             <div class="logo">
                 <a href="#"><img src="../assets/logo.png" alt="logo"></a>
-                <span>iGame</span>
+                <span>iTest</span>
             </div>
             <!-- 菜单区域 -->
             <div class="menuList">
-                <a href="#"><span class="list">游戏</span></a>
+                <a href="#"><span class="list">产品</span></a>
                 <a href="#"><span class="list">资讯</span></a>
                 <a href="#"><span class="list">关于我们</span></a>
                 <a href="#"><span class="list">帮助反馈</span></a>
             </div>
-        </el-contaniner>
+        </el-container>
     </el-container>
 </template>
 

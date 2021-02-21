@@ -1,12 +1,13 @@
 <template>
-  <router-view></router-view>
+    <div>评分模块</div>
 </template>
 
 <script>
 export default {
-  name: 'igame'
+  name: 'marking-indent'
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>
