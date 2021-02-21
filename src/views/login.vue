@@ -49,7 +49,7 @@ export default {
   /* 获取屏幕宽度和高度 */
   position: relative;
   overflow: hidden;
-  background: url("../../img/gaming2.jpg") center center / cover no-repeat fixed;
+  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
 }
 
 /* 毛玻璃特效 */
@@ -60,7 +60,7 @@ export default {
   z-index: -1;
   margin: -30px;
   filter: blur(10px);
-  background: url("../../img/gaming2.jpg") center center / cover no-repeat fixed;
+  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
 
 }
 
