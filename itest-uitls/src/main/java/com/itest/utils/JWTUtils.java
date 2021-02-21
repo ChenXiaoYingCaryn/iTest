@@ -1,4 +1,4 @@
-package com.itest.itestuitls.utils;
+package com.itest.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

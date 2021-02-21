@@ -1,4 +1,4 @@
-package com.itest.itestapi.pojo;
+package com.itest.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

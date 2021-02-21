@@ -1,4 +1,4 @@
-package com.itest.itestuitls.config;
+package com.itest.config;
 
 import java.io.IOException;
 import java.io.InputStream;

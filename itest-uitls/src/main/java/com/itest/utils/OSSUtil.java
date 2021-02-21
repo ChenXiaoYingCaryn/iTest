@@ -1,11 +1,11 @@
-package com.itest.itestuitls.utils;
+package com.itest.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectMetadata;
 
-import com.itest.itestuitls.config.OSSConfig;
+import com.itest.config.OSSConfig;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 

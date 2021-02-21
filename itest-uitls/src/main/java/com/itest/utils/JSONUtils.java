@@ -1,4 +1,4 @@
-package com.itest.itestuitls.utils;
+package com.itest.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

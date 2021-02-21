@@ -1,4 +1,4 @@
-package com.itest.itestapi.config;
+package com.itest.config;
 
 import feign.form.spring.SpringFormEncoder;
 import org.springframework.context.annotation.Bean;

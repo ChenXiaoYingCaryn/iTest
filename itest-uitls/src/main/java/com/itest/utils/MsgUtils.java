@@ -1,4 +1,4 @@
-package com.itest.itestuitls.utils;
+package com.itest.utils;
 
 import java.io.Serializable;
 
