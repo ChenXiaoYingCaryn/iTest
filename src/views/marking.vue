@@ -47,6 +47,7 @@ export default {
 .banner {
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .top-img {

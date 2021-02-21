@@ -35,17 +35,16 @@ export default {
     }
     .navContent{
         /* background-color: blanchedalmond; */
-        width: 1440px;
         height: auto;
-        margin: 0 auto;
+        margin: 0 10vw;
 
         display:grid;
         grid-template-columns: 1fr 3fr;
     }
     .logo img{
-        width: 50px;
-        height: 50px;
-        margin: 15px 0 15px 30px;
+        width: 30px;
+        height: 30px;
+        margin: 15px 0 15px 15px;
     }
     .logo span{
         font-size: 18px;
