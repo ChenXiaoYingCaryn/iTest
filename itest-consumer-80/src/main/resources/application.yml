@@ -12,3 +12,8 @@ ribbon:
   ReadTimeout: 30000
   ConnectTimeout: 30000
 
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+

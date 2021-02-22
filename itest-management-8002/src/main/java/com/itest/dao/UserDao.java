@@ -42,6 +42,6 @@ public interface UserDao {
      * @param pageSize
      * @return
      */
-    @Select("SELECT * FROM tb_user LIMIT #{curPage}, #{pageSize}")
+    @Select("SELECT * FROM tb_user WHERE is_deleted = '0' LIMIT #{curPage}, #{pageSize}")
     List<User> queryUser(@Param("curPage") Integer curPage, @Param("pageSize") Integer pageSize);
 }
