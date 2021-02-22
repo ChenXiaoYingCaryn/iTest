@@ -39,7 +39,7 @@
             <div class="chart-right">
               <h1 class="score">{{value}}</h1>
               <el-rate v-model="value" disabled :colors="colors" show-text=""></el-rate>
-              <p>{{person}}人评分</p>
+              <p style="text-align:center;">{{person}}人评分</p>
             </div>
           </div>
         </div>
@@ -70,11 +70,11 @@
 <script>
 export default {
   name: 'marking-indent',
-  data() {
+  data () {
     return {
       pname: '红米Redmi K30至尊纪念版',
       auto: false,
-      value: 4.5,
+      value: 4.3,
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
       texts: ['极差', '失望', '一般', '满意', '惊喜'],
       dashWidth: 100,
@@ -90,11 +90,11 @@ export default {
     }
   },
   methods: {
-    format(percentage) {
+    format (percentage) {
       return '好评率:' + this.percentage + '%'
     },
-    onSubmit() {
-      console.log('submit!');
+    onSubmit () {
+      console.log('submit!')
     }
   }
 }
@@ -104,7 +104,8 @@ export default {
 .wrapper {
   width: auto;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 0 10vw;
+  /* margin: 0 10vw; */
+  padding: 0 5%;
 }
 
 .title {
@@ -119,17 +120,16 @@ export default {
 }
 
 .picture {
-  background-color: aqua;
-  padding-left: 10%;
+  /* background-color: aqua; */
   /* height: 500px; */
 }
 
 .parm {
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 .count {
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
 }
 
 @media screen and (max-width: 768px) {
@@ -145,7 +145,6 @@ export default {
   font-size: 18px;
   opacity: 0.75;
   line-height: 300px;
-  margin: 0;
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -162,7 +161,7 @@ export default {
   line-height: 50px;
   margin-top: 5px;
   padding-left: 30px;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 /* 产品评分 */

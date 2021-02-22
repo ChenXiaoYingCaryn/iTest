@@ -10,7 +10,7 @@
         <!-- 评分系统 -->
         <marking-indent></marking-indent>
         <!-- 相关视频 -->
-        <related-vedio></related-vedio>
+        <relatedvideo></relatedvideo>
         <!-- 评价列表 -->
         <review-list></review-list>
         <!-- 推荐产品 -->
@@ -24,11 +24,11 @@
 <script>
 import MarkingIndent from '../components/marking/marking-indent.vue'
 import Recommendations from '../components/marking/recommendations.vue'
-import RelatedVedio from '../components/marking/related-vedio.vue'
+import Relatedvideo from '../components/marking/related-video.vue'
 import ReviewList from '../components/marking/review-list.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, RelatedVedio, ReviewList, Recommendations, MarkingIndent },
+  components: { topNav, Relatedvideo, ReviewList, Recommendations, MarkingIndent },
   name: 'marking',
   data () {
     return {
@@ -72,4 +72,9 @@ export default {
   filter: blur(8px);
 }
 
+.content {
+  margin: 0 auto;
+  width: 1200px;
+  /* margin: 0 10vw; */
+}
 </style>
