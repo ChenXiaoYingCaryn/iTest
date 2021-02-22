@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -42,6 +43,12 @@ public class SlideshowController {
     @RequestMapping("/management/slideshow/query")
     public MsgUtils querySlideshow(int curPage, int pageSize, String token){
         return this.slideshowService.querySlideshow(curPage, pageSize, token);
+    }
+
+    @ApiOperation("更新轮播图图片")
+    @RequestMapping("/management/slideshow/updateImg")
+    public MsgUtils updateSlideshowImg(MultipartFile image, String image_id, String token){
+        return this.slideshowService.updateSlideshowImg(image, image_id, token);
     }
 
 }

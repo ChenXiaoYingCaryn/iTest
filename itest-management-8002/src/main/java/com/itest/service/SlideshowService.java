@@ -1,6 +1,7 @@
 package com.itest.service;
 
 import com.itest.utils.MsgUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -42,4 +43,13 @@ public interface SlideshowService {
      * @return
      */
     MsgUtils querySlideshow(Integer curPage, Integer pageSize, String token);
+
+    /**
+     * 更新轮播图图片
+     * @param image
+     * @param image_id
+     * @param token
+     * @return
+     */
+    MsgUtils updateSlideshowImg(MultipartFile image, String image_id, String token);
 }

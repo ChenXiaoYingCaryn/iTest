@@ -6,8 +6,10 @@ import com.itest.pojo.Slideshow;
 import com.itest.service.SlideshowService;
 import com.itest.utils.JWTUtils;
 import com.itest.utils.MsgUtils;
+import com.itest.utils.OSSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -62,6 +64,20 @@ public class SlideshowServiceImpl implements SlideshowService {
             List<Slideshow> slideshows = this.slideshowDao.querySlideshow(curPage, pageSize);
             return MsgUtils.build(200, "轮播图查询成功", slideshows);
         }catch (Exception e){
+            return MsgUtils.build(100, e.getMessage());
+        }
+    }
+
+    @Override
+    public MsgUtils updateSlideshowImg(MultipartFile image, String image_id, String token) {
+        try {
+            JWTUtils.verify(token);
+            OSSUtil ossUtil = new OSSUtil();
+            String image_url = ossUtil.uploadImgFile(image);
+            this.slideshowDao.updateSlideshowImage(image_id, image_url);
+            return MsgUtils.build(200, "轮播图图片更新成功");
+        }catch (Exception e){
+            e.printStackTrace();
             return MsgUtils.build(100, e.getMessage());
         }
     }

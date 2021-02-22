@@ -1,10 +1,11 @@
 package com.itest.controller;
 
-import com.itest.pojo.User;
+
 import com.itest.service.SlideshowService;
 import com.itest.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -35,5 +36,10 @@ public class SlideshowController {
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public MsgUtils querySlideshow(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestParam String token){
         return this.slideshowService.querySlideshow(curPage, pageSize, token);
+    }
+
+    @RequestMapping(value = "/updateImg", method = RequestMethod.POST)
+    public MsgUtils updateSlideshowImg(@RequestBody MultipartFile image, @RequestParam String image_id, @RequestParam String token){
+        return this.slideshowService.updateSlideshowImg(image, image_id, token);
     }
 }

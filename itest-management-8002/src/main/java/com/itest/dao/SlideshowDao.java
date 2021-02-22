@@ -57,4 +57,6 @@ public interface SlideshowDao {
     @Update("UPDATE tb_slideshow SET image_url = #{image_url}" +
                                 "WHERE image_id = #{image_id}")
     void updateSlideshowImage(@Param("image_id") String image_id, @Param("image_url") String image_url);
+
+
 }
