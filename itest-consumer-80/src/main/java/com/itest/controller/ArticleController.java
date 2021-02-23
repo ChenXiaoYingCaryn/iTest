@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -42,5 +43,11 @@ public class ArticleController {
     @RequestMapping("/management/article/query")
     public MsgUtils queryArticle(Integer curPage, Integer pageSize, String token){
         return this.articleService.queryArticle(curPage, pageSize, token);
+    }
+
+    @ApiOperation("更新文章图片")
+    @RequestMapping("/management/article/updateImg")
+    public MsgUtils updateArticleImg(MultipartFile image, String art_id, String token){
+        return this.articleService.updateSlideshowImg(image, art_id, token);
     }
 }

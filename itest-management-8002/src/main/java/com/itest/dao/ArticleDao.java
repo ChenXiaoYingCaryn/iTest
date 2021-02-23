@@ -47,4 +47,13 @@ public interface ArticleDao {
      */
     @Select("SELECT * FROM tb_article WHERE is_deleted = '0' LIMIT #{curPage}, #{pageSize}")
     List<Article> queryArticle(@Param("curPage") Integer curPage, @Param("pageSize") Integer pageSize);
+
+
+    /**
+     * 更新文章图片
+     * @param art_id
+     * @param art_image
+     */
+    @Update("UPDATE tb_article SET art_image = #{art_image} WHERE art_id = #{art_id}")
+    void updateArticleImg(@Param("art_id") String art_id, @Param("art_image") String art_image);
 }

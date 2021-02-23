@@ -5,11 +5,10 @@ import com.itest.pojo.Article;
 import com.itest.utils.MsgUtils;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -30,5 +29,8 @@ public interface ArticleService {
 
     @GetMapping("/management/article/query")
     public MsgUtils queryArticle(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "token") String token);
+
+    @PostMapping(value = "/management/article/updateImg", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public MsgUtils updateSlideshowImg(@RequestPart(value = "image") MultipartFile image, @RequestParam("art_id") String art_id, @RequestParam("token") String token);
 
 }

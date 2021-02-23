@@ -6,8 +6,10 @@ import com.itest.pojo.Article;
 import com.itest.service.ArticleService;
 import com.itest.utils.JWTUtils;
 import com.itest.utils.MsgUtils;
+import com.itest.utils.OSSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -60,6 +62,19 @@ public class ArticleServiceImpl implements ArticleService {
             JWTUtils.verify(token);
             List<Article> articles = this.articleDao.queryArticle(curPage, pageSize);
             return MsgUtils.build(200, "文章查询成功", articles);
+        }catch (Exception e){
+            return MsgUtils.build(100, e.getMessage());
+        }
+    }
+
+    @Override
+    public MsgUtils updateArticleImg(MultipartFile image, String art_id, String token) {
+        try {
+            JWTUtils.verify(token);
+            OSSUtil ossUtil = new OSSUtil();
+            String image_url = ossUtil.uploadImgFile(image);
+            this.articleDao.updateArticleImg(art_id, image_url);
+            return MsgUtils.build(200, "文章图片更新成功");
         }catch (Exception e){
             return MsgUtils.build(100, e.getMessage());
         }

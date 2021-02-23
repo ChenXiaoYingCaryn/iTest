@@ -2,6 +2,7 @@ package com.itest.service;
 
 import com.itest.pojo.Article;
 import com.itest.utils.MsgUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -42,6 +43,15 @@ public interface ArticleService {
      * @return
      */
     MsgUtils queryArticle(Integer curPage, Integer pageSize, String token);
+
+    /**
+     * 更新文章图片
+     * @param image
+     * @param art_id
+     * @param token
+     * @return
+     */
+    MsgUtils updateArticleImg(MultipartFile image, String art_id, String token);
 
 
 }
