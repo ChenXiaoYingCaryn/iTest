@@ -22,9 +22,8 @@ public interface UserDao {
      * 增加用户
      * @param user
      */
-    @Insert("INSERT INTO tb_user (user_id,user_pwd,user_name,user_sex,user_email,user_image) " +
-            " VALUES (#{user.user_id},#{user.user_pwd},#{user.user_name},#{user.user_sex},#{user.user_email}," +
-            "#{user.user_image})")
+    @Insert("INSERT INTO tb_user (user_id,user_pwd,user_name,user_sex,user_email) " +
+            " VALUES (#{user.user_id},#{user.user_pwd},#{user.user_name},#{user.user_sex},#{user.user_email})")
     void addUser(@Param("user") User user);
 
 

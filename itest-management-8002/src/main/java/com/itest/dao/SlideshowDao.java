@@ -28,7 +28,7 @@ public interface SlideshowDao {
      * 删除轮播图
      * @param image_id
      */
-    @Delete("UPDATE tb_slideshow SET is_deleted = 1 WHERE image_id = #{image_id}")
+    @Update("UPDATE tb_slideshow SET is_deleted = 1 WHERE image_id = #{image_id}")
     void deleteSlideshow(@Param("image_id") String image_id);
 
     /**
