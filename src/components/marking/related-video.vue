@@ -50,7 +50,7 @@ export default {
   created: function () {
   },
   mounted: {
-    calculateTimeDiff (){
+    calculateTimeDiff () {
       var newTime = new Date()
       var updateTime = new Date(this.videoUpdateTime)
       var timeDiff = newTime.getTime() - updateTime.getTime()

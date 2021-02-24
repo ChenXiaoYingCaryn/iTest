@@ -21,7 +21,7 @@ export default {
       videoTime: '4:17',
       videoTitle: '[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]',
       videoUpdater: 'yurisa',
-      videoUpdateTime: '2021/2/20 00:35:33',
+      videoUpdateTime: '2020/2/24 19:29:33',
       videoViews: '10万',
       videoTimeDiff: ''
     }
@@ -46,7 +46,7 @@ export default {
         const weekDiff = dayDiff / 7
         console.log(weekDiff + '周')
         if (weekDiff >= 4) {
-          const monthDiff = weekDiff / 7
+          const monthDiff = dayDiff / 30
           console.log(monthDiff + '月')
           if (monthDiff >= 12) {
             that.videoTimeDiff = Math.floor(monthDiff / 12) + '年前'
@@ -57,11 +57,11 @@ export default {
         }
         that.videoTimeDiff = Math.floor(weekDiff) + '周前'
       } else if (dayDiff < 1) {
-        const hourDiff = dayDiff / 24
+        const hourDiff = dayDiff * 24
         console.log(hourDiff + '时')
         if (hourDiff < 1) {
-          const minuteDiff = hourDiff / 60
-          console.log(minuteDiff)
+          const minuteDiff = hourDiff * 60
+          console.log(minuteDiff + '分')
           if (minuteDiff < 3) {
             that.videoTimeDiff = '刚刚'
             return
@@ -83,7 +83,7 @@ export default {
 .related-video-item {
   width: 280px;
   /* height: 260px; */
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 /* 视频推荐图片和上面的参数 */
@@ -108,7 +108,7 @@ export default {
 }
 
 .related-video-item .top-img .top-video-label {
-  background-color: #EFCD6D;
+  /* background-color: #EFCD6D; */
   position: absolute;
 }
 
