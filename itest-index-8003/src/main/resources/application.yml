@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 10003
 
 #Eureka的配置，服务注册到哪里
 eureka:
