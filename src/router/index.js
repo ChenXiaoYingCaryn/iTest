@@ -5,6 +5,7 @@ const home = () => import('../views/home.vue')
 const login = () => import('../views/login.vue')
 const test = () => import('../views/test.vue')
 const marking = () => import('../views/marking.vue')
+const video = () => import('../views/video.vue')
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,7 @@ export default new VueRouter({
     {
       path: '/',
       name: '',
-      component: login
+      component: marking
     },
     {
       path: '/test',
@@ -35,6 +36,11 @@ export default new VueRouter({
       path: '/marking',
       name: 'marking',
       component: marking
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: video
     }
   ]
 })

@@ -1,23 +1,21 @@
 <template>
-  <div class="containers">
+  <div class="container">
     <top-nav></top-nav>
-    <div class="wrapper">
-      <!-- 顶部图片 -->
-      <div class="banner">
-        <div class="top-img"></div>
-      </div>
-      <div class="content">
-        <!-- 评分系统 -->
-        <marking-indent></marking-indent>
-        <!-- 相关视频 -->
-        <relatedvideo></relatedvideo>
-        <!-- 评价列表 -->
-        <review-list></review-list>
-        <!-- 推荐产品 -->
-        <recommendations></recommendations>
-      </div>
-      <div class="footer"></div>
+    <!-- 顶部图片 -->
+    <div class="banner">
+      <div class="top-img"></div>
     </div>
+    <div class="content">
+      <!-- 评分系统 -->
+      <marking-indent></marking-indent>
+      <!-- 相关视频 -->
+      <relatedvideo></relatedvideo>
+      <!-- 评价列表 -->
+      <review-list></review-list>
+      <!-- 推荐产品 -->
+      <recommendations></recommendations>
+    </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -38,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.containers {
+.container {
   background-color: #302f2d;
 }
 
