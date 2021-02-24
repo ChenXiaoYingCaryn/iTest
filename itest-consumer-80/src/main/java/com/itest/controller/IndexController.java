@@ -24,4 +24,10 @@ public class IndexController {
     public MsgUtils querySlideshow(int curPage, int pageSize ){
         return this.indexService.querySlideshow(curPage, pageSize);
     }
+
+    @ApiOperation("获取文章")
+    @RequestMapping("/index/article/query")
+    public MsgUtils queryArticle(int curPage, int pageSize ){
+        return this.indexService.queryArticle(curPage, pageSize);
+    }
 }

@@ -18,4 +18,7 @@ public interface IndexService {
     @GetMapping("/index/slideshow/query")
     public MsgUtils querySlideshow(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
 
+
+    @GetMapping("/index/article/query")
+    public MsgUtils queryArticle(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
 }
