@@ -30,4 +30,22 @@ public class IndexController {
     public MsgUtils queryArticle(int curPage, int pageSize ){
         return this.indexService.queryArticle(curPage, pageSize);
     }
+
+    @ApiOperation("获取手机")
+    @RequestMapping("/index/type/phone")
+    public MsgUtils queryPhone(int curPage, int pageSize ){
+        return this.indexService.queryPhone(curPage, pageSize);
+    }
+
+    @ApiOperation("获取平板")
+    @RequestMapping("/index/type/pad")
+    public MsgUtils queryPad(int curPage, int pageSize ){
+        return this.indexService.queryPad(curPage, pageSize);
+    }
+
+    @ApiOperation("获取电脑")
+    @RequestMapping("/index/type/laptop")
+    public MsgUtils queryLaptop(int curPage, int pageSize ){
+        return this.indexService.queryLaptop(curPage, pageSize);
+    }
 }

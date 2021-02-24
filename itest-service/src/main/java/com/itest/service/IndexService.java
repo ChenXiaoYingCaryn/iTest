@@ -21,4 +21,14 @@ public interface IndexService {
 
     @GetMapping("/index/article/query")
     public MsgUtils queryArticle(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
+
+    @GetMapping("/index/type/phone")
+    public MsgUtils queryPhone(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
+
+    @GetMapping("/index/type/pad")
+    public MsgUtils queryPad(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
+
+    @GetMapping("/index/type/laptop")
+    public MsgUtils queryLaptop(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize);
+
 }
