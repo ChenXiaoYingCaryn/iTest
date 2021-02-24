@@ -18,8 +18,8 @@ public interface TypeDao {
      * 增加手机型号
      * @param type
      */
-    @Insert("INSERT INTO tb_type (type_id, type_name, type_price, tag_id)" +
-            "VALUES (#{type.type_id}, #{type.type_name}, #{type.type_price}, #{type.tag_id})")
+    @Insert("INSERT INTO tb_type (type_id, type_name, type_price, type_classify, tag_id)" +
+            "VALUES (#{type.type_id}, #{type.type_name}, #{type.type_price}, #{type.type_classify}, #{type.tag_id})")
     void addType(@Param("type") Type type);
 
     /**
@@ -34,7 +34,7 @@ public interface TypeDao {
      * @param type
      */
     @Update("UPDATE tb_type SET type_name = #{type.type_name}, type_price = #{type.type_price}, " +
-            "tag_id  = #{type.tag_id} WHERE type_id = #{type.type_id}")
+            "type_classify  = #{type.type_classify}, tag_id = #{type.tag_id} WHERE type_id = #{type.type_id}")
     void updateType(@Param("type") Type type);
 
     /**

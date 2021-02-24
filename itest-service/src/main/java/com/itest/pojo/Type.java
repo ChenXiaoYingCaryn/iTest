@@ -21,6 +21,7 @@ public class Type {
     private String type_name;
     private String type_image;
     private Integer type_price;
+    private String type_classify;
     private String tag_id;
     private Integer is_deleted;
     private Date create_time;

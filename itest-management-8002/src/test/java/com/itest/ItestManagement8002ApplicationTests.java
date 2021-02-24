@@ -33,9 +33,6 @@ public class ItestManagement8002ApplicationTests {
 //        this.slideshowDao.updateSlideshow("4", "4");
 //        this.slideshowDao.updateSlideshowImage("4", "4");
 //        System.out.println(this.slideshowDao.querySlideshow(0, 2));
-        Date date = new Date();
-        Type type = new Type("2", "2", "2", 2, "2", 0, date);
-        this.typeDao.addType(type);
     }
 
 }
