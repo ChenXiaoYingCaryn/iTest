@@ -5,6 +5,7 @@ import com.itest.service.TypeService;
 import com.itest.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -35,6 +36,11 @@ public class TypeController {
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public MsgUtils queryType(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestParam String token){
         return this.typeService.queryType(curPage, pageSize, token);
+    }
+
+    @RequestMapping(value = "/updateImg", method = RequestMethod.POST)
+    public MsgUtils updateTypeImg(@RequestBody MultipartFile type_image, @RequestParam String type_id, @RequestParam String token){
+        return this.typeService.updateTypeImg(type_image, type_id, token);
     }
 
 }

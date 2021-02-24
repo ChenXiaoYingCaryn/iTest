@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -43,5 +44,11 @@ public class TypeController {
     @RequestMapping("/management/type/query")
     public MsgUtils queryType(Integer curPage, Integer pageSize, String token){
         return this.typeService.queryType(curPage, pageSize, token);
+    }
+
+    @ApiOperation("更新手机型号图片")
+    @RequestMapping("/management/type/updateImg")
+    public MsgUtils updateTypeImg( MultipartFile type_image, String type_id,String token){
+        return this.typeService.updateTypeImg(type_image, type_id, token);
     }
 }

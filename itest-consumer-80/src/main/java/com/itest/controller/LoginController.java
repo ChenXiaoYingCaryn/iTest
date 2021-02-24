@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author ChanV
  * @create 2021-02-21-19:13
  */
-@Api(tags = {"登陆管理"})
+@Api(tags = {"登陆注册"})
 @RestController
 public class LoginController {
 

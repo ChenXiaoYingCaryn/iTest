@@ -6,11 +6,10 @@ import com.itest.pojo.Type;
 import com.itest.utils.MsgUtils;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -32,5 +31,7 @@ public interface TypeService {
     @GetMapping("/management/type/query")
     public MsgUtils queryType(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "token") String token);
 
+    @PostMapping(value = "/management/type/updateImg", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public MsgUtils updateTypeImg(@RequestPart("type_image") MultipartFile type_image, @RequestParam(value = "type_id") String type_id, @RequestParam(value = "token") String token);
 
 }

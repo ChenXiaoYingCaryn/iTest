@@ -5,8 +5,10 @@ import com.itest.pojo.Type;
 import com.itest.service.TypeService;
 import com.itest.utils.JWTUtils;
 import com.itest.utils.MsgUtils;
+import com.itest.utils.OSSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -59,6 +61,19 @@ public class TypeServiceImpl implements TypeService {
             JWTUtils.verify(token);
             List<Type> types = this.typeDao.queryType(curPage, pageSize);
             return MsgUtils.build(200, "手机型号查询成功", types);
+        }catch (Exception e){
+            return MsgUtils.build(100, e.getMessage());
+        }
+    }
+
+    @Override
+    public MsgUtils updateTypeImg(MultipartFile type_image, String type_id, String token) {
+        try{
+            JWTUtils.verify(token);
+            OSSUtil ossUtil = new OSSUtil();
+            String image_url = ossUtil.uploadImgFile(type_image);
+            this.typeDao.updateTypeImg(image_url, type_id);
+            return MsgUtils.build(200, "手机型号图片更新成功");
         }catch (Exception e){
             return MsgUtils.build(100, e.getMessage());
         }

@@ -2,6 +2,7 @@ package com.itest.service;
 
 import com.itest.pojo.Type;
 import com.itest.utils.MsgUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -37,4 +38,13 @@ public interface TypeService {
      * @return
      */
     MsgUtils queryType(Integer curPage, Integer pageSize, String token);
+
+    /**
+     * 更新手机型号图片
+     * @param type_image
+     * @param type_id
+     * @return
+     */
+    MsgUtils updateTypeImg(MultipartFile type_image, String type_id, String token);
+
 }

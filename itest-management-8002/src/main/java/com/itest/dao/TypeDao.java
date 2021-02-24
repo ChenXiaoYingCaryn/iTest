@@ -46,4 +46,11 @@ public interface TypeDao {
     @Select("SELECT * FROM tb_type WHERE is_deleted = '0' LIMIT #{curPage}, #{pageSize}")
     List<Type> queryType(@Param("curPage") Integer curPage, @Param("pageSize") Integer pageSize);
 
+    /**
+     * 更新手机类型图片
+     * @param type_image
+     * @param type_id
+     */
+    @Update("UPDATE tb_type SET type_image = #{type_image} WHERE type_id = #{type_id}")
+    void updateTypeImg(@Param("type_image") String type_image, @Param("type_id") String type_id);
 }
