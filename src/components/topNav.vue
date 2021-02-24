@@ -1,6 +1,6 @@
 <template>
     <el-container class="topNav">
-        <el-contaniner class="navContent">
+        <el-container class="navContent">
             <!-- logo区域 -->
             <div class="logo">
                 <a href="#"><img src="../assets/团队logo.png" alt="logo"></a>
@@ -13,7 +13,7 @@
                 <a href="#"><span class="list">关于我们</span></a>
                 <a href="#"><span class="list">帮助反馈</span></a>
             </div>
-        </el-contaniner>
+        </el-container>
     </el-container>
 </template>
 

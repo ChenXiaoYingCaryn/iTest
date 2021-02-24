@@ -12,7 +12,6 @@
                 <el-input
                     placeholder="请输入内容"
                     prefix-icon="el-icon-search"
-                    v-model="input2"
                     maxlength="1">
                 </el-input>
             </div>
