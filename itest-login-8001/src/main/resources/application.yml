@@ -6,7 +6,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+      defaultZone: http://localhost:7001/eureka/
   instance:
     instance-id: itest-login-8001  #修改eureka上的默认描述信息！
 

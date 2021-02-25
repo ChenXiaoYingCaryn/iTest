@@ -1,4 +1,4 @@
-package com.itest.service.Impl;
+package com.itest.service.impl;
 
 import com.itest.dao.ArticleDao;
 import com.itest.pojo.Article;
