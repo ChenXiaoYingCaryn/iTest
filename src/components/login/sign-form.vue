@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="title">注册</div>
-    <el-form  class="sign-rule-form" :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="auto" label-position="right">
-      <el-form-item prop="uname">
-          <el-input type="text" placeholder="用户名" v-model="ruleForm.uname" maxlength="20" autocomplete="off"></el-input>
+    <el-form  class="sign-rule-form" :model="SignForm" status-icon :rules="rules" ref="SignForm" label-width="auto" label-position="right">
+      <el-form-item prop="user">
+          <el-input type="text" placeholder="用户名" v-model="SignForm.user" maxlength="20" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item prop="upassword">
-        <el-input type="password" placeholder="密码" v-model="ruleForm.upassword" maxlength="20" autocomplete="off" show-password></el-input>
+        <el-input type="password" placeholder="密码" v-model="SignForm.upassword" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item prop="upass">
-        <el-input type="password" placeholder="确认密码" v-model="ruleForm.upass" maxlength="20" autocomplete="off" show-password></el-input>
+        <el-input type="password" placeholder="确认密码" v-model="SignForm.upass" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('SignForm')">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -22,12 +22,12 @@
 export default {
   name: 'sign-form',
   data () {
-    var validateUname = (rule, value, callback) => {
+    var validateuser = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请输入用户名'))
       } else {
-        if (this.ruleForm.checkUname !== '') {
-          this.$refs.ruleForm.validateField('checkUname')
+        if (this.SignForm.checkuser !== '') {
+          this.$refs.SignForm.validateField('checkuser')
         }
         callback()
       }
@@ -42,21 +42,21 @@ export default {
     var validateUpass = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请再次输入密码'))
-      } else if (value !== this.ruleForm.upassword) {
+      } else if (value !== this.SignForm.upassword) {
         callback(new Error('两次输入的密码不一致哦!'))
       } else {
         callback()
       }
     }
     return {
-      ruleForm: {
-        uname: '',
+      SignForm: {
+        user: '',
         upassword: '',
         upass: ''
       },
       rules: {
-        uname: [
-          { validator: validateUname, trigger: 'blur' }
+        user: [
+          { validator: validateuser, trigger: 'blur' }
         ],
         upassword: [
           { validator: validateUpassword, trigger: 'blur' }

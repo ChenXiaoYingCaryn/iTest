@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="title">登录</div>
-    <el-form  class="login-rule-form" :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="auto" label-position="right">
-      <el-form-item prop="uname">
-          <el-input type="text" placeholder="用户名" v-model="ruleForm.uname" maxlength="20" autocomplete="off"></el-input>
+    <el-form  class="login-rule-form" :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="auto" label-position="right">
+      <el-form-item prop="user_id">
+          <el-input type="text" placeholder="用户名" v-model="loginForm.user_id" maxlength="20" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item prop="upassword">
-        <el-input type="password" placeholder="密码" v-model="ruleForm.upassword" maxlength="20" autocomplete="off" show-password></el-input>
+      <el-form-item prop="user_pwd">
+        <el-input type="password" placeholder="密码" v-model="loginForm.user_pwd" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('loginForm')">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -23,8 +23,8 @@ export default {
       if (value === '') {
         callback(new Error('请输入用户名'))
       } else {
-        if (this.ruleForm.checkUname !== '') {
-          this.$refs.ruleForm.validateField('checkUname')
+        if (this.loginForm.checkUname !== '') {
+          this.$refs.loginForm.validateField('checkUname')
         }
         callback()
       }
@@ -37,28 +37,46 @@ export default {
       }
     }
     return {
-      ruleForm: {
-        uname: '',
-        upassword: ''
+      loginForm: {
+        user_id: '123',
+        user_pwd: '123'
       },
       rules: {
-        uname: [
+        user_id: [
           { validator: validateUname, trigger: 'blur' }
         ],
-        upassword: [
+        user_pwd: [
           { validator: validateUpassword, trigger: 'blur' }
         ]
       }
     }
   },
+  mounted: function () {
+
+  },
   methods: {
     submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          alert('提交成功!')
-        } else {
-          console.log('提交失败!!')
-          return false
+          const user = this.loginForm
+          console.log(user)
+          await this.$http.post('/login/userLogin', user).then(
+            function (res) {
+              if (res.data.code !== 200) {
+                console.log(res)
+                console.log(res.data.code)
+                return alert('登录失败')
+              }
+              alert('登录成功')
+              window.sessionStorage.setItem('token', result.data.token)
+              this.$router.push('/home')
+            },
+            function (res) {
+              console.log(res)
+              alert('网络错误')
+              return false
+            }
+          )
         }
       })
     }

@@ -15,7 +15,7 @@ export default new VueRouter({
     {
       path: '/',
       name: '',
-      component: marking
+      component: login
     },
     {
       path: '/test',

@@ -81,21 +81,21 @@ export default {
 /* 跳转按钮背景色 */
 .form-box:hover .to-sign {
   height: 200px;
-  background-color:rgba(255, 255, 255, 1);
+  background-color:rgba(239, 205, 109, .8);
 }
 
 .form-box:hover .to-login {
   height: 200px;
-  background-color: rgba(17, 39, 59, 1);
+  background-color: rgb(35, 35, 34);
 }
 
 /* 框内背景色 */
 .form-box:hover .login-box{
-  background-color:  rgba(17, 39, 59, 0.8);
+  background-color:  rgba(35, 35, 34, .8);
 }
 
 .form-box:hover .sign-box {
-  background-color:  rgba(255, 255, 255, 0.8);
+  background-color:  rgba(239, 205, 109, .8);
 }
 
 .box-base {
@@ -160,11 +160,11 @@ export default {
 }
 
 .form-box:hover >>> .el-button{
-  background-color: #409EFF;
+  background-color: #bd9764;
 }
 
 .form-box:hover .sign-box >>> .title {
-  color: rgba(17, 39, 59, 0.5);
+  /* color: rgba(17, 39, 59, 0.5); */
   text-shadow: 0px 0px 7px rgba(0, 0, 0, .8);
 }
 
