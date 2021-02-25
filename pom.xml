@@ -15,6 +15,7 @@
         <module>itest-login-8001</module>
         <module>itest-management-8002</module>
         <module>itest-index-8003</module>
+        <module>itest-user-8004</module>
         <module>itest-consumer-80</module>
         <module>itest-service</module>
     </modules>

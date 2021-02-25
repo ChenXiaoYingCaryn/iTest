@@ -1,5 +1,6 @@
 server:
-  port: 10002
+  port: 10004
+
 
 #Eureka的配置，服务注册到哪里
 eureka:
@@ -7,7 +8,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/
   instance:
-    instance-id: itest-management-8002  #修改eureka上的默认描述信息！
+    instance-id: itest-login-8001  #修改eureka上的默认描述信息！
 
 spring:
   datasource:
@@ -32,13 +33,10 @@ spring:
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   application:
-    name: ITEST-MANAGEMENT
+    name: ITEST-USER
   servlet:
     multipart:
       max-request-size: 500MB
       max-file-size: 500MB
 
 
-feign:
-  httpclient:
-    connection-timeout: 30000

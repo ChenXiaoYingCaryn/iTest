@@ -1,2 +1,4 @@
-
+feign:
+  httpclient:
+    connection-timeout: 30000
 
