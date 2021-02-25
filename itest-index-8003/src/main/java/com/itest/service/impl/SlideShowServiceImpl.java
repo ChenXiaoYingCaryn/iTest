@@ -2,7 +2,7 @@ package com.itest.service.impl;
 
 import com.itest.dao.SlideshowDao;
 import com.itest.pojo.Slideshow;
-import com.itest.service.SlideshowService;
+import com.itest.service.SlideShowService;
 import com.itest.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Service
 @Repository
-public class SlideshowServiceImpl implements SlideshowService {
+public class SlideShowServiceImpl implements SlideShowService {
 
     @Autowired
     private SlideshowDao slideshowDao;

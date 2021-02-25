@@ -6,7 +6,7 @@ import com.itest.utils.MsgUtils;
  * @author ChanV
  * @create 2021-02-23-14:37
  */
-public interface SlideshowService {
+public interface SlideShowService {
 
     /**
      * 查询轮播图

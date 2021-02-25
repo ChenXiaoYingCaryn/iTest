@@ -1,6 +1,6 @@
 package com.itest.controller;
 
-import com.itest.service.SlideshowService;
+import com.itest.service.SlideShowService;
 import com.itest.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SlideshowController {
 
     @Autowired
-    private SlideshowService slideshowService;
+    private SlideShowService slideshowService;
 
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public MsgUtils querySlideshow(@RequestParam Integer curPage, @RequestParam Integer pageSize){

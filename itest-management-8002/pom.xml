@@ -116,6 +116,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.1.17.RELEASE</version>
                 <configuration>
+                    <classifier>exec</classifier>
                     <mainClass>com.itest.ItestManagement8002Application</mainClass>
                 </configuration>
                 <executions>
