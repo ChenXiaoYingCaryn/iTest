@@ -61,6 +61,13 @@ export default {
           const user = this.loginForm
           console.log(user)
           await this.$http.post('/login/userLogin', user).then(
+          // await this.$http({
+          //   url: '/login/userLogin',
+          //   method: 'post',
+          //   headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+          //   data: this.$qs.stringify(user)
+          // })
+          //   .then(
             function (res) {
               if (res.data.code !== 200) {
                 console.log(res)
@@ -68,8 +75,8 @@ export default {
                 return alert('登录失败')
               }
               alert('登录成功')
-              window.sessionStorage.setItem('token', result.data.token)
-              this.$router.push('/home')
+              // window.sessionStorage.setItem('token', result.data.token)
+              // this.$router.push('/home')
             },
             function (res) {
               console.log(res)
@@ -100,5 +107,11 @@ export default {
 }
 .el-form-item >>> .el-input__inner {
   background-color: transparent;
+}
+
+@media screen and (max-width:600px) {
+  .login-rule-form {
+    margin: 0 10%;
+  }
 }
 </style>

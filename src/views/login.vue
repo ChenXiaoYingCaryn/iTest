@@ -72,6 +72,7 @@ export default {
   height: 350px;
   width: 600px;
   border-radius: 10px;
+    /* 这里不能用transform居中,否则毛玻璃效果会出问题 */
   margin-top: -150px;
   margin-left: -300px;
   box-shadow: 0px 0px 10px rgba(17, 39, 59, 0.5);
@@ -174,5 +175,29 @@ export default {
 
 .el-form-item >>> .el-input__inner {
   background-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .form-box {
+    width: calc(80vw);
+    margin-left: calc(-40vw);
+  }
+  .change-sign {
+    bottom: 15px;
+    right: 10px;
+  }
+  .change-login {
+    top: 12px;
+    left: 10px;
+  }
+  .to-login {
+    top: 0;
+    clip-path: polygon(0 0, 0 50%, 50% 0);
+  }
+
+  .to-sign {
+    bottom: 0;
+    clip-path: polygon(100% 60%, 50% 100%, 100% 100%);
+  }
 }
 </style>

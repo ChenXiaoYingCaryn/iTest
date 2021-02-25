@@ -99,4 +99,10 @@ export default {
 .el-form-item >>> .el-input__inner {
   background-color: transparent;
 }
+
+@media screen and (max-width:600px) {
+  .sign-rule-form {
+    margin: 0 10%;
+  }
+}
 </style>
