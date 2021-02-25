@@ -5,7 +5,7 @@ const home = () => import('../views/home.vue')
 const login = () => import('../views/login.vue')
 const test = () => import('../views/test.vue')
 const marking = () => import('../views/marking.vue')
-const video = () => import('../views/video.vue')
+const play = () => import('../views/play.vue')
 
 Vue.use(VueRouter)
 
@@ -38,9 +38,9 @@ export default new VueRouter({
       component: marking
     },
     {
-      path: '/video',
-      name: 'video',
-      component: video
+      path: '/play',
+      name: 'play',
+      component: play
     }
   ]
 })

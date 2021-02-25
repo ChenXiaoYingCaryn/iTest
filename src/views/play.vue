@@ -2,7 +2,7 @@
     <div class="container">
         <top-nav></top-nav>
         <div class="wrapper">
-            <div class="video-play"><div class="a">视频播放模块</div></div>
+            <div class="video-play"><video-play></video-play></div>
             <div class="video-recommend"><div class="b">推荐模块</div></div>
             <div class="video-comment"><div class="c">评论模块</div></div>
         </div>
@@ -10,10 +10,11 @@
 </template>
 
 <script>
+import VideoPlay from '../components/play/video-play.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav },
-  name: 'video'
+  components: { topNav, VideoPlay },
+  name: 'play'
 }
 </script>
 
@@ -28,7 +29,7 @@ export default {
     background-color: aqua;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px 200px;
+    grid-template-rows: 600px 600px;
 }
 
 .video-play {
