@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         try{
             //调用dao添加用户
             userDao.userRegister(user);
-            return MsgUtils.build(200, user.getUser_name()+",您的账号已成功注册");
+            return MsgUtils.build(200, user.getUser_id()+",您的账号已成功注册");
         }catch(Exception e){
             e.printStackTrace();
             return MsgUtils.build(100,e.getMessage());

@@ -28,7 +28,7 @@ public interface UserDao {
      * 用户注册
      * @param user
      */
-    @Insert("INSERT INTO tb_user (user_id,user_pwd,user_name,user_sex,user_email) " +
-            " VALUES (#{user.user_id},#{user.user_pwd},#{user.user_name},#{user.user_sex},#{user.user_email})")
+    @Insert("INSERT INTO tb_user (user_id,user_pwd) " +
+            " VALUES (#{user.user_id},#{user.user_pwd})")
     void userRegister(@Param("user") User user);
 }
