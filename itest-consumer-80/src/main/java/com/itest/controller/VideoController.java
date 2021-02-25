@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -43,6 +44,12 @@ public class VideoController {
     @RequestMapping("/management/video/query")
     public MsgUtils queryVideo(Integer curPage, Integer pageSize, String token){
         return this.videoService.queryVideo(curPage, pageSize, token);
+    }
+
+    @ApiOperation("上传视频")
+    @RequestMapping("/management/video/upload")
+    public MsgUtils uploadVideo(MultipartFile video, String video_id, String token){
+        return this.videoService.uploadVideo(video, video_id, token);
     }
 
 }

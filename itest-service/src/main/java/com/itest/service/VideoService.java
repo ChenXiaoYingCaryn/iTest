@@ -5,8 +5,10 @@ import com.itest.pojo.Video;
 import com.itest.utils.MsgUtils;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -27,4 +29,7 @@ public interface VideoService {
 
     @GetMapping("/management/video/query")
     public MsgUtils queryVideo(@RequestParam(value = "curPage") Integer curPage, @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "token") String token);
+
+    @PostMapping(value = "/management/video/upload", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public MsgUtils uploadVideo(@RequestPart(value = "video") MultipartFile video, @RequestParam(value = "video_id") String video_id, @RequestParam(value = "token") String token);
 }

@@ -2,6 +2,7 @@ package com.itest.service;
 
 import com.itest.pojo.Video;
 import com.itest.utils.MsgUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -41,5 +42,14 @@ public interface VideoService {
      * @return
      */
     MsgUtils queryVideo(Integer curPage, Integer pageSize, String token);
+
+    /**
+     * 上传视频
+     * @param video
+     * @param video_id
+     * @param token
+     * @return
+     */
+    MsgUtils uploadVideo(MultipartFile video, String video_id, String token);
 
 }

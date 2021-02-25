@@ -47,4 +47,11 @@ public interface VideoDao {
     @Select("SELECT * FROM tb_video WHERE is_deleted = '0' LIMIT #{curPage}, #{pageSize}")
     List<Video> queryVideo(@Param("curPage") Integer curPage, @Param("pageSize") Integer pageSize);
 
+    /**
+     * 上传视频
+     * @param video_id
+     * @param video_url
+     */
+    @Update("UPDATE tb_video SET video_url = #{video_url} WHERE video_id = #{video_id}")
+    void uploadVideo(@Param("video_id") String video_id, @Param("video_url") String video_url);
 }

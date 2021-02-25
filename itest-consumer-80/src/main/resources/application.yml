@@ -15,5 +15,9 @@ ribbon:
 spring:
   main:
     allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
 
 

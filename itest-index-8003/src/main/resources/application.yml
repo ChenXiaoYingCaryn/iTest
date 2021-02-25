@@ -33,6 +33,10 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   application:
     name: ITEST-INDEX
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
 
 
 

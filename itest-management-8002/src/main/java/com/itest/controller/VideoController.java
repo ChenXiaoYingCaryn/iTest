@@ -6,6 +6,7 @@ import com.itest.service.VideoService;
 import com.itest.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -36,6 +37,11 @@ public class VideoController {
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public MsgUtils queryVideo(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestParam String token){
         return this.videoService.queryVideo(curPage, pageSize, token);
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public MsgUtils uploadVide(@RequestBody MultipartFile video, @RequestParam String video_id, @RequestParam String token){
+        return this.videoService.uploadVideo(video, video_id, token);
     }
 
 }
