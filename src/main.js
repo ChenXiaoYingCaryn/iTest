@@ -7,7 +7,9 @@ import axios from 'axios'
 import qs from 'qs'
 import VueCoreVideoPlayer from 'vue-core-video-player'
 
-Vue.use(VueCoreVideoPlayer)
+Vue.use(VueCoreVideoPlayer, {
+  lang: 'zh-CN'
+})
 
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs

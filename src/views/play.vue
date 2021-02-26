@@ -3,7 +3,7 @@
         <top-nav></top-nav>
         <div class="wrapper">
             <div class="video-play"><video-play></video-play></div>
-            <div class="video-recommend"><div class="b">推荐模块</div></div>
+            <div class="video-recommend"><video-recommend></video-recommend></div>
             <div class="video-comment"><div class="c">评论模块</div></div>
         </div>
     </div>
@@ -11,14 +11,16 @@
 
 <script>
 import VideoPlay from '../components/play/video-play.vue'
+import VideoRecommend from '../components/play/video-recommend.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, VideoPlay },
+  components: { topNav, VideoPlay, VideoRecommend },
   name: 'play'
 }
 </script>
 
 <style scoped>
+/* grid布局，在页面缩小后，推荐模块移动到播放模块下面 */
 .container {
     background-color: #302f2d;
 }
@@ -61,6 +63,7 @@ export default {
 
 @media screen and (max-width: 1200px) {
     .wrapper {
+        width: 90%;
         grid-template-rows: auto;
     }
     .video-play {
