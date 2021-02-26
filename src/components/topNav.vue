@@ -3,8 +3,7 @@
         <el-container class="navContent">
             <!-- logo区域 -->
             <div class="logo">
-                <a href="#"><img src="../assets/logo.png" alt="logo"></a>
-                <span>iTest</span>
+                <a href="#"><img src="../assets/Itest.png" alt="logo"></a>
             </div>
             <!-- 菜单区域 -->
             <div class="menuList">
@@ -31,20 +30,19 @@ export default {
     }
     .topNav{
         background-color: black;
+        /* height: 100px; */
         color: rgb(119, 126, 133);
     }
     .navContent{
         /* background-color: blanchedalmond; */
-        height: auto;
+        /* height: auto; */
         margin: 0 10vw;
-
         display:grid;
         grid-template-columns: 1fr 3fr;
     }
-    .logo img{
-        width: 30px;
-        height: 30px;
-        margin: 15px 0 15px 15px;
+    .logo img {
+        height: 10vh;
+        margin: 15px 0 0 15px;
     }
     .logo span{
         font-size: 18px;

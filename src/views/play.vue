@@ -6,15 +6,17 @@
             <div class="video-recommend"><video-recommend></video-recommend></div>
             <div class="video-comment"><div class="c">评论模块</div></div>
         </div>
+        <foot></foot>
     </div>
 </template>
 
 <script>
+import Foot from '../components/foot.vue'
 import VideoPlay from '../components/play/video-play.vue'
 import VideoRecommend from '../components/play/video-recommend.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, VideoPlay, VideoRecommend },
+  components: { topNav, VideoPlay, VideoRecommend, Foot },
   name: 'play'
 }
 </script>
