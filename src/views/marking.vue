@@ -15,18 +15,19 @@
       <!-- 推荐产品 -->
       <recommendations></recommendations>
     </div>
-    <div class="footer"></div>
+    <foot></foot>
   </div>
 </template>
 
 <script>
+import Foot from '../components/foot.vue'
 import MarkingIndent from '../components/marking/marking-indent.vue'
 import Recommendations from '../components/marking/recommendations.vue'
 import Relatedvideo from '../components/marking/related-video.vue'
 import ReviewList from '../components/marking/review-list.vue'
 import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, Relatedvideo, ReviewList, Recommendations, MarkingIndent },
+  components: { topNav, Relatedvideo, ReviewList, Recommendations, MarkingIndent, Foot },
   name: 'marking',
   data () {
     return {
@@ -37,7 +38,7 @@ export default {
 
 <style scoped>
 .container {
-  background-color: #302f2d;
+  /* background-color: #302f2d; */
 }
 
 .banner {

@@ -91,8 +91,6 @@ export default {
 <style scoped>
 .related-video-item {
   width: 280px;
-  /* height: 260px; */
-  /* background-color: pink; */
 }
 
 /* 视频推荐图片和上面的参数 */
@@ -110,14 +108,11 @@ export default {
 }
 
 .top-img img, .video-content .content-left img {
-  /* width: auto;
-  height: auto; */
   max-width: 100%;
   max-height: 100%;
 }
 
 .top-img .top-video-label {
-  /* background-color: #EFCD6D; */
   position: absolute;
   color: #ffffff;
   font-size: 12px;
@@ -140,7 +135,7 @@ export default {
 }
 
 .video-content .video-title {
-  height: 40px;
+  height: 45px;
   overflow: hidden;
   margin: 5px 0 8px;
 

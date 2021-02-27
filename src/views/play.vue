@@ -24,7 +24,7 @@ export default {
 <style scoped>
 /* grid布局，在页面缩小后，推荐模块移动到播放模块下面 */
 .container {
-    background-color: #302f2d;
+    /* background-color: #302f2d; */
 }
 
 .wrapper {
@@ -33,7 +33,7 @@ export default {
     background-color: aqua;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 600px 600px;
+    grid-template-rows: auto 600px;
 }
 
 .video-play {
