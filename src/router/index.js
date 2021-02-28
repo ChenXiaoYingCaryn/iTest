@@ -6,6 +6,7 @@ const login = () => import('../views/login.vue')
 const test = () => import('../views/test.vue')
 const marking = () => import('../views/marking.vue')
 const play = () => import('../views/play.vue')
+const error = () => import('../components/error/error.vue')
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const router = new VueRouter({
       path: '/play',
       name: 'play',
       component: play
+    },
+    {
+      path: '/*',
+      name: 'error',
+      component: error
     }
   ]
 })

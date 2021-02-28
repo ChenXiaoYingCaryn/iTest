@@ -8,26 +8,26 @@
       </el-col>
       <el-col>
         <p class="title">Itest</p>
-        <p><a href="" target="_blank">关于我们</a></p>
-        <p><a href="" target="_blank">联系我们</a></p>
-        <p><a href="" target="_blank">服务条款</a></p>
-        <p><a href="" target="_blank">用户协议</a></p>
-        <p><a href="" target="_blank">隐私政策</a></p>
-        <p><a href="" target="_blank">加入我们</a></p>
+        <p><a href="#" @click="warn">关于我们</a></p>
+        <p><a href="#" @click="warn">联系我们</a></p>
+        <p><a href="#" @click="warn">服务条款</a></p>
+        <p><a href="#" @click="warn">用户协议</a></p>
+        <p><a href="#" @click="warn">隐私政策</a></p>
+        <p><a href="#" @click="warn">加入我们</a></p>
       </el-col>
       <el-col>
         <p class="title">服务</p>
-        <p><a href="" target="_blank">客服</a></p>
-        <p><a href="" target="_blank">用户反馈</a></p>
-        <p><a href="" target="_blank">举报申诉</a></p>
-        <p><a href="" target="_blank">广告合作</a></p>
+        <p><a href="#" @click="warn">客服</a></p>
+        <p><a href="#" @click="warn">用户反馈</a></p>
+        <p><a href="#" @click="warn">举报申诉</a></p>
+        <p><a href="#" @click="warn">广告合作</a></p>
       </el-col>
       <el-col>
         <p class="title">传送门</p>
-        <p><a href="" target="_blank">活动中心</a></p>
-        <p><a href="" target="_blank">协议汇总</a></p>
-        <p><a href="" target="_blank">友情链接</a></p>
-        <p><a href="" target="_blank">网站导航</a></p>
+        <p><a href="#" @click="warn">活动中心</a></p>
+        <p><a href="#" @click="warn">协议汇总</a></p>
+        <p><a href="#" @click="warn">友情链接</a></p>
+        <p><a href="#" @click="warn">网站导航</a></p>
       </el-col>
     </el-row>
   </div>
@@ -35,7 +35,12 @@
 
 <script>
 export default {
-  name: 'foot'
+  name: 'foot',
+  methods: {
+    warn: function () {
+      this.$message.warning('此功能正在施工！')
+    }
+  }
 }
 </script>
 

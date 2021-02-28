@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <p>Welcome to itest</p>
+    <h1 class="center">Welcome to Itest</h1>
   </div>
 </template>
 
@@ -16,6 +15,17 @@ export default {
 
 <style scoped>
 .home {
-  height: 100px;
+  background-color: #FFCF40;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vw;
+  color: #909090;
 }
 </style>

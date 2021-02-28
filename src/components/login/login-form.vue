@@ -76,7 +76,7 @@ export default {
                 console.log(res.data.code)
                 this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.data.msg)
-                this.$router.push('/play')
+                this.$router.push('/home')
               },
               res => {
                 this.$message.warning('网络错误，请稍后重试！')

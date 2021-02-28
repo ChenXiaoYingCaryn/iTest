@@ -84,12 +84,12 @@ export default {
                 if (res.data.code !== 200) {
                   console.log(res)
                   console.log(res.data.code)
-                  return this.$message.error('注册失败，请更换账号名称！')
+                  return this.$message.error('注册失败，请尝试更换账号名称！')
                 }
                 console.log(res.data.code)
                 this.$message.success('注册成功！欢迎加入Itest的大家庭！')
                 window.sessionStorage.setItem('token', res.data.msg)
-                this.$router.push('/play')
+                this.$router.push('/login')
               },
               res => {
                 this.$message.warning('网络错误，请稍后重试！')

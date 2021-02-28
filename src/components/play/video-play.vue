@@ -8,7 +8,7 @@
     </div>
     <!-- 播放器 -->
     <vue-core-video-player
-      src="https://media.vued.vanthink.cn/y2mate.com%20-%20sparkle_your_name_amv_K_7To_y9IAM_480p.mp4">
+      src="https://media.vued.vanthink.cn/sparkle_your_name_am720p.mp4">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -98,7 +98,8 @@ export default {
 .tool-bar {
   display: flex;
   margin: 10px auto;
-  background-color: white;
+  border-bottom: 1px solid #EBEEF5;
+  /* background-color: white; */
 }
 
 .tool-bar .tool-item {
@@ -138,5 +139,9 @@ export default {
 
 .video-text-box {
   padding-left: 55px;
+}
+
+.video-text-box >>> .el-collapse-item__wrap {
+  border-top-color: #FFCF40 !important;
 }
 </style>

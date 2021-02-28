@@ -30,7 +30,7 @@ export default {
 .wrapper {
     margin: 0 auto;
     width: 1200px;
-    background-color: aqua;
+    /* background-color: aqua; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
@@ -41,14 +41,14 @@ export default {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: pink;
+    /* background-color: pink; */
 }
 .video-comment {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
 }
 
 .video-recommend {
@@ -56,7 +56,7 @@ export default {
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .video-comment,.video-play,.video-recommend {

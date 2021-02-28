@@ -11,7 +11,7 @@ body {
     line-height: 1.5;
     color: #222;
     /* 页面统一颜色 */
-    background-color: #232322;
+    background-color: white;
 }
 
 a{
@@ -73,9 +73,9 @@ h2 {
     font-size: 18px;
 }
 
-span, p {
+/* span, p {
     font-size: 14px;
-}
+} */
 
 /* 评分所用的字体 */
 @font-face {
