@@ -9,7 +9,7 @@ const play = () => import('../views/play.vue')
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
   routes: [
     {
@@ -44,3 +44,15 @@ export default new VueRouter({
     }
   ]
 })
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+  // to:要去的地方；from:来的地方；next:函数，表示放行；
+  if (to.path === '/login') { return next() }
+
+  const tokenStr = window.sessionStorage.getItem('token')
+  if (!tokenStr) { return next('/login') }
+  next()
+})
+
+export default router

@@ -33,7 +33,7 @@ export default {
     background-color: aqua;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 600px;
+    grid-template-rows: auto auto;
 }
 
 .video-play {

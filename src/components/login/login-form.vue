@@ -74,7 +74,7 @@ export default {
                   return this.$message.error('登录失败，请检查账号或密码！')
                 }
                 console.log(res.data.code)
-                this.$message.success('登录成功！欢迎来到Itest！')
+                this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.data.msg)
                 this.$router.push('/play')
               },
