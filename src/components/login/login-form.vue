@@ -60,30 +60,29 @@ export default {
         if (valid) {
           const user = this.loginForm
           console.log(user)
-          await this.$http.post('/login/userLogin', user).then(
-          // await this.$http({
-          //   url: '/login/userLogin',
-          //   method: 'post',
-          //   headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-          //   data: this.$qs.stringify(user)
-          // })
-          //   .then(
-            function (res) {
-              if (res.data.code !== 200) {
-                console.log(res)
+          await this.$http({
+            url: '/login/userLogin',
+            method: 'post',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            data: this.$qs.stringify(user)
+          })
+            .then(
+              res => {
+                if (res.data.code !== 200) {
+                  console.log(res)
+                  console.log(res.data.code)
+                  return this.$message.error('登录失败，请检查账号或密码！')
+                }
                 console.log(res.data.code)
-                return alert('登录失败')
+                this.$message.success('登录成功！欢迎来到Itest！')
+                window.sessionStorage.setItem('token', res.data.msg)
+                this.$router.push('/play')
+              },
+              res => {
+                this.$message.warning('网络错误，请稍后重试！')
+                return false
               }
-              alert('登录成功')
-              // window.sessionStorage.setItem('token', result.data.token)
-              // this.$router.push('/home')
-            },
-            function (res) {
-              console.log(res)
-              alert('网络错误')
-              return false
-            }
-          )
+            )
         }
       })
     }
