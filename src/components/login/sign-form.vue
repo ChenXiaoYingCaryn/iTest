@@ -88,8 +88,7 @@ export default {
                 }
                 console.log(res.data.code)
                 this.$message.success('注册成功！欢迎加入Itest的大家庭！')
-                window.sessionStorage.setItem('token', res.data.msg)
-                this.$router.push('/login')
+                this.$parent.updateRotate()
               },
               res => {
                 this.$message.warning('网络错误，请稍后重试！')

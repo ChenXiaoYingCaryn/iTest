@@ -37,6 +37,9 @@ export default {
     updateRotate () {
       this.showLogin = !this.showLogin
       this.showSign = !this.showSign
+    },
+    test () {
+      alert('success')
     }
   }
 }

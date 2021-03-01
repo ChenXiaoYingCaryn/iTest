@@ -2,10 +2,10 @@
   <div>
     <div class="title">登录</div>
     <el-form  class="login-rule-form" :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="auto" label-position="right">
-      <el-form-item prop="user_id">
+      <el-form-item>
           <el-input type="text" placeholder="用户名" v-model="loginForm.user_id" maxlength="20" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item prop="user_pwd">
+      <el-form-item>
         <el-input type="password" placeholder="密码" v-model="loginForm.user_pwd" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
@@ -42,12 +42,14 @@ export default {
         user_pwd: '123'
       },
       rules: {
-        user_id: [
-          { validator: validateUname, trigger: 'blur' }
-        ],
-        user_pwd: [
-          { validator: validateUpassword, trigger: 'blur' }
-        ]
+        user_id: [{
+          validator: validateUname,
+          trigger: 'blur'
+        }],
+        user_pwd: [{
+          validator: validateUpassword,
+          trigger: 'blur'
+        }]
       }
     }
   },
@@ -63,19 +65,21 @@ export default {
           await this.$http({
             url: '/login/userLogin',
             method: 'post',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
             data: this.$qs.stringify(user)
           })
             .then(
               res => {
                 if (res.data.code !== 200) {
-                  console.log(res)
                   console.log(res.data.code)
                   return this.$message.error('登录失败，请检查账号或密码！')
                 }
-                console.log(res.data.code)
+                console.log(res.data.data)
                 this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.data.msg)
+                // this.getUserInfo(res)
                 this.$router.push('/home')
               },
               res => {
@@ -85,6 +89,16 @@ export default {
             )
         }
       })
+    },
+    getUserInfo (res) {
+      const localUser = this.$store.state.user
+      const userInfo = res.data.data
+      localUser.user_id = userInfo.user_id
+      localUser.user_pwd = userInfo.user_pwd
+      localUser.user_name = userInfo.user_name
+      localUser.user_sex = userInfo.user_sex
+      localUser.user_email = userInfo.user_email
+      console.log(localUser.user_id)
     }
   }
 }

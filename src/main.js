@@ -3,6 +3,8 @@ import itest from './itest.vue'
 import router from './router'
 import axios from 'axios'
 import qs from 'qs'
+// 装载vuex
+import store from './store/store'
 
 import './plugins/element.js'
 import './assets/css/global.css'
@@ -18,7 +20,7 @@ import VueCoreVideoPlayer from 'vue-core-video-player'
 
 Vue.prototype.$http = axios
 
-// 引入qs,qs用于解决前端发送json后端确实x-www-form的格式问题
+// 引入qs,qs用于解决前端发送json后端时x-www-form的格式问题
 Vue.prototype.$qs = qs
 Vue.use(VueCoreVideoPlayer, {
   lang: 'zh-CN'
@@ -31,5 +33,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store: store,
   render: h => h(itest)
 }).$mount('#app')
