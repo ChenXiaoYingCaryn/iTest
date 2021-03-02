@@ -1,10 +1,13 @@
 <template>
     <div class="container">
-        <top-nav></top-nav>
+        <!-- <top-nav></top-nav> -->
         <div class="wrapper">
+            <!-- 播放模块 -->
             <div class="video-play"><video-play></video-play></div>
+            <!-- 视频推荐模块 -->
             <div class="video-recommend"><video-recommend></video-recommend></div>
-            <div class="video-comment"><div class="c">评论模块</div></div>
+            <!-- 评论模块 -->
+            <div class="video-comment"><video-comment></video-comment></div>
         </div>
         <foot></foot>
     </div>
@@ -12,11 +15,12 @@
 
 <script>
 import Foot from '../components/foot.vue'
+import VideoComment from '../components/play/video-comment.vue'
 import VideoPlay from '../components/play/video-play.vue'
 import VideoRecommend from '../components/play/video-recommend.vue'
-import topNav from '../components/topNav.vue'
+// import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, VideoPlay, VideoRecommend, Foot },
+  components: { VideoPlay, VideoRecommend, Foot, VideoComment },
   name: 'play'
 }
 </script>
@@ -85,14 +89,5 @@ export default {
         grid-row-start: 2;
         grid-row-end: 3;
     }
-}
-.a {
-    height: 200px;
-}
-.b {
-    height: 400px;
-}
-.c {
-    height: 200px;
 }
 </style>

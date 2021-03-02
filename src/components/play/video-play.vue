@@ -7,8 +7,8 @@
       <span>{{videoInfo.videoUpadateTime}}</span>
     </div>
     <!-- 播放器 -->
-    <vue-core-video-player
-      src="https://media.vued.vanthink.cn/sparkle_your_name_am720p.mp4">
+    <vue-core-video-player id="player"
+      src="https://media.vued.vanthink.cn/sparkle_your_name_am360p.mp4">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -27,7 +27,7 @@
     <div class="video-text-box">
       <p>
         <el-collapse>
-          <el-collapse-item title="[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]">
+          <el-collapse-item title="展开查看视频简介">
             <p>Title : [君の名はost] なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa</p>
             <p>Hi, everyone! Sorry I'm late! I've been having trouble singing because I'm not feeling well. </p>
             <p>but my health is getting better and better these days !</p>
@@ -95,6 +95,10 @@ export default {
   margin-right: 10px;
 }
 
+#player {
+  height: 450px;
+}
+
 .tool-bar {
   display: flex;
   margin: 10px auto;
@@ -143,5 +147,11 @@ export default {
 
 .video-text-box >>> .el-collapse-item__wrap {
   border-top-color: #FFCF40 !important;
+}
+
+@media screen and (max-width:1200px) {
+  #player {
+    height: 250px;
+  }
 }
 </style>

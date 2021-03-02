@@ -2,13 +2,13 @@
   <div>
     <div class="title">注册</div>
     <el-form  class="sign-rule-form" :model="SignForm" status-icon :rules="rules" ref="SignForm" label-width="auto" label-position="right">
-      <el-form-item prop="user_id">
+      <el-form-item>
           <el-input type="text" placeholder="用户名" v-model="SignForm.user_id" maxlength="20" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item prop="user_pwd">
+      <el-form-item>
         <el-input type="password" placeholder="密码" v-model="SignForm.user_pwd" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
-      <el-form-item prop="upass">
+      <el-form-item>
         <el-input type="password" placeholder="确认密码" v-model="SignForm.upass" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>

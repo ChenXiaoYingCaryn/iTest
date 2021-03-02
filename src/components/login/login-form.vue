@@ -76,10 +76,8 @@ export default {
                   console.log(res.data.code)
                   return this.$message.error('登录失败，请检查账号或密码！')
                 }
-                console.log(res.data.data)
                 this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.data.msg)
-                // this.getUserInfo(res)
                 this.$router.push('/home')
               },
               res => {
@@ -89,16 +87,6 @@ export default {
             )
         }
       })
-    },
-    getUserInfo (res) {
-      const localUser = this.$store.state.user
-      const userInfo = res.data.data
-      localUser.user_id = userInfo.user_id
-      localUser.user_pwd = userInfo.user_pwd
-      localUser.user_name = userInfo.user_name
-      localUser.user_sex = userInfo.user_sex
-      localUser.user_email = userInfo.user_email
-      console.log(localUser.user_id)
     }
   }
 }
