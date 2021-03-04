@@ -32,10 +32,6 @@ export default {
   methods: {
     function () {
     }
-  },
-  created: function () {
-  },
-  mounted: {
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <!-- <top-nav></top-nav> -->
+        <top-nav></top-nav>
         <div class="wrapper">
             <!-- 播放模块 -->
             <div class="video-play"><video-play></video-play></div>
@@ -18,9 +18,9 @@ import Foot from '../components/foot.vue'
 import VideoComment from '../components/play/video-comment.vue'
 import VideoPlay from '../components/play/video-play.vue'
 import VideoRecommend from '../components/play/video-recommend.vue'
-// import topNav from '../components/topNav.vue'
+import topNav from '../components/topNav.vue'
 export default {
-  components: { VideoPlay, VideoRecommend, Foot, VideoComment },
+  components: { VideoPlay, VideoRecommend, Foot, VideoComment, topNav },
   name: 'play'
 }
 </script>

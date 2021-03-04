@@ -8,7 +8,7 @@
     </div>
     <!-- 播放器 -->
     <vue-core-video-player id="player"
-      src="https://media.vued.vanthink.cn/sparkle_your_name_am360p.mp4">
+      src="https://r3---sn-3u-bh2sk.googlevideo.com/videoplayback?expire=1614713494&ei=Nj4-YJToCZae4QKxr7WADg&ip=211.248.183.28&id=o-ANKAbCS78e1TKEFtcEokAhrW8mt5tlwcMKHNH8Gvc40S&itag=18&source=youtube&requiressl=yes&mh=d5&mm=31%2C26&mn=sn-3u-bh2sk%2Csn-3pm7dn7s&ms=au%2Conr&mv=m&mvi=3&pl=22&initcwndbps=1073750&vprv=1&mime=video%2Fmp4&ns=7oSmwSLinFCyJvc-oBeB61wF&gir=yes&clen=15408715&ratebypass=yes&dur=257.114&lmt=1577593013513779&mt=1614691719&fvip=3&fexp=24007246&c=WEB&txp=5531432&n=L26c5Yzx-ESl9wGhwi&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgJeYS_6pI65EKauwsmxzGxSHWDE6a-q9v67n7jvPbW_0CIFZVz5hhHkbD0EtKaZoKjbtRXpcrKgV_6_E4N3nqZJCR&sig=AOq0QJ8wRQIgXsqhb4QNv47w8m68r29gy_leQFvdiKeF8m_dhLMIq2UCIQDil4cyR5A-BRlSnQGR5_HqsD1uZ5OdAb2tkY3t-oegQg%3D%3D">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -16,8 +16,10 @@
           class="fa fa-thumbs-up fa-2x"></i>&nbsp;1.2万</a>
       <div class="tool-item" :class="this.isDisagree?'clicked-style':''" @click="clickedDisagree"><i
           class="fa fa-thumbs-down fa-2x"></i>&nbsp;反对</div>
+      <div class="tool-item" :class="this.isCollect?'clicked-style':''" @click="clickedCollect"><i
+          class="fa fa-bookmark fa-2x"></i>&nbsp;收藏</div>
       <div class="tool-item" @click="clickedForward" style="border-bottom: 3px solid Transparent;"><i
-          class="fa fa-share-square-o fa-2x"></i>转发</div>
+          class="fa fa-share-alt fa-2x"></i>转发</div>
     </div>
     <!-- up主信息 -->
     <div class="up">
@@ -55,7 +57,8 @@ export default {
       },
       isAgree: false,
       isDisagree: false,
-      isClicked: false
+      isClicked: false,
+      isCollect: false
     }
   },
   methods: {
@@ -69,6 +72,9 @@ export default {
     },
     clickedForward: function () {
       this.isForward = !this.isForward
+    },
+    clickedCollect: function () {
+      this.isCollect = !this.isCollect
     }
   }
 }
@@ -151,7 +157,7 @@ export default {
 
 @media screen and (max-width:1200px) {
   #player {
-    height: 250px;
+    height: 300px;
   }
 }
 </style>

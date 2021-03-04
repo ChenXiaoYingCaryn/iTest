@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { Form, FormItem, Input, Button, Row, Col, Container, Image, Header, Carousel, CarouselItem, Rate, Progress, Divider, Message, Collapse, CollapseItem, Avatar } from 'element-ui'
+import { Form, FormItem, Input, Button, Row, Col, Container, Image, Header, Carousel, CarouselItem, Rate, Progress, Divider, Message, Collapse, CollapseItem, Avatar, Pagination } from 'element-ui'
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
 
 Vue.use(Form)
 Vue.use(FormItem)
@@ -19,5 +20,8 @@ Vue.use(FormItem)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
 Vue.use(Avatar)
+Vue.use(Pagination)
 
 Vue.prototype.$message = Message
+
+Vue.component(CollapseTransition.name, CollapseTransition)

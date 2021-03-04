@@ -7,6 +7,7 @@ const test = () => import('../views/test.vue')
 const marking = () => import('../views/marking.vue')
 const play = () => import('../views/play.vue')
 const error = () => import('../components/error/error.vue')
+const search = () => import('../views/search.vue')
 
 Vue.use(VueRouter)
 
@@ -42,6 +43,11 @@ const router = new VueRouter({
       path: '/play',
       name: 'play',
       component: play
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
     },
     {
       path: '/*',

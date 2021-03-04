@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+
+    <!-- 评论输入模块 -->
     <div v-clickoutside="hideReplyBtn" @click="inputFocus" class="my-reply">
       <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>
       <div class="reply-info">
-        <div tabindex="0" contenteditable="true" id="replyInput" spellcheck="false" placeholder="输入评论..."
+        <div tabindex="0" contenteditable="true" id="replyInput" spellcheck="false" placeholder="请输入评论..."
           class="reply-input" @focus="showReplyBtn" @input="onDivInput($event)">
         </div>
       </div>
@@ -11,60 +13,30 @@
         <el-button class="reply-btn" size="medium" @click="sendComment" type="primary">发表评论</el-button>
       </div>
     </div>
+
     <div v-for="(item,i) in comments" :key="i" class="author-title reply-father">
+      <!-- 评论者信息 -->
       <el-avatar class="header-img" :size="40" :src="item.headImg"></el-avatar>
       <div class="author-info">
         <span class="author-name">{{item.name}}</span>
         <span class="author-time">{{item.time}}</span>
       </div>
+      <!-- 评论操作图标 -->
       <div class="icon-btn">
-        <span @click="showReplyInput(i,item.name,item.id)"><i
-            class="iconfont el-icon-s-comment"></i>{{item.commentNum}}</span>
-        <i class="iconfont el-icon-caret-top"></i>{{item.like}}
+        <i class="iconfont fa fa-thumbs-o-up"></i>{{item.like}}
+        <i class="iconfont fa fa-thumbs-o-down"></i>
       </div>
       <div class="talk-box">
         <p>
           <span class="reply">{{item.comment}}</span>
         </p>
       </div>
-      <div class="reply-box">
-        <div v-for="(reply,j) in item.reply" :key="j" class="author-title">
-          <el-avatar class="header-img" :size="40" :src="reply.fromHeadImg"></el-avatar>
-          <div class="author-info">
-            <span class="author-name">{{reply.from}}</span>
-            <span class="author-time">{{reply.time}}</span>
-          </div>
-          <div class="icon-btn">
-            <span @click="showReplyInput(i,reply.from,reply.id)"><i
-                class="iconfont el-icon-s-comment"></i>{{reply.commentNum}}</span>
-            <i class="iconfont el-icon-caret-top"></i>{{reply.like}}
-          </div>
-          <div class="talk-box">
-            <p>
-              <span>回复 {{reply.to}}:</span>
-              <span class="reply">{{reply.comment}}</span>
-            </p>
-          </div>
-          <div class="reply-box">
-
-          </div>
-        </div>
-      </div>
-      <div v-show="_inputShow(i)" class="my-reply my-comment-reply">
-        <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>
-        <div class="reply-info">
-          <div tabindex="0" contenteditable="true" spellcheck="false" placeholder="输入评论..." @input="onDivInput($event)"
-            class="reply-input reply-comment-input"></div>
-        </div>
-        <div class=" reply-btn-box">
-          <el-button class="reply-btn" size="medium" @click="sendCommentReply(i,j)" type="primary">发表评论</el-button>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 const clickoutside = {
   // 初始化指令
   bind (el, binding, vnode) {
@@ -108,35 +80,8 @@ export default {
         headImg: 'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
         comment: '我发布一张新专辑Norman Fucking Rockwell,大家快来听啊',
         time: '2019年9月16日 18:43',
-        commentNum: 2,
         like: 15,
-        inputShow: false,
-        reply: [{
-          from: 'Taylor Swift',
-          fromId: 19891221,
-          fromHeadImg: 'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
-          to: 'Lana Del Rey',
-          toId: 19870621,
-          comment: '我很喜欢你的新专辑！！',
-          time: '2019年9月16日 18:43',
-          commentNum: 1,
-          like: 15,
-          inputShow: false
-        },
-        {
-          from: 'Ariana Grande',
-          fromId: 1123,
-          fromHeadImg: 'https://ae01.alicdn.com/kf/Hf6c0b4a7428b4edf866a9fbab75568e6U.jpg',
-          to: 'Lana Del Rey',
-          toId: 19870621,
-          comment: '别忘记宣传我们的合作单曲啊',
-          time: '2019年9月16日 18:43',
-          commentNum: 0,
-          like: 5,
-          inputShow: false
-
-        }
-        ]
+        inputShow: false
       },
       {
         name: 'Taylor Swift',
@@ -144,22 +89,8 @@ export default {
         headImg: 'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
         comment: '我发行了我的新专辑Lover',
         time: '2019年9月16日 18:43',
-        commentNum: 1,
         like: 5,
-        inputShow: false,
-        reply: [{
-          from: 'Lana Del Rey',
-          fromId: 19870621,
-          fromHeadImg: 'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
-          to: 'Taylor Swift',
-          toId: 19891221,
-          comment: '新专辑和speak now 一样棒！',
-          time: '2019年9月16日 18:43',
-          commentNum: 25,
-          like: 5,
-          inputShow: false
-
-        }]
+        inputShow: false
       },
       {
         name: 'Norman Fucking Rockwell',
@@ -167,10 +98,8 @@ export default {
         headImg: 'https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg',
         comment: 'Plz buy Norman Fucking Rockwell on everywhere',
         time: '2019年9月16日 18:43',
-        commentNum: 0,
         like: 5,
-        inputShow: false,
-        reply: []
+        inputShow: false
       }
       ]
     }
@@ -189,60 +118,26 @@ export default {
     hideReplyBtn () {
       this.btnShow = false
     },
-    showReplyInput (i, name, id) {
-      this.comments[this.index].inputShow = false
-      this.index = i
-      this.comments[i].inputShow = true
-      this.to = name
-      this.toId = id
-    },
     _inputShow (i) {
       return this.comments[i].inputShow
     },
     sendComment () {
       if (!this.replyComment) {
-        this.$message({
-          showClose: true,
-          type: 'warning',
-          message: '评论不能为空'
-        })
+        this.$message.warning('评论不能为空哦!')
       } else {
-        const a = {}
+        const replyInfo = {}
         const input = document.getElementById('replyInput')
         const timeNow = new Date().getTime()
         const time = this.dateStr(timeNow)
-        a.name = this.myName
-        a.comment = this.replyComment
-        a.headImg = this.myHeader
-        a.time = time
-        a.commentNum = 0
-        a.like = 0
-        this.comments.push(a)
+        replyInfo.name = this.myName
+        replyInfo.comment = this.replyComment
+        replyInfo.headImg = this.myHeader
+        replyInfo.time = time
+        replyInfo.commentNum = 0
+        replyInfo.like = 0
+        this.comments.push(replyInfo)
         this.replyComment = ''
         input.innerHTML = ''
-      }
-    },
-    sendCommentReply (i, j) {
-      if (!this.replyComment) {
-        this.$message({
-          showClose: true,
-          type: 'warning',
-          message: '评论不能为空'
-        })
-      } else {
-        const a = {}
-        const timeNow = new Date().getTime()
-        const time = this.dateStr(timeNow)
-        a.from = this.myName
-        a.to = this.to
-        a.fromHeadImg = this.myHeader
-        a.comment = this.replyComment
-        a.time = time
-        a.commentNum = 0
-        a.like = 0
-        this.comments[i].reply.push(a)
-        this.replyComment = ''
-        document.getElementsByClassName('reply-comment-input')[i].innerHTML = ''
       }
     },
     onDivInput: function (e) {
@@ -251,7 +146,6 @@ export default {
     dateStr (date) {
       // 获取js 时间戳
       var time = new Date().getTime()
-      // 去掉 js 时间戳后三位，与php 时间戳保持一致
       time = parseInt((time - date) / 1000)
       // 存储转换值
       var s
@@ -321,7 +215,7 @@ export default {
 
 .my-reply .reply-info .reply-input:focus {
   padding: 8px 8px;
-  border: 2px solid #00f;
+  border: 2px solid #FFCF40;
   box-shadow: none;
   outline: none;
 }
@@ -354,6 +248,7 @@ export default {
 }
 
 .author-title .header-img {
+  cursor: pointer;
   display: inline-block;
   vertical-align: top;
 }
@@ -368,7 +263,6 @@ export default {
 
 .author-title .author-info >span {
   display: block;
-  cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -384,6 +278,7 @@ export default {
 }
 
 .author-title .icon-btn {
+  /* cursor: pointer; */
   width: 30%;
   padding: 0 !important;
   float: right;
@@ -415,10 +310,5 @@ export default {
 .author-title .talk-box .reply {
   font-size: 16px;
   color: #000;
-}
-
-.author-title .reply-box {
-  margin: 10px 0 0 50px;
-  background-color: #efefef;
 }
 </style>

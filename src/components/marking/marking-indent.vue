@@ -48,7 +48,7 @@
           <el-divider></el-divider>
           <div class="count-box">
             <span>我的评分：</span>
-            <el-rate v-model="value" :colors="colors" show-text="" size="large"></el-rate>
+            <el-rate v-model="value" :colors="colors" show-text=""></el-rate>
           </div>
 
           <el-form class="marking-form" ref="form" :model="form">
