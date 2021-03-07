@@ -1,11 +1,11 @@
 <template>
     <div class="functionNav">
         <div class="functionNavContent">
-            <div class="menuList">
-                <a href="#"><span>手游</span></a>
-                <a href="#"><span>网游</span></a>
-                <a href="#"><span>主机游戏</span></a>
-                <a href="#"><span>所有游戏</span></a>
+            <div class="menuLists">
+                <el-button class="menuList" type="warning" round @click="products">手机</el-button>
+                <el-button class="menuList" type="warning" round @click="products">电脑</el-button>
+                <el-button class="menuList" type="warning" round @click="products">平板</el-button>
+                <!-- <el-button class="menuList" type="warning" round>所有游戏</el-button> -->
             </div>
 
             <div class="search">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="login">
-                <a href="#"><span>登录 / 注册</span></a>
+                <el-button type="primary" round>登陆 / 注册</el-button>
             </div>
         </div>
     </div>
@@ -26,6 +26,11 @@
 <script>
 export default {
     name: "functionNav",
+    methods : {
+        products () {
+            this.$router.push('/products')
+        }
+    }
 }
 </script>
 
@@ -40,15 +45,20 @@ export default {
         padding: 10px 0;
         /* place-items: center center; */
     }
-    .menuList{
+    .menuLists{
         /* background-color: snow; */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         place-items: center center;
     }
-    .menuList a span{
-        color: darkgoldenrod;
+    .menuLists .menuList{
+        color: black;
         font-weight: 800;
+        background-color: #BD9764;
+        border: #BD9764;
+    }
+    .menuLists .menuList:hover{
+        background-color: darkorange;
     }
     .search{
         display: grid;
@@ -58,13 +68,6 @@ export default {
     .login{
         display: grid;
         place-items: center center;
-    }
-    .login span{
-        color:silver;
-        padding: 4px 8px;
-        border: silver solid 2px;
-        border-radius: 20px;
-        font-weight: 800;
     }
 
 </style>

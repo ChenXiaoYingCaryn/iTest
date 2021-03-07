@@ -25,6 +25,9 @@ import {
     Dialog,
     Carousel,
     CarouselItem,
+    Tabs,
+    TabPane,
+    Image
   } from 'element-ui'
 
 
@@ -54,3 +57,6 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Carousel)
 Vue.use(CarouselItem)
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.use(Image)

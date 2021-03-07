@@ -7,25 +7,29 @@
         <!-- 轮播图 -->
         <div class="block">
             <!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
-            <el-carousel height="600px">
-                <el-carousel-item v-for="item in bannerBox" :key="item.id">
+            <el-carousel height="570px">
+                <el-carousel-item v-for="item in bannerBox" :key="item.image_id">
                     <!-- <h3 class="small">{{ item }}</h3> -->
-                    <img v-bind:src="item.url" width="100%">
+                    <img v-bind:src="item.image_url" width="100%">
                 </el-carousel-item>
             </el-carousel>
         </div>
+
+        <!-- 产品类别导航 -->
+        <product-nav></product-nav>
 
         <!-- 热门游戏推荐 -->
         <hot-game></hot-game>
 
         <!-- 专区 -->
-        <special></special>
-        <special></special>
-        <special></special>
-
-
+        <special :videoPhoneList="videoPhoneList" :rankingPhoneList="rankingPhoneList" :videoPartName="videoPhoneName"></special>
+        <special :videoPhoneList="videoPadList" :rankingPhoneList="rankingPadList" :videoPartName="videoPadName"></special>
+        <special :videoPhoneList="videoLaptopList" :rankingPhoneList="rankingLaptopList" :videoPartName="videoLaptopName"></special>
         <!-- 资讯专栏 -->
         <info></info>
+
+        <!-- 页脚 -->
+        <foot></foot>
     </div>
 </template>
 
@@ -38,19 +42,85 @@ import HotGame from '../components/hotGame.vue'
 // import FunctionNav from '../components/functionNav.vue'
 import special from '../components/special.vue'
 import info from '../components/info.vue'
+import productNav from '../components/productNav'
+// import ProductNav from '../components/productNav.vue'
+import foot from '../components/foot'
+// import Foot from '../components/foot.vue'
 
 export default {
     name: 'home',
-    components:{ functionNav, topNav, TopNav, HotGame, special, info},
+    components:{ functionNav, topNav, TopNav, HotGame, special, info, productNav, foot},
     data(){
         return{
-            bannerBox:[
-                {id:0,url:require("../assets/picture/1.jpg")},
-                {id:1,url:require("../assets/picture/2.jpg")},
-                {id:2,url:require("../assets/picture/3.jpg")},
-                {id:3,url:require("../assets/picture/4.jpg")},
-            ]
+            bannerBox: [],
+
+            videoPhoneName: '',
+            videoPadName: '',
+            videoLaptopName: '',
+
+            videoPhoneList: {},
+            rankingPhoneList: {},
+
+            videoPadList: {},
+            rankingPadList: {},
+
+            videoLaptopList: {},
+            rankingLaptopList: {},
+
         }
+    },
+    created () {
+        this.getSlideImges()
+
+        this.getPhoneVideo()
+        this.getPadVideo()
+        this.getLaptopVideo()
+
+        this.getRankingPhonePic()
+        this.getRankingPadPic()
+        this.getRankingLaptopPic()
+    },
+    methods: {
+        async getSlideImges () {
+            const { data: res } = await this.$http.get('index/slideshow/query/0/4')
+            this.bannerBox = res.data
+        },
+
+        async getPhoneVideo () {
+            const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
+            this.videoPhoneList = res.data
+            this.videoPhoneName = res.msg
+            console.log(res.msg)
+            // console.log(this.videoPartName)
+        },
+        async getPadVideo () {
+            const { data: res } = await this.$http.get('index/video/queryPadVideo/0/6')
+            this.videoPadList = res.data
+            this.videoPadName = res.msg
+            console.log(res.msg)
+            // console.log(this.videoPartName)
+        },
+        async getLaptopVideo () {
+            const { data: res } = await this.$http.get('index/video/queryLaptopVideo/0/6')
+            this.videoLaptopList = res.data
+            this.videoLaptopName = res.msg
+            console.log(res.msg)
+            // console.log(this.videoPartName)
+
+        },
+
+        async getRankingPhonePic () {
+            const { data: res } = await this.$http.get('score/rankingPhoneList')
+            this.rankingPhoneList = res.data
+        },
+        async getRankingPadPic () {
+            const { data: res } = await this.$http.get('score/rankingPadList')
+            this.rankingPadList = res.data
+        },
+        async getRankingLaptopPic () {
+            const { data: res } = await this.$http.get('score/rankingLaptopList')
+            this.rankingLaptopList = res.data
+        },
     }
 }
 </script>
@@ -59,8 +129,14 @@ export default {
   .home{
       width: 100%;
       margin: 0 auto;
-      background-color: #302F2D;
+      /* background-color: #302F2D; */
+      background-color: #E1E2E2;
+      
   }
+  /* .block{
+      width: 80%;
+      margin: 0 auto;
+  } */
   .el-carousel-item h3 {
     color: #475669;
     font-size: 14px;

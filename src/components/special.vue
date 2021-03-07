@@ -1,17 +1,29 @@
 <template>
     <div class="specialArea">
+        <!-- 手机 -->
         <div class="videoAdvise">
             <div class="specialTitle">
-                <span>手游专区</span>
-                <a href="#"><span>更多>></span></a>
+                <a @click="more"><span style="cursor:pointer">{{this.videoPartName}}</span></a>
+                <a @click="more"><span style="cursor:pointer">更多>></span></a>
             </div>
             <div class="specialVideo">
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
+                <div class="related-video-item" v-for="item in videoPhoneList" :key="item.video_id">
+                    <div class="top-img">
+                        <a href="#"><img v-bind:src="item.video_img"></a>
+                    </div>
+                    <div class="video-content">
+                        <a href='#' class="video-title">{{item.video_title}}</a>
+                        <div class="content-bottom">
+                            <div class="content-left">
+                                <img  v-bind:src="item.user_image" alt="">
+                            </div>
+                            <div class="content-right">
+                                <a href="#" class="video-up">{{item.user_name}}</a>
+                                <div class="video-uptime">{{videoTimeDiff}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="gameRanking">
@@ -20,30 +32,121 @@
             </div>
             <div class="Rankingpic">
                 <div class="block">
-            <!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
-            <el-carousel height="400px">
-                <el-carousel-item v-for="item in RankingGame" :key="item.id">
-                    <!-- <h3 class="small">{{ item }}</h3> -->
-                    <img v-bind:src="item.url" width="100%">
-                </el-carousel-item>
-            </el-carousel>
-        </div>
+                    <el-carousel height="500px">
+                        <el-carousel-item v-for="item in rankingPhoneList" :key="item.type_id">
+                            <div><img v-bind:src="item.type_image" width="100%"></div>   
+                        </el-carousel-item>
+                    </el-carousel>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+// import videoItem from '../components/video-item'
 export default {
     name: "special",
+    props: {
+        videoPartName:'',
+
+        videoPhoneList:{},
+        videoPadList:{},
+        videoLaptopList: {},
+
+        rankingPhoneList: {},
+        rankingPadList: {},
+        rankingLaptopList: {},
+
+    },
     data(){
         return{
-            RankingGame:[
-                {id:0,url:require("../assets/picture/8.webp")},
-                {id:1,url:require("../assets/picture/7.webp")},
-                {id:2,url:require("../assets/picture/9.webp")},
-            ]
+            // videoPic: [],
+            // RankingBox: [],
+            // videoPhoneList: [],
+            // videoLaptopBox: [],
+            // videoName: [],
+            videoTime: '4:17',
+            // videoTitle: '[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]',
+            // videoUpdater: 'yurisa',
+            videoUpdateTime: '2019/4/21 10:08:33',
+            videoViews: 2212294,
+            videoTimeDiff: ''
         }
+    },
+    created () {
+        // this.getPhoneVideoInfo(),
+        // this.getRankingPic(),
+        this.simplifyViews(),
+        this.calculateTimeDiff()
+        // this.getVideoName()
+    },
+    methods: {
+        more () {
+            this.$router.push('/partition')
+        },
+        // async getPhoneVideoInfo () {
+        //     const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
+        //     this.videoPhoneBox = res.data
+        // },
+
+        // async getRankingPic () {
+        //     const { data: res } = await this.$http.get('score/rankingPhoneList')
+        //     this.RankingBox = res.data
+        // },
+        // async getVideoName() {
+        //     const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
+        //     this.videoName = res.msg
+        //     console.log(res.msg)
+        // },
+        simplifyViews: function () {
+      if (this.videoViews > 9999) { this.videoViews = Math.floor(this.videoViews / 10000) + '万' }
+        },
+    calculateTimeDiff: function () {
+      const newTime = new Date()
+      const updateTime = new Date(this.videoUpdateTime)
+      const timeDiff = newTime.getTime() - updateTime.getTime()
+      const secondDiff = timeDiff / 1000
+      console.log(secondDiff + '秒')
+      const dayDiff = timeDiff / (24 * 3600 * 1000)
+      console.log(dayDiff + '天')
+      console.log('success2')
+
+      if (dayDiff >= 7) {
+        const weekDiff = dayDiff / 7
+        console.log(weekDiff + '周')
+        if (weekDiff >= 4) {
+          const monthDiff = dayDiff / 30
+          console.log(monthDiff + '月')
+          if (monthDiff >= 12) {
+            this.videoTimeDiff = Math.floor(monthDiff / 12) + '年前'
+            return
+          }
+          this.videoTimeDiff = Math.floor(monthDiff) + '个月前'
+          return
+        }
+        this.videoTimeDiff = Math.floor(weekDiff) + '周前'
+      } else if (dayDiff < 1) {
+        const hourDiff = dayDiff * 24
+        console.log(hourDiff + '时')
+        if (hourDiff < 1) {
+          const minuteDiff = hourDiff * 60
+          console.log(minuteDiff + '分')
+          if (minuteDiff < 3) {
+            this.videoTimeDiff = '刚刚'
+            return
+          }
+          this.videoTimeDiff = Math.floor(minuteDiff) + '分钟前'
+          return
+        }
+        this.videoTimeDiff = Math.floor(hourDiff) + '小时前'
+      } else {
+        this.videoTimeDiff = Math.floor(dayDiff) + '天前'
+      }
+    }
+    },
+    components: {
+        // videoItem,
     }
 }
 </script>
@@ -61,19 +164,19 @@ export default {
     .videoAdvise{
         display: grid;
         grid-template-rows: 1fr 5fr;
-        background-color: #302F2D;
+        /* background-color: #302F2D; */
         place-items: center center;
     }
     .specialTitle{
         width: 95%;
-        color: #EFCD6D;
+        /* color: #BD9764; */
         font-weight: 900;
         font-size: 26px;
         margin: 5px 0;
     }
-    .specialTitle a span{
+    .specialTitle a:nth-child(2) span{
         float: right;
-        color: #EFCD6D;
+        /* color: #EFCD6D; */
     }
     .specialVideo{
         width: 95%;
@@ -93,12 +196,14 @@ export default {
     .gameRanking{
         display: grid;
         grid-template-rows: 1fr 5fr;
-        background-color: #302F2D;
+        /* background-color: #302F2D; */
+        background-color: #E1E2E2;
+
         place-items: center center;
     }
     .gameRankingTitle{
         width: 95%;
-        color: #EFCD6D;
+        color: #99a9bf;
         font-weight: 900;
         font-size: 26px;
         margin: 5px 0;
@@ -107,6 +212,10 @@ export default {
         width: 90%;
         display: grid;
         /* place-items: center center; */
+    }
+    .el-carousel-item{
+        display: grid;
+        place-items: center center;
     }
     .el-carousel-item h3{
     color: #475669;
@@ -123,7 +232,92 @@ export default {
   .el-carousel-item:nth-child(2n+1) {
     background-color: #d3dce6;
    }
-   .el-carousel-item img{
-        border-radius: 15px;
-   }
+   /* .el-carousel-item img{
+
+
+   } */
+   a {
+  color: #999;
+    }
+    a:hover{
+    color: #686464;
+    }
+    .related-video-item {
+    width: 280px;
+    }
+
+    /* 视频推荐图片和上面的参数 */
+    .top-img {
+    cursor: pointer;
+    position: relative;
+    height: 157.5px;
+    overflow: hidden;
+    }
+
+    .top-img img:hover {
+    transform: scale(1.5);
+    transition: .5s;
+    animation-direction:alternate;
+    }
+
+    .top-img img, .video-content .content-left img {
+    max-width: 100%;
+    max-height: 100%;
+    }
+
+    .top-img .top-video-label {
+    position: absolute;
+    color: #ffffff;
+    font-size: 12px;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, .9);
+    }
+
+    .top-img .top-video-time {
+    right: 10px;
+    bottom: 5px;
+    }
+
+    .top-img .top-video-audience {
+    left: 10px;
+    bottom: 5px;
+    }
+
+    .video-content a {
+    display: block;
+    margin: 0 auto;
+    }
+
+    .video-content .video-title {
+    height: 45px;
+    overflow: hidden;
+    margin: 5px 0 8px;
+
+    /* 解决文字溢出 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    }
+
+    .video-content .content-bottom {
+    display: flex;
+    }
+
+    .video-content .content-bottom .content-left {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: aqua;
+    overflow: hidden;
+    }
+
+    .video-content .content-bottom .content-right {
+    margin-left: 10px;
+    }
+
+    .video-content .content-bottom .content-right .video-up,
+    .video-uptime {
+    font-size: 14px;
+    color: #999;
+    }
 </style>

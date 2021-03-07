@@ -9,60 +9,40 @@
         <div class="infoContentContainer">
             <div class="infoContent">
                 <div class="specialInfo">
-                    <div class="specialInfoTitle"><span>手游</span></div>
+                    <div class="specialInfoTitle"><span>手机</span></div>
                     <div class="specialInfoContent">
-                        <a href="#">
-                            <div class="infoItem">
-                                <div class="itemPic"><img src="../assets/团队logo.png" alt="" width="100%" height="100%"></div>
-                                <div class="itemTxt">1231</div>
+                        <a href="#" v-for="item in phoneArtBox" :key="item.art_id">
+                            <div class="infoItem" >
+                                <div class="itemPic">
+                                    <img v-bind:src="item.art_image" width="100%" height="100%">
+                                </div>
+                                <div class="itemTxt">{{item.art_title}}</div>
                             </div>
                         </a>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src="../assets/团队logo.png" alt="" width="100%" height="100%"></div>
-                            <div class="itemTxt">123</div>
-                        </div>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src="../assets/团队logo.png" alt="" width="100%" height="100%"></div>
-                            <div class="itemTxt">123</div>
-                        </div>
                     </div>
                 </div>
                  <div class="specialInfo">
-                    <div class="specialInfoTitle"><span>手游</span></div>
+                    <div class="specialInfoTitle"><span>电脑</span></div>
                     <div class="specialInfoContent">
-                        <a href="#">
+                        <a href="#" v-for="item in computerArtBox" :key="item.art_id">
                             <div class="infoItem">
-                                <div class="itemPic"><img src="../assets/团队logo.png" alt="" width="100%" height="100%" ></div>
-                                <div class="itemTxt">1231</div>
+                                <div class="itemPic">
+                                    <img v-bind:src="item.art_image" width="100%" height="100%" >
+                                </div>
+                                <div class="itemTxt">{{item.art_title}}</div>
                             </div>
                         </a>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src="" alt="" width="100%" height="100%"></div>
-                            <div class="itemTxt">123</div>
-                        </div>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src=" " alt="" width="100%" height="100%"></div>
-                            <div class="itemTxt">123</div>
-                        </div>
                     </div>
                 </div>
                  <div class="specialInfo">
-                    <div class="specialInfoTitle"><span>手游</span></div>
+                    <div class="specialInfoTitle"><span>平板</span></div>
                     <div class="specialInfoContent">
-                        <a href="#">
+                        <a href="#" v-for="item in padArtBox" :key="item.art_id">
                             <div class="infoItem">
-                                <div class="itemPic"><img src="../assets/团队logo.png" alt="" width="100%" height="100%"></div>
-                                <div class="itemTxt">1231</div>
+                                <div class="itemPic"><img v-bind:src="item.art_image" width="100%" height="100%"></div>
+                                <div class="itemTxt">{{item.art_title}}</div>
                             </div>
                         </a>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src="" alt=""></div>
-                            <div class="itemTxt">123</div>
-                        </div>
-                        <div class="infoItem">
-                            <div class="itemPic"><img src="" alt=""></div>
-                            <div class="itemTxt">123</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -73,6 +53,32 @@
 <script>
 export default {
     name:"info",
+    data () {
+        return {
+            phoneArtBox: [],
+            computerArtBox: [],
+            padArtBox: []
+        }
+    },
+    created () {
+        this.getPhoneArt(),
+        this.getComputerArt(),
+        this.getPadArt()
+    },
+    methods: {
+        async getPhoneArt () {
+            const { data: res } = await this.$http.get('index/article/phone/query/0/3')
+            this.phoneArtBox = res.data
+        },
+        async getComputerArt () {
+            const { data: res } = await this.$http.get('index/article/laptop/query/0/3')
+            this.computerArtBox = res.data
+        },
+        async getPadArt () {
+            const { data: res } = await this.$http.get('index/article/pad/query/0/3')
+            this.padArtBox = res.data
+        },
+    }
 }
 </script>
 
@@ -83,7 +89,8 @@ export default {
         display: grid;
         grid-template-rows: 1fr 5fr;
         /* place-items: center center; */
-        background-color: #302F2D;
+        /* background-color: #302F2D; */
+        background-color: #E1E2E2;
         grid-row-gap: 10px;
     }
     .infoTitleContainer{
@@ -92,7 +99,7 @@ export default {
     }
     .infoTitle{
         width: 95%;
-        color: #EFCD6D;
+        color: #999999;
         font-weight: 900;
         font-size: 26px;
         margin: 5px 0;
@@ -102,7 +109,11 @@ export default {
     }
     .infoTitle a span{
         float: right;
-        color: #EFCD6D;
+        color: #999999;
+    }
+    .infoTitle a span:hover{
+        color: #686464;
+
     }
     .infoContentContainer{
         width: 95%;
@@ -145,12 +156,15 @@ export default {
         padding: 15px 20px;
         display: grid;
         grid-template-columns: 1fr 4fr;
-        background-color: #302F2D;
-        color: ivory;
+        /* background-color: #302F2D; */
+        background-color: #E1E2E2;
+        color: #686464;
         grid-column-gap: 15px;
         /* background-size: contain; */
     }
     .itemPic{
         background-size: cover;
+        width: 110px;
+        height: 85px;
     }
 </style>

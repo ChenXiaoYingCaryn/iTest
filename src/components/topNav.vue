@@ -3,12 +3,11 @@
         <el-container class="navContent">
             <!-- logo区域 -->
             <div class="logo">
-                <a href="#"><img src="../assets/团队logo.png" alt="logo"></a>
-                <span>iGame</span>
+                <a href="#" @click="home"><img src="../assets/ilogo.png" alt="logo"></a>
             </div>
             <!-- 菜单区域 -->
             <div class="menuList">
-                <a href="#"><span class="list">游戏</span></a>
+                <a href="#"><span class="list">产品</span></a>
                 <a href="#"><span class="list">资讯</span></a>
                 <a href="#"><span class="list">关于我们</span></a>
                 <a href="#"><span class="list">帮助反馈</span></a>
@@ -21,7 +20,11 @@
 
 export default {
     name: 'topNav',
-
+    methods: {
+        home () {
+            this.$router.push('/home')
+        }
+    }
 }
 </script>
 
@@ -43,8 +46,8 @@ export default {
         grid-template-columns: 1fr 3fr;
     }
     .logo img{
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 30px;
         margin: 15px 0 15px 30px;
     }
     .logo span{

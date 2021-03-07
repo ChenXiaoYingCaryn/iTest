@@ -4,7 +4,7 @@
         <div class="gameAdvise">
             <!-- 标题 -->
             <div class="title">
-                <span>热门游戏推荐</span>
+                <span>人气产品</span>
             </div>
             <!-- 游戏推荐 -->
             <div class="games">
@@ -12,29 +12,8 @@
                     <img :src="item.url">
                 </a> -->
                 <div class="gamesBox">
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
-                    <div><a href="#"><img src="../assets/picture/1.jpg" width="100%" height="100%"></a></div>
+                    <div v-for="item in productsNavBox" :key="item.type_id"><a href="#"><img v-bind:src="item.type_image" width="100%"></a></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- 游戏分区 -->
-        <div class="gamepart">
-            <div class="gamepart-box">
-                <!-- <div class="box-top"><a href="#"><img src="../assets/团队logo.png" alt=""></a></div>
-                <div class="box-right"><img src="../assets/团队logo.png" alt=""></div>
-                <div class="box-bottom"><img src="../assets/团队logo.png" alt=""></div>
-                <div class="box-left"><img src="../assets/团队logo.png" alt=""></div> -->
-                <div class="box-top"><span class="box-span">1</span></div>
-                <div class="box-right"><span class="box-span" style="left: 75%;">2</span></div>
-                <div class="box-bottom"><span class="box-span">3</span></div>
-                <div class="box-left"><span class="box-span">4</span></div>
             </div>
         </div>
     </div>
@@ -43,30 +22,30 @@
 <script>
 export default {
     name: "hotGame",
-    // data(){
-    //     return{
-    //         gamesBox:[
-    //             {id:0,url:require("../assets/picture/1.jpg")},
-    //             {id:1,url:require("../assets/picture/2.jpg")},
-    //             {id:2,url:require("../assets/picture/3.jpg")},
-    //             {id:3,url:require("../assets/picture/4.jpg")},
-    //             {id:4,url:require("../assets/picture/1.jpg")},
-    //             {id:5,url:require("../assets/picture/2.jpg")},
-    //             {id:6,url:require("../assets/picture/3.jpg")},
-    //             {id:7,url:require("../assets/picture/4.jpg")},
-    //         ]
-    //     }
-    // }
+    data () {
+        return {
+            productsNavBox: [],
+        }
+    },
+    created () {
+        this.getProductsNav()
+    },
+    methods: {
+        async getProductsNav () {
+            const { data: res } = await this.$http.get('score/rankingList/0/8')
+            this.productsNavBox = res.data
+        },
+    }
 }
 </script>
 
 <style scoped>
     .hotGame{
+        height: 100%;
         width: 80%;
         margin: 0 auto;
         /* background-color: silver; */
         display: grid;
-        grid-template-columns: 3fr 1fr;
         grid-column-gap: 3%;
     }
     .gameAdvise{
@@ -74,7 +53,9 @@ export default {
         /* height: 400px; */
         display: grid;
         grid-auto-rows: 1fr 3fr;
-        background-color: #302F2D;
+        /* background-color: #302F2D; */
+        background-color: #E1E2E2;
+
     }
     .title{
         display: grid;
@@ -102,7 +83,50 @@ export default {
         grid-row-gap: 10px;
         grid-column-gap: 15px;
     }
+    .gamesBox div{
+        background-color: #E1E2E2;
+        border: 0;
+        background: none;
+        text-transform: uppercase;
+        color: #4361ee;
+        font-weight: bold;
+        position: relative;
+        outline: none;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    .gamesBox div::before, .gamesBox div::after{
+        box-sizing: inherit;
+        position: absolute;
+        content: '';
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+    }
+    .gamesBox div::after{
+        bottom: 0;
+        right: 0;
+    }
+    .gamesBox div::before{
+        top: 0;
+        left: 0;
+    }
+    .gamesBox div:hover::before, .gamesBox div:hover::after {
+    width: 100%;
+    height: 100%;
+    }
 
+    .gamesBox div:hover::before {
+    border-top-color: #4361ee;
+    border-right-color: #4361ee;
+    transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+    }
+
+    .gamesBox div:hover::after {
+    border-bottom-color: #4361ee;
+    border-left-color: #4361ee;
+    transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 1s;
+    }
     .gamepart-box {
     width: 85%; 
     height: 80%;
