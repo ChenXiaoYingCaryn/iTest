@@ -1,18 +1,16 @@
 <template>
   <div class="related-video-item">
-    <div class="top-img">
-      <img src="./marking/marking-img/beauty.jpg" alt="">
-      <span class="top-video-label top-video-audience el-icon-view">{{videoViews}}</span>
-      <span class="top-video-label top-video-time">{{videoTime}}</span>
+    <div class="top-img" @click="goPlay">
+      <img :src="item.video_img" alt="">
     </div>
     <div class="video-content">
-      <a href="#" class="video-title" :title="videoTitle">{{videoTitle}}</a>
+      <a href="#" class="video-title" :title="item.video_title">{{item.video_title}}</a>
       <div class="content-bottom">
         <div class="content-left">
           <img src="./marking/marking-img/upimg.jpg" alt="">
         </div>
         <div class="content-right">
-          <a href="#" class="video-up">{{videoUpdater}}</a>
+          <a href="#" class="video-up">{{item.user_id}}</a>
           <div class="video-uptime">{{videoTimeDiff}}</div>
         </div>
       </div>
@@ -23,13 +21,14 @@
 <script>
 export default {
   name: 'video-item',
+  props: {
+    item: Object
+  },
   data () {
     return {
-      videoTime: '4:17',
-      videoTitle: '[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]',
-      videoUpdater: 'yurisa',
-      videoUpdateTime: '2019/4/21 10:08:33',
-      videoViews: 2212294,
+      video_title: '[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]',
+      user_id: 'yurisa',
+      create_time: '2019/4/21 10:08:33',
       videoTimeDiff: ''
     }
   },
@@ -43,7 +42,7 @@ export default {
     },
     calculateTimeDiff: function () {
       const newTime = new Date()
-      const updateTime = new Date(this.videoUpdateTime)
+      const updateTime = new Date(this.create_time)
       const timeDiff = newTime.getTime() - updateTime.getTime()
       const secondDiff = timeDiff / 1000
       console.log(secondDiff + '秒')
@@ -82,6 +81,13 @@ export default {
       } else {
         this.videoTimeDiff = Math.floor(dayDiff) + '天前'
       }
+    },
+    goPlay: function () {
+      // location.href = location.host + '/play'
+      // location.href = 'https://www.baidu.com/'
+      // alert(location.href)
+      this.$router.push('/play')
+      this.$store.commit('setVideoUrl', this.item.video_url)
     }
   }
 }
@@ -117,16 +123,6 @@ export default {
   color: #ffffff;
   font-size: 12px;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, .9);
-}
-
-.top-img .top-video-time {
-  right: 10px;
-  bottom: 5px;
-}
-
-.top-img .top-video-audience {
-  left: 10px;
-  bottom: 5px;
 }
 
 .video-content a {

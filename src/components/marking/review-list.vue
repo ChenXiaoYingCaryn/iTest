@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <!-- 评论输入模块 -->
-    <div v-clickoutside="hideReplyBtn" class="my-reply">
-      <div class="top-btn" @click="showReplyBtn"><span v-show="!btnShow">我也要评分！</span></div>
+    <!-- 评分输入模块 -->
+    <div v-clickoutside="hideReplyBtn" class="my-reply" :class="btnShow?'reply-after':'reply-before'">
+      <div :class="btnShow?'top-input':'top-btn'"  @click="showReplyBtn"><span v-show="!btnShow">我也要评分！</span></div>
       <el-collapse-transition>
         <div class="reply-btn-box" v-show="btnShow">
           <div class="mark-star">
@@ -195,13 +195,25 @@ export default {
 <style scoped>
 .my-reply {
   padding: 10px;
-  background-color: #FFCF40;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.reply-before {
+  background-color: #FFCF40;
+}
+
+.reply-afer {
+  border: solid 1px #ccc;
 }
 
 .my-reply .top-btn {
   text-align: center;
   cursor: pointer;
+}
+
+.my-reply .top-input {
+  border-block-color: pink;
 }
 
 .my-reply .mark-star {

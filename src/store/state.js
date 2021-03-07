@@ -5,5 +5,6 @@ export default {
     user_sex: '',
     user_email: '',
     user_image: ''
-  }
+  },
+  video_url: ''
 }

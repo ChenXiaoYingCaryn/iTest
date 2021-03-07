@@ -8,6 +8,8 @@ const marking = () => import('../views/marking.vue')
 const play = () => import('../views/play.vue')
 const error = () => import('../components/error/error.vue')
 const search = () => import('../views/search.vue')
+const products = () => import('../views/products.vue')
+const partition = () => import('../views/partition.vue')
 
 Vue.use(VueRouter)
 
@@ -48,6 +50,16 @@ const router = new VueRouter({
       path: '/search',
       name: 'search',
       component: search
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: products
+    },
+    {
+      path: '/partition',
+      name: 'partition',
+      component: partition
     },
     {
       path: '/*',

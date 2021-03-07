@@ -7,5 +7,9 @@ export default {
     console.log(res.data.data.user_name)
     console.log(state.user)
     // console.log('ergou')
+  },
+  setVideoUrl (state, videoUrl) {
+    state.video_url = videoUrl
+    console.log(state.video_url)
   }
 }

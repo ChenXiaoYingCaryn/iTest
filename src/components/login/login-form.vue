@@ -38,8 +38,8 @@ export default {
     }
     return {
       loginForm: {
-        user_id: '123',
-        user_pwd: '123'
+        user_id: '13128022699',
+        user_pwd: '123123123'
       },
       rules: {
         user_id: [{

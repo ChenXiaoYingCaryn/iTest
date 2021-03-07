@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <p>login</p>
     <div class="logo"><img src="../assets/Itest.png" alt=""></div>
     <div class="form-box">
       <div class="box-base login-box" :class="showSign?'retate-sign':''">

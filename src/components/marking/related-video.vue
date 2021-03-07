@@ -9,10 +9,7 @@
         </div>
       </div>
       <div class="related-video-list">
-        <video-item></video-item>
-        <video-item></video-item>
-        <video-item></video-item>
-        <video-item></video-item>
+        <video-item v-for="product in productList" :key="product.id" :item="product"></video-item>
       </div>
 
     </div>
@@ -27,11 +24,28 @@ export default {
   name: 'related-video',
   data () {
     return {
+      productList: Object
     }
   },
   methods: {
-    function () {
+    getVideodata: function () {
+      this.$http({
+        method: 'get',
+        url: '/index/video/queryVideo/0/4'
+      }).then(
+        res => {
+          console.log(res.data.data)
+          this.productList = res.data.data
+          console.log(this.productList)
+        },
+        res => {
+          console.log('网络错误!')
+        }
+      )
     }
+  },
+  created: function () {
+    this.getVideodata()
   }
 }
 </script>
