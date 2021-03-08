@@ -8,11 +8,10 @@
             </div>
             <!-- 游戏推荐 -->
             <div class="games">
-                <!-- <a href="#" v-for="item in gamesBox" :key="item.id">
-                    <img :src="item.url">
-                </a> -->
                 <div class="gamesBox">
-                    <div v-for="item in productsNavBox" :key="item.type_id"><a href="#"><img v-bind:src="item.type_image" width="100%"></a></div>
+                    <div v-for="item in productsNavBox" :key="item.type_id">
+                        <a href="#"><img v-bind:src="item.type_image"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,7 +80,59 @@ export default {
         grid-template-rows: 1fr 1fr;
         place-items: center center;
         grid-row-gap: 10px;
-        grid-column-gap: 15px;
+        grid-column-gap: 25px;
+    }
+    .gamesBox div a img{
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        object-fit: scale-down;
     }
 
+    .gamesBox div{
+        border: 0;
+        background: none;
+        text-transform: uppercase;
+        color: #4361ee;
+        font-weight: bold;
+        position: relative;
+        outline: none;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    .gamesBox div::before, .gamesBox div::after {
+        box-sizing: inherit;
+        position: absolute;
+        content: '';
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+        }
+
+        .gamesBox div::after {
+        bottom: 0;
+        right: 0;
+        }
+
+        .gamesBox div::before {
+        top: 0;
+        left: 0;
+        }
+
+        .gamesBox div:hover::before, .gamesBox div:hover::after {
+        width: 100%;
+        height: 100%;
+        }
+
+        .gamesBox div:hover::before {
+        border-top-color: #BD9764;
+        border-right-color: #BD9764;
+        transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+        }
+
+        .gamesBox div:hover::after {
+        border-bottom-color: #BD9764;
+        border-left-color: #BD9764;
+        transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 1s;
+        }
 </style>

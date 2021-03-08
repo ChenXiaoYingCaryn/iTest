@@ -16,7 +16,7 @@
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%">
                                 </div>
-                                <div class="itemTxt">{{item.art_title}}</div>
+                                <div class="itemTxt"><span class="twoRow">{{item.art_title}}</span></div>
                             </div>
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%" >
                                 </div>
-                                <div class="itemTxt">{{item.art_title}}</div>
+                                <div class="itemTxt"><span class="twoRow">{{item.art_title}}</span></div>
                             </div>
                         </a>
                     </div>
@@ -40,7 +40,7 @@
                         <a href="#" v-for="item in padArtBox" :key="item.art_id">
                             <div class="infoItem">
                                 <div class="itemPic"><img v-bind:src="item.art_image" width="100%" height="100%"></div>
-                                <div class="itemTxt">{{item.art_title}}</div>
+                                <div class="itemTxt"><span class="twoRow">{{item.art_title}}</span></div>
                             </div>
                         </a>
                     </div>
@@ -153,15 +153,20 @@ export default {
         padding: 15px 20px;
         display: grid;
         grid-template-columns: 1fr 4fr;
-        /* background-color: #302F2D; */
         background-color: #E1E2E2;
         color: #686464;
         grid-column-gap: 15px;
-        /* background-size: contain; */
     }
     .itemPic{
-        background-size: cover;
         width: 110px;
         height: 85px;
     }
+    .twoRow{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
 </style>
