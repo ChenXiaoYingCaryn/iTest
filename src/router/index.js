@@ -66,7 +66,13 @@ const router = new VueRouter({
       name: 'error',
       component: error
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
 
 // 路由守卫

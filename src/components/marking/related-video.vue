@@ -33,12 +33,12 @@ export default {
         method: 'get',
         url: '/index/video/queryVideo/0/4'
       }).then(
-        res => {
-          console.log(res.data.data)
-          this.productList = res.data.data
+        ({ data: res }) => {
+          console.log(res.data)
+          this.productList = res.data
           console.log(this.productList)
         },
-        res => {
+        ({ data: res }) => {
           console.log('网络错误!')
         }
       )

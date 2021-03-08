@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- 视频标题 -->
-    <h2 class="title">{{videoInfo.videoTitle}}</h2>
+    <h2 class="title">{{videoInfo.video_title}}</h2>
     <div class="video-info">
       <span>{{videoInfo.videoViews}}播放</span>
-      <span>{{videoInfo.videoUpadateTime}}</span>
+      <span>{{videoInfo.create_time}}</span>
     </div>
     <!-- 播放器 -->
     <vue-core-video-player id="player"
@@ -23,17 +23,14 @@
     </div>
     <!-- up主信息 -->
     <div class="up">
-      <div class="avatar"><img src="../marking/marking-img/upimg.jpg" alt=""></div>
+      <div class="avatar"><img :src="upInfo.avatarSrc" alt=""></div>
       <span>{{upInfo.upName}}</span>
     </div>
     <div class="video-text-box">
       <p>
         <el-collapse>
           <el-collapse-item title="展开查看视频简介">
-            <p>Title : [君の名はost] なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa</p>
-            <p>Hi, everyone! Sorry I'm late! I've been having trouble singing because I'm not feeling well. </p>
-            <p>but my health is getting better and better these days !</p>
-            <p>so i think next cover song will come out really fast! always Thank you for waiting!!</p>
+            {{videoInfo.video_introduction}}
           </el-collapse-item>
         </el-collapse>
       </p>
@@ -45,11 +42,12 @@
 export default {
   data () {
     return {
+      videoId: '',
       videoInfo: {
-        videoTitle: '[MV]なんでもないや Cover (nandemonaiya) - radwimps Cover by yurisa [君の名はost]',
-        videoUpadateTime: '2019/4/21 10:08:33',
+        video_title: 'aaa',
+        create_time: '2019/4/21 10:08:33',
         videoViews: '221万',
-        videoText: 'Instagram: https://www.instagram.com/jfla​ Twitter: https://www.twitter.com/jfla​Facebook: https://www.facebook.com/jfla​#loveyouguys​ #gardeners'
+        video_introduction: ''
       },
       upInfo: {
         avatarSrc: '../marking/marking-img/upimg.jpg',
@@ -61,7 +59,35 @@ export default {
       isCollect: false
     }
   },
+  created () {
+    this.getVideoId()
+    this.getVideoInfo()
+  },
   methods: {
+    getVideoId: function () {
+      this.videoId = this.$store.state.playInfo.video_id
+      console.log('video_id is' + this.videoId)
+      console.log('video_title is' + this.video)
+    },
+    getVideoInfo: function () {
+      this.$http({
+        method: 'get',
+        url: '/index/video/queryById/' + this.videoId
+      }).then(
+        ({ data: res }) => {
+          console.log(res.data)
+          this.productList = res.data
+          this.videoInfo.video_title = this.productList.video_title
+          this.videoInfo.create_time = this.productList.create_time
+          this.videoInfo.video_introduction = this.productList.video_introduction
+          this.upInfo.avatarSrc = this.productList.user_image
+          this.upInfo.upName = this.productList.user_name
+        },
+        ({ data: res }) => {
+          console.log('网络错误!')
+        }
+      )
+    },
     clickedAgree: function () {
       if (this.isDisagree) { this.isDisagree = !this.isDisagree }
       this.isAgree = !this.isAgree

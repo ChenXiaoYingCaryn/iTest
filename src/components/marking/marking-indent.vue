@@ -50,16 +50,6 @@
             <span>我的评分：</span>
             <el-rate v-model="value" :colors="colors" show-text=""></el-rate>
           </div>
-
-          <el-form class="marking-form" ref="form" :model="form">
-            <el-form-item>
-              <el-input type="textarea" v-model="form.desc"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-button size="small" type="primary" @click="onSubmit">确定</el-button>
-            </el-form-item>
-          </el-form>
-
         </div>
       </el-col>
 
@@ -119,19 +109,6 @@ export default {
   height: auto;
 }
 
-.picture {
-  /* background-color: aqua; */
-  /* height: 500px; */
-}
-
-.parm {
-  /* background-color: pink; */
-}
-
-.count {
-  /* background-color: greenyellow; */
-}
-
 @media screen and (max-width: 768px) {
   .right-box {
     display: flex;
@@ -180,14 +157,5 @@ export default {
   display: flex;
   justify-content: center;
   /* margin: 10px auto; */
-}
-
-.marking-form {
-  margin: 10px 20%;
-  text-align: center;
-}
-
-.el-form-item {
-    margin-bottom: 10px;
 }
 </style>

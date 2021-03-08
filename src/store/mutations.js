@@ -8,8 +8,9 @@ export default {
     console.log(state.user)
     // console.log('ergou')
   },
-  setVideoUrl (state, videoUrl) {
-    state.video_url = videoUrl
-    console.log(state.video_url)
+  // video-item调用
+  setVideoInfo (state, item) {
+    state.playInfo = item
+    console.log(state.playInfo)
   }
 }

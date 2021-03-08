@@ -5,7 +5,7 @@
             <!-- 播放模块 -->
             <div class="video-play"><video-play></video-play></div>
             <!-- 视频推荐模块 -->
-            <div class="video-recommend"><video-recommend></video-recommend></div>
+            <div class="video-recommend"><video-recommend v-for="item in videoList" :key="item" :item='item'></video-recommend></div>
             <!-- 评论模块 -->
             <div class="video-comment"><video-comment></video-comment></div>
         </div>
@@ -19,9 +19,34 @@ import VideoComment from '../components/play/video-comment.vue'
 import VideoPlay from '../components/play/video-play.vue'
 import VideoRecommend from '../components/play/video-recommend.vue'
 import topNav from '../components/topNav.vue'
+
 export default {
   components: { VideoPlay, VideoRecommend, Foot, VideoComment, topNav },
-  name: 'play'
+  name: 'play',
+  data () {
+    return {
+      videoList: {}
+    }
+  },
+  methods: {
+    getVideoList: function () {
+      this.$http({
+        method: 'get',
+        url: '/index/video/queryVideo/0/4'
+      }).then(
+        ({ data: res }) => {
+          this.videoList = res.data
+          console.log('videoList is ' + this.videoList)
+        },
+        ({ data: res }) => {
+          console.log('网络错误！')
+        }
+      )
+    }
+  },
+  created () {
+    this.getVideoList()
+  }
 }
 </script>
 

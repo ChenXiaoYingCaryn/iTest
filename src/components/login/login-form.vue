@@ -71,16 +71,20 @@ export default {
             data: this.$qs.stringify(user)
           })
             .then(
-              res => {
-                if (res.data.code !== 200) {
-                  console.log(res.data.code)
+              ({ data: res }) => {
+                if (res.code !== 200) {
+                  console.log(res.code)
                   return this.$message.error('登录失败，请检查账号或密码！')
                 }
+                console.log(res)
+                console.log(res.data)
+                const test = res.data.user_sex
+                console.log(test)
                 this.$message.success('登录成功！欢迎回到Itest！')
-                window.sessionStorage.setItem('token', res.data.msg)
+                window.sessionStorage.setItem('token', res.msg)
                 this.$router.push('/home')
               },
-              res => {
+              ({ data: res }) => {
                 this.$message.warning('网络错误，请稍后重试！')
                 return false
               }

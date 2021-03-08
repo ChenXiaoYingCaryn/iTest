@@ -1,50 +1,64 @@
 <template>
-  <div class="movie-item" @click="changeMovie">
-    <div class="cover">
-      <img :src="item.cover" alt="" />
-      <div class="duration">{{item.duration}}</div>
-    </div>
-    <div class="detail">
-      <div class="title">{{item.title}}</div>
-      <div class="author">{{item.author}}</div>
-      <div class="date">{{item.date}}</div>
+  <div class="container">
+    <div class="movie-item" @click="changeMovie">
+      <div class="cover">
+        <img :src="item.video_img" alt="" />
+        <div class="duration">{{item.duration}}</div>
+      </div>
+      <div class="detail">
+        <div class="title">{{item.video_title}}</div>
+        <div class="author">{{item.user_name}}</div>
+        <div class="date">{{item.create_time}}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    item: Object
+  },
   data () {
     return {
-      item: {
-        id: 'gdbzhhifhh',
-        title: '5 Centimeters per Second',
-        author: 'Makoto Shinkai',
-        date: '2007',
-        desc: 'The story is set in Japan, beginning in the 1990s up until the present day (2008),[a] with each act centered on a boy named Takaki Tōno. The first act takes place during a time when cell phones are uncommon and email had not yet reached the general population',
-        link: 'https://www.youtube.com/watch?v=tr8JzTLlq30',
-        cover: 'https://img1.wxzxzj.com/vpc-example-cover-5cm.png'
-      }
+      // item: {
+      //   id: 'gdbzhhifhh',
+      //   title: '5 Centimeters per Secondkk',
+      //   author: 'Makoto Shinkai',
+      //   date: '2007',
+      //   desc: 'The story is set in Japan, beginning in the 1990s up until the present day (2008),[a] with each act centered on a boy named Takaki Tōno. The first act takes place during a time when cell phones are uncommon and email had not yet reached the general population',
+      //   link: 'https://www.youtube.com/watch?v=tr8JzTLlq30',
+      //   cover: 'https://img1.wxzxzj.com/vpc-example-cover-5cm.png'
+      // }
     }
   },
   name: 'video-recommend',
   methods: {
-    changeMovie () {
-      if (location.search) {
-        location.href = location.href.replace(/\?vid=([a-z]+)/, '?vid=' + this.item.id)
-      } else {
-        location.href = location.href + '?vid=' + this.item.id
-      }
+    showItem: function () {
+      console.log(this.item)
+    },
+    changeMovie: function () {
+      this.$store.state.playInfo.video_id = this.item.video_id
+      this.$router.go(0)
     }
+  },
+  created () {
+    this.showItem()
   }
+
 }
 </script>
 
 <style>
+  .container:first-child{
+    margin-top: 76px;
+  }
+
   .movie-item {
     cursor: pointer;
     display: flex;
     margin-bottom: 20px;
+    margin-left: 10px;
   }
   .movie-item .cover {
     position: relative;
@@ -78,8 +92,14 @@ export default {
     color: rgba(0,0,0, .45);
   }
   .movie-item .detail .title {
+    max-width: 150px;
     color: #000;
     font-size: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
   }
   .movie-item .detail .author{
     font-size: 13px;
@@ -89,7 +109,7 @@ export default {
     display: inline-block;
     padding: 3px 6px;
     line-height: 1em;
-    background-color: #31C2F2;
+    background-color: #FFCF40;
     color: #fff;
     font-size: 12px;
     border-radius: 2px;

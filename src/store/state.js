@@ -6,5 +6,5 @@ export default {
     user_email: '',
     user_image: ''
   },
-  video_url: ''
+  playInfo: {}
 }

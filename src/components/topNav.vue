@@ -4,7 +4,7 @@
             <el-container class="navContent">
                 <!-- logo区域 -->
                 <div class="logo">
-                    <a href="#"><img src="../assets/Itest.png" alt="logo"></a>
+                    <a href="#" @click="toHome"><img src="../assets/Itest.png" alt="logo"></a>
                 </div>
                 <!-- 菜单区域 -->
                 <div class="menuList">
@@ -21,8 +21,12 @@
 <script>
 
 export default {
-  name: 'topNav'
-
+  name: 'topNav',
+  methods: {
+    toHome: function () {
+      this.$router.push('/home')
+    }
+  }
 }
 </script>
 

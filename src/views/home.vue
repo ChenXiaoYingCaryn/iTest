@@ -85,7 +85,7 @@ export default {
       const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
       this.videoPhoneList = res.data
       this.videoPhoneName = res.msg
-      console.log(res.msg)
+      console.log(res.data)
       // console.log(this.videoPartName)
     },
     async getPadVideo () {
