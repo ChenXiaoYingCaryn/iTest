@@ -11,7 +11,7 @@
         </div>
         <div class="content-right">
           <a href="#" class="video-up">{{item.user_name}}</a>
-          <div class="video-uptime">{{videoTimeDiff}}</div>
+          <div class="video-uptime">{{item.create_time}}</div>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
   },
   created () {
     this.simplifyViews()
-    this.calculateTimeDiff()
+    // this.calculateTimeDiff()
   },
   methods: {
     simplifyViews: function () {

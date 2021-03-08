@@ -31,19 +31,13 @@
 
 <script>
 import videoItem from './video-item.vue'
-// import videoItem from '../components/video-item'
 export default {
   components: { videoItem },
   name: 'special',
   props: {
     videoPartName: {},
     videoPhoneList: {},
-    videoPadList: {},
-    videoLaptopList: {},
-    rankingPhoneList: {},
-    rankingPadList: {},
-    rankingLaptopList: {}
-
+    rankingPhoneList: {}
   },
   data () {
     return {
@@ -54,15 +48,14 @@ export default {
     }
   },
   created () {
-    this.simplifyViews()
-    this.calculateTimeDiff()
+    this.showData()
   },
   methods: {
     more () {
       this.$router.push('/partition')
     },
-    simplifyViews: function () {
-      if (this.videoViews > 9999) { this.videoViews = Math.floor(this.videoViews / 10000) + '万' }
+    showData () {
+      console.log(this.videoPhoneList)
     }
   }
 }
@@ -141,9 +134,7 @@ export default {
   .el-carousel-item:nth-child(2n+1) {
     background-color: #d3dce6;
    }
-   /* .el-carousel-item img{
 
-   } */
    a {
   color: #999;
     }

@@ -85,22 +85,16 @@ export default {
       const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
       this.videoPhoneList = res.data
       this.videoPhoneName = res.msg
-      console.log(res.data)
-      // console.log(this.videoPartName)
     },
     async getPadVideo () {
       const { data: res } = await this.$http.get('index/video/queryPadVideo/0/6')
       this.videoPadList = res.data
       this.videoPadName = res.msg
-      console.log(res.msg)
-      // console.log(this.videoPartName)
     },
     async getLaptopVideo () {
       const { data: res } = await this.$http.get('index/video/queryLaptopVideo/0/6')
       this.videoLaptopList = res.data
       this.videoLaptopName = res.msg
-      console.log(res.msg)
-      // console.log(this.videoPartName)
     },
 
     async getRankingPhonePic () {

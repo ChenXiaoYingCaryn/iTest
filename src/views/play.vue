@@ -5,7 +5,7 @@
             <!-- 播放模块 -->
             <div class="video-play"><video-play></video-play></div>
             <!-- 视频推荐模块 -->
-            <div class="video-recommend"><video-recommend v-for="item in videoList" :key="item" :item='item'></video-recommend></div>
+            <div class="video-recommend"><video-recommend v-for="(item,index) in videoList" :key="index" :item='item'></video-recommend></div>
             <!-- 评论模块 -->
             <div class="video-comment"><video-comment></video-comment></div>
         </div>
