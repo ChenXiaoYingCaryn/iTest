@@ -18,7 +18,7 @@
         <!-- 产品类别导航 -->
         <product-nav></product-nav>
 
-        <!-- 热门游戏推荐 -->
+        <!-- 热门产品推荐 -->
         <hot-game></hot-game>
 
         <!-- 专区 -->

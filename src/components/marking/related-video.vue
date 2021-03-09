@@ -57,7 +57,8 @@ export default {
 .container {
     /* margin: 10px 10vw; */
     /* margin: 0 10vw; */
-    background-color: bisque;
+    margin-top: 10px;
+    /* background-color: bisque; */
 }
 
 /* 标题及按钮 */
@@ -70,7 +71,7 @@ export default {
   top: 50%;right: 0;
   transform: translateY(-50%);
   display: flex;
-  background-color: green;
+  /* background-color: green; */
 }
 
 .el-button {

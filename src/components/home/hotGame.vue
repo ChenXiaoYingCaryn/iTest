@@ -12,7 +12,9 @@
                     <img :src="item.url">
                 </a> -->
                 <div class="gamesBox">
-                    <div v-for="item in productsNavBox" :key="item.type_id"><a href="#"><img v-bind:src="item.type_image" width="100%"></a></div>
+                    <div v-for="item in productsNavBox" @click="goMarking(item.type_id)" :key="item.type_id">
+                        <a href="#"><img v-bind:src="item.type_image" width="100%"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,6 +36,9 @@ export default {
     async getProductsNav () {
       const { data: res } = await this.$http.get('score/rankingList/0/8')
       this.productsNavBox = res.data
+    },
+    goMarking (typeId) {
+      this.$router.push('/marking')
     }
   }
 }

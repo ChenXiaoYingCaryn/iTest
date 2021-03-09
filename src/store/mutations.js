@@ -12,5 +12,9 @@ export default {
   setVideoInfo (state, item) {
     state.playInfo = item
     console.log(state.playInfo)
+  },
+  setProductInfo (state, item) {
+    state.productInfo = item
+    console.log(state.productInfo)
   }
 }

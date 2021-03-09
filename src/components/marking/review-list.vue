@@ -32,8 +32,8 @@
       </div>
       <!-- 评论操作图标 -->
       <div class="icon-btn">
-        <i class="iconfont fa fa-thumbs-o-up"></i>{{item.like}}
-        <i class="iconfont fa fa-thumbs-o-down"></i>
+        <!-- <i class="iconfont fa fa-thumbs-o-up"></i>{{item.like}}
+        <i class="iconfont fa fa-thumbs-o-down"></i> -->
       </div>
       <div class="talk-box">
         <p>
@@ -87,32 +87,12 @@ export default {
       to: '',
       toId: -1,
       comments: [{
-        name: 'Lana Del Rey',
+        name: 'admin',
         id: 19870621,
         headImg: 'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
         comment: '手机很不错！很好用！！',
         time: '2019年9月16日 18:43',
         like: 15,
-        rate: 5.0,
-        inputShow: false
-      },
-      {
-        name: 'Taylor Swift',
-        id: 19891221,
-        headImg: 'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
-        comment: '我发行了我的新专辑Lover',
-        time: '2019年9月16日 18:43',
-        like: 5,
-        rate: 4.5,
-        inputShow: false
-      },
-      {
-        name: 'Norman Fucking Rockwell',
-        id: 20190830,
-        headImg: 'https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg',
-        comment: 'Plz buy Norman Fucking Rockwell on everywhere',
-        time: '2019年9月16日 18:43',
-        like: 5,
         rate: 5.0,
         inputShow: false
       }
@@ -193,6 +173,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  margin: 10px auto;
+}
+
 .my-reply {
   padding: 10px;
   border-radius: 10px;

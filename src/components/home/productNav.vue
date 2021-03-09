@@ -3,7 +3,7 @@
         <el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button>
         <el-button @click="all"><img src="./home-img/电脑.png" alt="" width="100%"></el-button>
         <el-button @click="all"><img src="./home-img/平板.png" alt="" width="100%"></el-button>
-        <el-button @click="all"><img src="./home-img/a.png" alt="" width="100%"></el-button>
+        <el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button>
     </div>
 </template>
 
