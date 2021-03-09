@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- 视频标题 -->
-    <h2 class="title">{{videoInfo.video_title}}</h2>
+    <h2 class="title">{{this.videoInfo.video_title}}</h2>
     <div class="video-info">
-      <span>{{videoInfo.videoViews}}播放</span>
-      <span>{{videoInfo.create_time}}</span>
+      <span>{{this.videoInfo.videoViews}}播放</span>
+      <span>{{this.videoInfo.create_time}}</span>
     </div>
     <!-- 播放器 -->
     <vue-core-video-player id="player"
-      :src="this.productList.video_url">
+      :src="this.videoInfo.video_url">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -23,14 +23,14 @@
     </div>
     <!-- up主信息 -->
     <div class="up">
-      <div class="avatar"><img :src="upInfo.avatarSrc" alt=""></div>
-      <span>{{upInfo.upName}}</span>
+      <div class="avatar"><img :src="this.videoInfo.user_image" alt=""></div>
+      <span>{{this.videoInfo.user_name}}</span>
     </div>
     <div class="video-text-box">
       <p>
         <el-collapse>
           <el-collapse-item title="展开查看视频简介">
-            {{videoInfo.video_introduction}}
+            {{this.videoInfo.video_introduction}}
           </el-collapse-item>
         </el-collapse>
       </p>
@@ -40,19 +40,22 @@
 
 <script>
 export default {
+  name: 'video-play',
+  props: {
+    videoId: String
+  },
   data () {
     return {
-      videoId: '',
+      videoViews: '221万',
       videoInfo: {
-        video_title: 'aaa',
         create_time: '2019/4/21 10:08:33',
-        videoViews: '221万',
+        user_image: '',
+        user_name: '',
+        video_id: '',
+        video_img: '',
         video_introduction: '',
+        video_title: 'aaa',
         video_url: 'url'
-      },
-      upInfo: {
-        avatarSrc: '../marking/marking-img/upimg.jpg',
-        upName: 'yurisa'
       },
       isAgree: false,
       isDisagree: false,
@@ -61,27 +64,20 @@ export default {
     }
   },
   created () {
-    this.getVideoId()
     this.getVideoInfo()
   },
   methods: {
-    getVideoId: function () {
-      this.videoId = this.$store.state.playInfo.video_id
-    },
-    getVideoInfo: function () {
+    getVideoInfo () {
+      console.log('videoId is' + this.videoId)
       this.$http({
         method: 'get',
         url: '/index/video/queryById/' + this.videoId
       }).then(
         ({ data: res }) => {
-          this.productList = res.data
-          this.videoInfo.video_title = this.productList.video_title
-          this.videoInfo.create_time = this.productList.create_time
-          this.videoInfo.video_url = this.productList.video_url
-          this.videoInfo.video_introduction = this.productList.video_introduction
-          this.upInfo.avatarSrc = this.productList.user_image
-          this.upInfo.upName = this.productList.user_name
-          return true
+          console.log('video_id is' + this.videoId)
+          console.log(res.data)
+          this.videoInfo = res.data
+          console.log(this.videoInfo)
         },
         ({ data: res }) => {
           console.log('网络错误!')

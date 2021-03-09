@@ -124,13 +124,11 @@ export default {
 .wrapper {
   width: auto;
   background-color: rgba(255, 255, 255, 0.5);
-  /* margin: 0 10vw; */
   padding: 0 5%;
 }
 
 .title {
   padding: 20px 0;
-  /* text-align: center; */
   color: #EFCD6D;
 }
 
@@ -148,9 +146,7 @@ export default {
 
 /* 产品图 */
 .product-img {
-  /* height: 450px; */
   width: 350px;
-  /* background-color: pink; */
 }
 
 .product-img img {
