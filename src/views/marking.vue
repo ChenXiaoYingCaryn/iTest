@@ -7,7 +7,7 @@
     </div>
     <div class="content">
       <!-- 评分系统 -->
-      <marking-indent></marking-indent>
+      <marking-indent :productId="productId"></marking-indent>
       <!-- 相关视频 -->
       <relatedvideo></relatedvideo>
       <!-- 评价列表 -->
@@ -36,8 +36,8 @@ export default {
   },
   methods: {
     getProductId () {
-      this.productId = this.$route.params.id
-      console.log(this.productId)
+      this.productId = this.$route.query.id
+      console.log('productId is' + this.productId)
     }
   },
   created () {

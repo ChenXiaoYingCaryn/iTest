@@ -38,7 +38,12 @@ export default {
       this.productsNavBox = res.data
     },
     goMarking (typeId) {
-      this.$router.push('/marking')
+      this.$router.push({
+        path: '/marking',
+        query: {
+          id: typeId
+        }
+      })
     }
   }
 }
