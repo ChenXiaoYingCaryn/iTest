@@ -63,8 +63,8 @@ export default {
           const user = this.loginForm
           console.log(user)
           await this.$http({
-            url: '/login/userLogin',
             method: 'post',
+            url: '/login/userLogin',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
@@ -82,6 +82,7 @@ export default {
                 console.log(test)
                 this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.msg)
+                this.getUserInfo(this.loginForm.user_id, window.sessionStorage.getItem('token'))
                 this.$router.push('/home')
               },
               ({ data: res }) => {
@@ -91,6 +92,23 @@ export default {
             )
         }
       })
+    },
+    getUserInfo (userId, token) {
+      this.$http({
+        methods: 'post',
+        url: '/login/queryUserById/' + userId + '/' + token,
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8 '
+        }
+      }).then(
+        ({ data: res }) => {
+          if (res.code !== 200) {
+            console.log(res.msg)
+          }
+          console.log(res.data)
+          this.$store.commit('setUserInfo', res.data)
+        }
+      )
     }
   }
 }

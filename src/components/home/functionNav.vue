@@ -2,10 +2,9 @@
     <div class="functionNav">
         <div class="functionNavContent">
             <div class="menuLists">
-                <el-button class="menuList" type="warning" round @click="products">手机</el-button>
-                <el-button class="menuList" type="warning" round @click="products">电脑</el-button>
-                <el-button class="menuList" type="warning" round @click="products">平板</el-button>
-                <!-- <el-button class="menuList" type="warning" round>所有游戏</el-button> -->
+                <el-button class="menuList" type="warning" round @click="goProduct">手机</el-button>
+                <el-button class="menuList" type="warning" round @click="goProduct">电脑</el-button>
+                <el-button class="menuList" type="warning" round @click="goProduct">平板</el-button>
             </div>
 
             <div class="search">
@@ -17,7 +16,11 @@
             </div>
 
             <div class="login">
-                <!-- <el-button type="primary" round>登陆 / 注册</el-button> -->
+                <div v-if="AvatarType ===  'logined'"><el-button type="primary" round>登陆 / 注册</el-button></div>
+                <div v-else-if="AvatarType ===  'unlogined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()">
+                    <el-avatar :size="size" :src="imgSrc"></el-avatar>
+                    <span class="name-span">{{user_name}}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -26,10 +29,33 @@
 <script>
 export default {
   name: 'functionNav',
-  methods: {
-    products () {
-      this.$router.push('/products')
+  data: function () {
+    return {
+      size: 'medium',
+      imgSrc: '',
+      user_name: '',
+      AvatarType: 'unlogined'
     }
+  },
+  methods: {
+    setLoginAvatar () {
+    },
+    selectLogin () {
+      this.size = 53
+    },
+    outSelect () {
+      this.size = 'medium'
+    },
+    goProduct () {
+      this.$router.push('/products')
+    },
+    setUserInfo () {
+      this.imgSrc = this.$store.state.user.user_image
+      this.user_name = this.$store.state.user.user_name
+    }
+  },
+  created () {
+    this.setUserInfo()
   }
 }
 </script>
@@ -43,10 +69,8 @@ export default {
         display: grid;
         grid-template-columns: 2fr 2fr 1fr;
         padding: 10px 0;
-        /* place-items: center center; */
     }
     .menuLists{
-        /* background-color: snow; */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         place-items: center center;
@@ -68,6 +92,10 @@ export default {
     .login{
         display: grid;
         place-items: center center;
+    }
+    .name-span{
+        display: inline-block;
+        color:  white;
     }
 
 </style>

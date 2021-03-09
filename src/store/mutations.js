@@ -8,13 +8,15 @@ export default {
     console.log(state.user)
     // console.log('ergou')
   },
+  // 存入用户信息
+  setUserInfo (state, data) {
+    alert('success')
+    state.user = data
+    console.log(state.user.user_name)
+  },
   // video-item调用
   setVideoInfo (state, item) {
     state.playInfo = item
     console.log(state.playInfo)
-  },
-  setProductInfo (state, item) {
-    state.productInfo = item
-    console.log(state.productInfo)
   }
 }
