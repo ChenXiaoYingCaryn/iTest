@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
     .dynamics{
-        margin: 0 auto;
+        margin: 3px auto;
         width: 750px;
         height: 75px;
         background-color: #e1e2e2;

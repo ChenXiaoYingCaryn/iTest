@@ -5,6 +5,13 @@
         <person-func></person-func>
 
         <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
+        <dynamics></dynamics>
     </div>
 </template>
 

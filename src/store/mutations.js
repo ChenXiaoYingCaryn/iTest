@@ -19,4 +19,5 @@ export default {
     state.playInfo = item
     console.log(state.playInfo)
   }
+
 }
