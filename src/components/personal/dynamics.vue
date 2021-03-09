@@ -1,7 +1,7 @@
 <template>
     <div class="dynamics">
         <div class="userImage">
-            <img src="./bear.jpg" width="50%">
+            <img src="./bear.jpg" width="40%">
         </div>
         <div class="dynamicsContent">
             <span class="userName">Bear</span>
@@ -21,7 +21,7 @@ export default {
     .dynamics{
         margin: 0 auto;
         width: 750px;
-        height: 80px;
+        height: 75px;
         background-color: #e1e2e2;
         display: grid;
         grid-template-columns: 1fr 5fr;
