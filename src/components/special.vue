@@ -20,7 +20,7 @@
                 <div class="block">
                     <el-carousel height="500px">
                         <el-carousel-item v-for="item in rankingPhoneList" :key="item.type_id">
-                            <div><img v-bind:src="item.type_image" width="100%"></div>
+                                <img v-bind:src="item.type_image" width="100%">
                         </el-carousel-item>
                     </el-carousel>
                 </div>
@@ -101,7 +101,6 @@ export default {
         display: grid;
         grid-template-rows: 1fr 5fr;
         background-color: #E1E2E2;
-
         place-items: center center;
     }
     .gameRankingTitle{
@@ -119,14 +118,9 @@ export default {
         display: grid;
         place-items: center center;
     }
-    .el-carousel-item h3{
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
-   }
-
+    .el-carousel-item img{
+        object-fit: contain;
+    }
    .el-carousel-item:nth-child(2n) {
     background-color: #99a9bf;
    }
