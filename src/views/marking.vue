@@ -48,10 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  /* background-color: #302f2d; */
-}
-
 .banner {
   position: relative;
   z-index: 1;
