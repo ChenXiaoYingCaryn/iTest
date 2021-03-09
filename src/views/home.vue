@@ -9,7 +9,6 @@
             <!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
             <el-carousel height="570px">
                 <el-carousel-item v-for="item in bannerBox" :key="item.image_id">
-                    <!-- <h3 class="small">{{ item }}</h3> -->
                     <img v-bind:src="item.image_url" width="100%">
                 </el-carousel-item>
             </el-carousel>

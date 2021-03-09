@@ -2,10 +2,16 @@
     <div class="functionNav">
         <div class="functionNavContent">
             <div class="menuLists">
+<<<<<<< HEAD
                 <el-button class="menuList" type="warning" @click="products">手机</el-button>
                 <el-button class="menuList" type="warning" @click="products">电脑</el-button>
                 <el-button class="menuList" type="warning" @click="products">平板</el-button>
                 <!-- <el-button class="menuList" type="warning" round>所有游戏</el-button> -->
+=======
+                <el-button class="menuList" type="warning" round @click="goProduct">手机</el-button>
+                <el-button class="menuList" type="warning" round @click="goProduct">电脑</el-button>
+                <el-button class="menuList" type="warning" round @click="goProduct">平板</el-button>
+>>>>>>> 29fa8bc25352e8f5e9aafa2365895d64ed65b6ae
             </div>
 
             <div class="search">
@@ -17,7 +23,11 @@
             </div>
 
             <div class="login">
-                <!-- <el-button type="primary" round>登陆 / 注册</el-button> -->
+                <div v-if="AvatarType ===  'unlogined'"><el-button type="primary" round @click="toLogin()">登陆 / 注册</el-button></div>
+                <div v-else-if="AvatarType ===  'logined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()">
+                    <el-avatar :size="size" :src="imgSrc"></el-avatar>
+                    <span class="name-span">{{user_name}}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -26,10 +36,40 @@
 <script>
 export default {
   name: 'functionNav',
-  methods: {
-    products () {
-      this.$router.push('/products')
+  data: function () {
+    return {
+      size: 'medium',
+      AvatarType: 'unlogined'
     }
+  },
+  computed: {
+    imgSrc () { return this.$store.state.user.user_image },
+    user_name () { return this.$store.state.user.user_name }
+  },
+  methods: {
+    selectLogin () {
+      this.size = 53
+    },
+    outSelect () {
+      this.size = 'medium'
+    },
+    goProduct () {
+      this.$router.push('/products')
+    },
+    setLoginAvatar () {
+      if (window.sessionStorage.getItem('token')) {
+        this.AvatarType = 'logined'
+      } else {
+        console.log(window.sessionStorage.getItem('token'))
+        this.AvatarType = 'unlogined'
+      }
+    },
+    toLogin () {
+      this.$router.push('/login')
+    }
+  },
+  created () {
+    this.setLoginAvatar()
   }
 }
 </script>
@@ -43,10 +83,8 @@ export default {
         display: grid;
         grid-template-columns: 3fr 2fr 2fr;
         padding: 10px 0;
-        /* place-items: center center; */
     }
     .menuLists{
-        /* background-color: snow; */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         place-items: center center;
@@ -68,6 +106,10 @@ export default {
     .login{
         display: grid;
         place-items: center center;
+    }
+    .name-span{
+        display: inline-block;
+        color:  white;
     }
 
 </style>

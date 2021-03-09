@@ -19,6 +19,10 @@ import './assets/css/element-#FFCF40/index.css'
 // 引入播放器组件
 import VueCoreVideoPlayer from 'vue-core-video-player'
 
+// 引入上传组件
+import uploader from 'vue-simple-uploader'
+Vue.use(uploader)
+
 Vue.prototype.$http = axios
 
 // 引入qs,qs用于解决前端发送json后端时x-www-form的格式问题

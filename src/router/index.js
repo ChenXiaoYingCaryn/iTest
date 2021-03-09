@@ -11,8 +11,15 @@ const search = () => import('../views/search.vue')
 const products = () => import('../views/products.vue')
 const partition = () => import('../views/partition.vue')
 const person = () => import('../views/person.vue')
+const info = () => import('../views/info.vue')
 
 Vue.use(VueRouter)
+
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const router = new VueRouter({
   mode: 'history',
@@ -66,6 +73,11 @@ const router = new VueRouter({
       path: '/person',
       name: 'person',
       component: person
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: info
     },
     {
       path: '/*',

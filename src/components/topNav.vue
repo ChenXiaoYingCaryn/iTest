@@ -43,7 +43,7 @@ a,a:hover,a:active,a:link,a:focus,a:visited {
 }
 
 .wrapper {
-    width: 1200px;
+    width: 80%;
     margin: 0 auto;
 }
 
