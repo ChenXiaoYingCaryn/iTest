@@ -2,9 +2,9 @@
     <div class="functionNav">
         <div class="functionNavContent">
             <div class="menuLists">
-                <el-button class="menuList" type="warning" round @click="products">手机</el-button>
-                <el-button class="menuList" type="warning" round @click="products">电脑</el-button>
-                <el-button class="menuList" type="warning" round @click="products">平板</el-button>
+                <el-button class="menuList" type="warning" @click="products">手机</el-button>
+                <el-button class="menuList" type="warning" @click="products">电脑</el-button>
+                <el-button class="menuList" type="warning" @click="products">平板</el-button>
                 <!-- <el-button class="menuList" type="warning" round>所有游戏</el-button> -->
             </div>
 
@@ -41,7 +41,7 @@ export default {
         height: 60px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-columns: 3fr 2fr 2fr;
         padding: 10px 0;
         /* place-items: center center; */
     }

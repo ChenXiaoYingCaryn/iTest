@@ -2,6 +2,7 @@
 
     <div class="products">
         <!-- 顶部栏 -->
+        <top-nav></top-nav>
         <div class="productsTab">
              <!-- 选项卡 -->
             <el-tabs v-model="activeName" @tab-click="handleClick" class="tabs">
@@ -21,6 +22,7 @@
 
 <script>
 import productBlock from '../components/products/productBlock'
+import TopNav from '../components/topNav.vue'
 
 export default {
   name: 'products',
@@ -56,14 +58,15 @@ export default {
     this.getpadPic()
   },
   components: {
-    productBlock
+    productBlock,
+    TopNav
   }
 }
 </script>
 
 <style>
     .products{
-        background-color: aliceblue;
+        background-color: #E1E2E2;
         height: 100%;
         width: 100%;
     }
