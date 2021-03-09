@@ -10,6 +10,7 @@ const error = () => import('../components/error/error.vue')
 const search = () => import('../views/search.vue')
 const products = () => import('../views/products.vue')
 const partition = () => import('../views/partition.vue')
+const info = () => import('../views/info.vue')
 
 Vue.use(VueRouter)
 
@@ -66,6 +67,11 @@ const router = new VueRouter({
       path: '/partition',
       name: 'partition',
       component: partition
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: info
     },
     {
       path: '/*',

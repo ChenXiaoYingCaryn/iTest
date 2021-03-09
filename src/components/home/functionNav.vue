@@ -16,8 +16,8 @@
             </div>
 
             <div class="login">
-                <div v-if="AvatarType ===  'logined'"><el-button type="primary" round>登陆 / 注册</el-button></div>
-                <div v-else-if="AvatarType ===  'unlogined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()">
+                <div v-if="AvatarType ===  'unlogined'"><el-button type="primary" round @click="toLogin()">登陆 / 注册</el-button></div>
+                <div v-else-if="AvatarType ===  'logined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()">
                     <el-avatar :size="size" :src="imgSrc"></el-avatar>
                     <span class="name-span">{{user_name}}</span>
                 </div>
@@ -32,14 +32,14 @@ export default {
   data: function () {
     return {
       size: 'medium',
-      imgSrc: '',
-      user_name: '',
       AvatarType: 'unlogined'
     }
   },
+  computed: {
+    imgSrc () { return this.$store.state.user.user_image },
+    user_name () { return this.$store.state.user.user_name }
+  },
   methods: {
-    setLoginAvatar () {
-    },
     selectLogin () {
       this.size = 53
     },
@@ -49,13 +49,20 @@ export default {
     goProduct () {
       this.$router.push('/products')
     },
-    setUserInfo () {
-      this.imgSrc = this.$store.state.user.user_image
-      this.user_name = this.$store.state.user.user_name
+    setLoginAvatar () {
+      if (window.sessionStorage.getItem('token')) {
+        this.AvatarType = 'logined'
+      } else {
+        console.log(window.sessionStorage.getItem('token'))
+        this.AvatarType = 'unlogined'
+      }
+    },
+    toLogin () {
+      this.$router.push('/login')
     }
   },
   created () {
-    this.setUserInfo()
+    this.setLoginAvatar()
   }
 }
 </script>
