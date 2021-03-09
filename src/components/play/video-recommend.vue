@@ -21,15 +21,6 @@ export default {
   },
   data () {
     return {
-      // item: {
-      //   id: 'gdbzhhifhh',
-      //   title: '5 Centimeters per Secondkk',
-      //   author: 'Makoto Shinkai',
-      //   date: '2007',
-      //   desc: 'The story is set in Japan, beginning in the 1990s up until the present day (2008),[a] with each act centered on a boy named Takaki Tōno. The first act takes place during a time when cell phones are uncommon and email had not yet reached the general population',
-      //   link: 'https://www.youtube.com/watch?v=tr8JzTLlq30',
-      //   cover: 'https://img1.wxzxzj.com/vpc-example-cover-5cm.png'
-      // }
     }
   },
   name: 'video-recommend',

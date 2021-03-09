@@ -8,7 +8,7 @@
     </div>
     <!-- 播放器 -->
     <vue-core-video-player id="player"
-      :src="videoInfo.video_url">
+      :src="this.productList.video_url">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -48,7 +48,7 @@ export default {
         create_time: '2019/4/21 10:08:33',
         videoViews: '221万',
         video_introduction: '',
-        video_url: ''
+        video_url: 'url'
       },
       upInfo: {
         avatarSrc: '../marking/marking-img/upimg.jpg',
@@ -74,7 +74,6 @@ export default {
         url: '/index/video/queryById/' + this.videoId
       }).then(
         ({ data: res }) => {
-          console.log(res.data)
           this.productList = res.data
           this.videoInfo.video_title = this.productList.video_title
           this.videoInfo.create_time = this.productList.create_time
@@ -82,7 +81,7 @@ export default {
           this.videoInfo.video_introduction = this.productList.video_introduction
           this.upInfo.avatarSrc = this.productList.user_image
           this.upInfo.upName = this.productList.user_name
-          console.log('video_url is ' + this.videoInfo.video_url)
+          return true
         },
         ({ data: res }) => {
           console.log('网络错误!')

@@ -1,30 +1,23 @@
 <template>
   <div class="wrapper">
-    <h1 class="title" style="font-size:30px;">{{this.pname}}</h1>
+    <h1 class="title" style="font-size:30px;">{{productInfo.type_name}}</h1>
     <el-row :gutter="10">
 
       <el-col :xs="12" :sm="8" :md="8">
         <!-- 产品图片 -->
-        <div class="grid-content picture">
-          <el-carousel indicator-position="none" :autoplay="auto" height="380px">
-            <el-carousel-item v-for="item in 4" :key="item" src="">
-              <h3>{{ item }}</h3>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
+        <img src="./marking-img/K30U.jpg" alt="" class="product-img">
       </el-col>
 
       <el-col :xs="12" :sm="8" :md="8">
         <!-- 产品参数 -->
         <div class="grid-content parm">
           <ul>
-            <li class="parm-item"><span class="label">首发起步价格</span>&emsp;:&emsp;<span>1999</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
-            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>2020-8-11</span></li>
+            <li class="parm-item"><span class="label">首发起步价格</span>&emsp;:&emsp;<span>{{productInfo.type_price}}</span></li>
+            <li class="parm-item"><span class="label">型号</span>&emsp;:&emsp;<span>{{productInfo.type_type}}</span></li>
+            <li class="parm-item"><span class="label">发售日期</span>&emsp;:&emsp;<span>{{productInfo.data}}</span></li>
+            <li class="parm-item"><span class="label">基础配置</span>&emsp;:&emsp;<span>{{productInfo.type_config}}</span></li>
+            <li class="parm-item"><span class="label">内存版本</span>&emsp;:&emsp;<span>{{productInfo.type_version}}</span></li>
+            <li class="parm-item"><span class="label">参数亮点</span>&emsp;:&emsp;<span>{{productInfo.type_hightlights}}</span></li>
           </ul>
         </div>
       </el-col>
@@ -44,11 +37,16 @@
           </div>
         </div>
 
-        <div class="grid-content count">
+        <div class="grid-content">
           <el-divider></el-divider>
           <div class="count-box">
-            <span>我的评分：</span>
-            <el-rate v-model="value" :colors="colors" show-text=""></el-rate>
+            <el-button class="box-btn" @click="toFollowed">{{followed}}</el-button>
+            <el-button class="box-btn"><a href="#review">发布评价</a></el-button>
+            <el-button class="box-btn">发布视频</el-button>
+          </div>
+          <div class="info-box" style="margin-top: 10px;">
+            <span>参数解读：</span>
+            <p>{{productInfo.type_Interpretation}}</p>
           </div>
         </div>
       </el-col>
@@ -62,7 +60,16 @@ export default {
   name: 'marking-indent',
   data () {
     return {
-      pname: '红米Redmi K30至尊纪念版',
+      productInfo: {
+        type_name: '红米Redmi K30至尊纪念版',
+        type_price: '1999',
+        type_type: 'Redmin k30u',
+        data: '2021-08-14',
+        type_config: '天玑1000Plus 4500mAh电池 33W有线闪充',
+        type_version: '最高达8GB+256GB',
+        type_hightlights: '2020年度性价比之王',
+        type_Interpretation: '手机中的Redmi K30至尊纪念版是目前市面上用户数量和好评数量都非常多的一款产品。它使用体验非常好，性价比极高，适合各个年龄段的用户选择来满足办公或者家用或者娱乐等不同方面的需求。'
+      },
       auto: false,
       value: 4.3,
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
@@ -71,7 +78,8 @@ export default {
       person: 9999,
       form: {
         desc: ''
-      }
+      },
+      followed: '关注'
     }
   },
   computed: {
@@ -85,6 +93,10 @@ export default {
     },
     onSubmit () {
       console.log('submit!')
+    },
+    toFollowed () {
+      this.followed = '已关注'
+      this.$message.success('关注成功！')
     }
   }
 }
@@ -100,7 +112,7 @@ export default {
 
 .title {
   padding: 20px 0;
-  text-align: center;
+  /* text-align: center; */
   color: #EFCD6D;
 }
 
@@ -116,29 +128,28 @@ export default {
   }
 }
 
-/* 产品轮播图 */
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
+/* 产品图 */
+.product-img {
+  /* height: 450px; */
+  width: 350px;
+  /* background-color: pink; */
 }
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
+.product-img img {
+  max-height: 100%;
 }
 
 /* 产品参数 */
 .parm-item {
-  height: 50px;
+  /* height: 50px; */
   line-height: 50px;
   margin-top: 5px;
   padding-left: 30px;
   /* background-color: yellow; */
+}
+
+.right-box {
+  /* background-color: #EFCD6D; */
 }
 
 /* 产品评分 */
@@ -158,4 +169,5 @@ export default {
   justify-content: center;
   /* margin: 10px auto; */
 }
+
 </style>

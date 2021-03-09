@@ -11,7 +11,7 @@
       <!-- 相关视频 -->
       <relatedvideo></relatedvideo>
       <!-- 评价列表 -->
-      <review-list></review-list>
+      <div id="review"><review-list></review-list></div>
       <!-- 推荐产品 -->
       <recommendations></recommendations>
     </div>
@@ -31,9 +31,17 @@ export default {
   name: 'marking',
   data () {
     return {
+      productId: ''
     }
   },
   methods: {
+    getProductId () {
+      this.productId = this.$route.params.id
+      console.log(this.productId)
+    }
+  },
+  created () {
+    this.getProductId()
   }
 
 }

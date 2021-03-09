@@ -6,5 +6,6 @@ export default {
     user_email: '',
     user_image: ''
   },
-  playInfo: {}
+  playInfo: {},
+  productInfo: {}
 }

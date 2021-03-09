@@ -17,7 +17,7 @@
             </div>
 
             <div class="login">
-                <el-button type="primary" round>登陆 / 注册</el-button>
+                <!-- <el-button type="primary" round>登陆 / 注册</el-button> -->
             </div>
         </div>
     </div>
