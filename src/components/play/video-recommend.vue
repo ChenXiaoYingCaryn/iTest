@@ -29,7 +29,13 @@ export default {
       console.log(this.item)
     },
     changeMovie: function () {
-      this.$store.state.playInfo.video_id = this.item.video_id
+      this.$router.push({
+        path: '/play',
+        query: {
+          dogv: this.item.video_id
+        }
+      })
+      // this.$store.state.playInfo.video_id = this.item.video_id
       this.$router.go(0)
     }
   },

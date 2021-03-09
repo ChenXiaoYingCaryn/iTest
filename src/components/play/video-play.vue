@@ -7,8 +7,7 @@
       <span>{{this.videoInfo.create_time}}</span>
     </div>
     <!-- 播放器 -->
-    <vue-core-video-player id="player"
-      :src="this.videoInfo.video_url">
+    <vue-core-video-player id="player" :src="this.productList.video_url">
     </vue-core-video-player>
     <!-- 点赞反对转发 -->
     <div class="tool-bar">
@@ -47,6 +46,7 @@ export default {
   data () {
     return {
       videoViews: '221万',
+      url: '',
       videoInfo: {
         create_time: '2019/4/21 10:08:33',
         user_image: '',
@@ -55,7 +55,7 @@ export default {
         video_img: '',
         video_introduction: '',
         video_title: 'aaa',
-        video_url: 'url'
+        video_url: ' '
       },
       isAgree: false,
       isDisagree: false,
@@ -63,7 +63,7 @@ export default {
       isCollect: false
     }
   },
-  created () {
+  mounted () {
     this.getVideoInfo()
   },
   methods: {
@@ -74,10 +74,9 @@ export default {
         url: '/index/video/queryById/' + this.videoId
       }).then(
         ({ data: res }) => {
-          console.log('video_id is' + this.videoId)
-          console.log(res.data)
+          this.url = res.data.video_url
+          this.productList = res.data
           this.videoInfo = res.data
-          console.log(this.videoInfo)
         },
         ({ data: res }) => {
           console.log('网络错误!')

@@ -7,5 +7,6 @@ export default {
     user_name: '',
     user_sex: ''
   },
-  playInfo: {}
+  playInfo: {},
+  video_url: ''
 }
