@@ -10,6 +10,7 @@ const error = () => import('../components/error/error.vue')
 const search = () => import('../views/search.vue')
 const products = () => import('../views/products.vue')
 const partition = () => import('../views/partition.vue')
+const person = () => import('../views/person.vue')
 
 Vue.use(VueRouter)
 
@@ -62,10 +63,16 @@ const router = new VueRouter({
       component: partition
     },
     {
+      path: '/person',
+      name: 'person',
+      component: person
+    },
+    {
       path: '/*',
       name: 'error',
       component: error
     }
+
   ],
   scrollBehavior (to, from, savedPosition) {
     return {
