@@ -3,7 +3,7 @@
         <top-nav></top-nav>
         <div class="wrapper">
             <!-- 播放模块 -->
-            <div class="video-play"><video-play></video-play></div>
+            <div class="video-play"><video-play :videoId="videoId"></video-play></div>
             <!-- 视频推荐模块 -->
             <div class="video-recommend"><video-recommend v-for="(item,index) in videoList" :key="index" :item='item'></video-recommend></div>
             <!-- 评论模块 -->
@@ -25,7 +25,8 @@ export default {
   name: 'play',
   data () {
     return {
-      videoList: {}
+      videoList: {},
+      videoId: ''
     }
   },
   methods: {
@@ -36,16 +37,20 @@ export default {
       }).then(
         ({ data: res }) => {
           this.videoList = res.data
-          console.log('videoList is ' + this.videoList)
         },
         ({ data: res }) => {
           console.log('网络错误！')
         }
       )
+    },
+    getVideoId () {
+      this.videoId = this.$route.query.dogv
+      console.log('dogv is' + this.videoId)
     }
   },
   created () {
     this.getVideoList()
+    this.getVideoId()
   }
 }
 </script>

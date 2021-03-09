@@ -1,6 +1,6 @@
 <template>
   <div class="related-video-item">
-    <div class="top-img" @click="goPlay">
+    <div class="top-img" @click="goPlay(item.video_id)">
       <img :src="item.video_img" alt="">
     </div>
     <div class="video-content">
@@ -74,10 +74,13 @@ export default {
         this.videoTimeDiff = Math.floor(dayDiff) + '天前'
       }
     },
-    goPlay: function () {
-      this.$router.push('/play')
-      // console.log(this.item)
-      this.$store.commit('setVideoInfo', this.item)
+    goPlay (videoId) {
+      this.$router.push({
+        path: '/play',
+        query: {
+          dogv: videoId
+        }
+      })
     }
   }
 }
