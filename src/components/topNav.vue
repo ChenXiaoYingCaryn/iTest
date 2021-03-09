@@ -9,7 +9,7 @@
                 <!-- 菜单区域 -->
                 <div class="menuList">
                     <a href="#"><span class="list">产品</span></a>
-                    <a href="#" @click="toPerson"><span class="list">资讯</span></a>
+                    <a href="#" @click="toPerson"><span class="list">个人中心</span></a>
                     <a href="#"><span class="list">关于我们</span></a>
                     <a href="#"><span class="list">帮助反馈</span></a>
                 </div>

@@ -12,7 +12,7 @@
         <el-input type="password" placeholder="确认密码" v-model="SignForm.upass" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('SignForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('SignForm')">注册</el-button>
       </el-form-item>
     </el-form>
   </div>

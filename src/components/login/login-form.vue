@@ -9,7 +9,7 @@
         <el-input type="password" placeholder="密码" v-model="loginForm.user_pwd" maxlength="20" autocomplete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('loginForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
       </el-form-item>
     </el-form>
   </div>

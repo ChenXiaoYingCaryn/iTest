@@ -18,7 +18,7 @@
 
             <div class="login">
                 <div v-if="AvatarType ===  'unlogined'"><el-button type="primary" round @click="toLogin()">登陆 / 注册</el-button></div>
-                <div v-else-if="AvatarType ===  'logined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()">
+                <div v-else-if="AvatarType ===  'logined'" style="cursor: pointer;" @mouseover="selectLogin ()" @mouseout="outSelect ()" @click="toPerson()">
                     <el-avatar :size="size" :src="imgSrc"></el-avatar>
                     <span class="name-span">{{user_name}}</span>
                 </div>
@@ -60,6 +60,9 @@ export default {
     },
     toLogin () {
       this.$router.push('/login')
+    },
+    toPerson () {
+      this.$router.push('/person')
     }
   },
   created () {

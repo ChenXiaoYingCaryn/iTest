@@ -4,17 +4,17 @@
 
         <el-divider></el-divider>
         <span class="list">用户名</span>
-        <span>{{user_name}}</span>
+        <span>Bear</span>
         <i class="fa fa-pencil tubiao"></i>
         <el-divider></el-divider>
 
         <span class="list">邮 箱</span>
-        <span>{{user_email}}</span>
+        <span>17817680324@163.com</span>
         <i class="fa fa-pencil tubiao"></i>
         <el-divider></el-divider>
 
         <span class="list">性 别</span>
-        <span>{{user_sex}}</span>
+        <span>男</span>
         <i class="fa fa-pencil tubiao"></i>
 
     </div>
@@ -23,13 +23,7 @@
 
 <script>
 export default {
-  name: 'personInfoPage',
-  computed: {
-    user_sex () { return this.$store.user.user_sex },
-    user_email () { return this.$store.user.user_email },
-    user_name () { return this.$store.user.user_name }
-
-  }
+  name: 'personInfoPage'
 }
 </script>
 
