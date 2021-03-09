@@ -88,17 +88,5 @@ export default {
         grid-row-gap: 10px;
         grid-column-gap: 15px;
     }
-    .gamesBox div{
-        background-color: #E1E2E2;
-        border: 0;
-        background: none;
-        text-transform: uppercase;
-        color: #4361ee;
-        font-weight: bold;
-        position: relative;
-        outline: none;
-        padding: 10px 20px;
-        box-sizing: border-box;
-    }
 
 </style>
