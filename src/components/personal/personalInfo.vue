@@ -10,14 +10,19 @@
          </div>
 
          <div class="changeInfo">
-             <el-button><span>编辑个人资料</span></el-button>
+             <el-button @click="changeInfo"><span>编辑个人资料</span></el-button>
          </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'personalInfo'
+  name: 'personalInfo',
+  methods: {
+    changeInfo: function () {
+      this.$router.push('/changeInfo')
+    }
+  }
 }
 </script>
 
@@ -28,7 +33,7 @@ export default {
         height: 150px;
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
-        margin:  0 auto;
+        margin:  10px auto;
     }
     .userImage{
         width: 100%;

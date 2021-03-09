@@ -12,6 +12,7 @@ const products = () => import('../views/products.vue')
 const partition = () => import('../views/partition.vue')
 const person = () => import('../views/person.vue')
 const info = () => import('../views/info.vue')
+const changeInfo = () => import('../views/changeInfo.vue')
 
 Vue.use(VueRouter)
 
@@ -78,6 +79,11 @@ const router = new VueRouter({
       path: '/info',
       name: 'info',
       component: info
+    },
+    {
+      path: '/changeInfo',
+      name: '/changeInfo',
+      component: changeInfo
     },
     {
       path: '/*',

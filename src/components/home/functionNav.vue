@@ -2,16 +2,10 @@
     <div class="functionNav">
         <div class="functionNavContent">
             <div class="menuLists">
-<<<<<<< HEAD
                 <el-button class="menuList" type="warning" @click="products">手机</el-button>
                 <el-button class="menuList" type="warning" @click="products">电脑</el-button>
                 <el-button class="menuList" type="warning" @click="products">平板</el-button>
                 <!-- <el-button class="menuList" type="warning" round>所有游戏</el-button> -->
-=======
-                <el-button class="menuList" type="warning" round @click="goProduct">手机</el-button>
-                <el-button class="menuList" type="warning" round @click="goProduct">电脑</el-button>
-                <el-button class="menuList" type="warning" round @click="goProduct">平板</el-button>
->>>>>>> 29fa8bc25352e8f5e9aafa2365895d64ed65b6ae
             </div>
 
             <div class="search">

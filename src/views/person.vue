@@ -4,17 +4,17 @@
 
         <person-func></person-func>
 
-        <person-info-page></person-info-page>
+        <dynamics></dynamics>
     </div>
 </template>
 
 <script>
+import Dynamics from '../components/personal/dynamics.vue'
 import PersonalInfo from '../components/personal/personalInfo.vue'
 import PersonFunc from '../components/personal/personFunc.vue'
-import PersonInfoPage from '../components/personal/personInfoPage.vue'
 export default {
   name: 'person',
-  components: { PersonalInfo, PersonFunc, PersonInfoPage }
+  components: { PersonalInfo, PersonFunc, Dynamics }
 }
 </script>
 
