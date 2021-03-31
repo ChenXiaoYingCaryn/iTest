@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <!-- 评论输入模块 -->
     <div v-clickoutside="hideReplyBtn" @click="inputFocus" class="my-reply">
       <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>

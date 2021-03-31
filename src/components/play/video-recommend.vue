@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .container:first-child{
     margin-top: 76px;
   }
@@ -115,7 +115,7 @@ export default {
     background-color: #ff6060;
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1120px) {
     .movie-item .detail .title {
       max-width: 100%;
       color: #000;
@@ -125,6 +125,10 @@ export default {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       -moz-box-orient: vertical;
+    }
+
+    .container:first-child{
+      margin-top: 20px;
     }
   }
 </style>

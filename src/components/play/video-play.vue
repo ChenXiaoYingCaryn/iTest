@@ -175,7 +175,7 @@ export default {
   border-top-color: #FFCF40 !important;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:768px) {
   #player {
     height: 300px;
   }
