@@ -1,0 +1,251 @@
+<template>
+  <div class="container">
+    <div class="logo"><img src="../assets/Itest.png" alt=""></div>
+    <div class="form-box">
+      <div class="box-base login-box" :class="showSign?'retate-sign':''">
+        <login-form></login-form>
+        <div class="change-box to-sign">
+          <div class="change-sign" @click="updateRotate">去注册</div>
+        </div>
+      </div>
+
+      <div class="box-base sign-box" :class="showSign?'retate-login':''">
+        <sign-form></sign-form>
+        <div class="change-box to-login">
+          <div class="change-login" @click="updateRotate">去登录</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+import loginForm from '../components/login/login-form.vue'
+import SignForm from '../components/login/sign-form.vue'
+export default {
+  components: { loginForm, SignForm },
+  name: 'login',
+  data () {
+    return {
+      showLogin: true,
+      showSign: false
+    }
+  },
+  methods: {
+    updateRotate () {
+      this.showLogin = !this.showLogin
+      this.showSign = !this.showSign
+    },
+    test () {
+      alert('success')
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  height: calc(100vh);
+  width: calc(100vw);
+  /* 获取屏幕宽度和高度 */
+  position: relative;
+  overflow: hidden;
+  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
+}
+
+.logo {
+  margin: 10px auto;
+  height: 250px;
+  width: 250px;
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* 毛玻璃特效 */
+.form-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  margin: -30px;
+  filter: blur(10px);
+  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
+
+}
+
+.form-box {
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  height: 350px;
+  width: 600px;
+  border-radius: 10px;
+  /* 这里不能用transform居中,否则毛玻璃效果会出问题 */
+  margin-top: -150px;
+  margin-left: -300px;
+  box-shadow: 0px 0px 10px rgba(17, 39, 59, 0.5);
+  z-index: 1;
+}
+
+/* 跳转按钮背景色 */
+.form-box:hover .to-sign {
+  height: 200px;
+  background-color: rgba(239, 205, 109, .8);
+}
+
+.form-box:hover .to-login {
+  height: 200px;
+  background-color: rgb(35, 35, 34);
+}
+
+/* 框内背景色 */
+.form-box:hover .login-box {
+  background-color: rgba(35, 35, 34, .8);
+}
+
+.form-box:hover .sign-box {
+  background-color: rgba(239, 205, 109, .8);
+}
+
+.box-base {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: .5s;
+  transform-origin: 0 100%;
+}
+
+.sign-box {
+  transform: rotate(90deg);
+}
+
+.change-box {
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  transition: .5s;
+}
+
+/* 跳转按钮图形绘制 */
+.to-login {
+  top: 0;
+  clip-path: polygon(0 0, 0 50%, 40% 0);
+}
+
+.to-sign {
+  bottom: 0;
+  clip-path: polygon(100% 50%, 60% 100%, 100% 100%);
+}
+
+.change-sign {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  font-size: 20px;
+  color: rgba(17, 39, 59, 0.5);
+  cursor: pointer;
+}
+
+.change-login {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+/* 旋转登录/注册框 */
+.retate-sign {
+  transform: rotate(-90deg);
+}
+
+.retate-login {
+  transform: rotate(0deg);
+}
+
+/* 深度选择器，父组件中改变子组件的元素 */
+/* 鼠标移入改变element的输入框和按钮 */
+.form-box:hover>>>.el-input__inner {
+  background-color: aliceblue;
+}
+
+/* 按钮渐变效果 */
+.form-box:hover>>>.el-button {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #fdc830, #f37335, #fdc830);
+  background-size: 400%;
+  z-index: 1;
+}
+
+.form-box:hover>>>.el-button:hover {
+  animation: animate 8s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.form-box:hover .change-sign:hover,.form-box:hover .change-login:hover {
+  transform: rotate(-25deg);
+  transition: 1s;
+  text-shadow: 0px 0px 7px rgba(255, 255, 255, .8);
+}
+/* 鼠标移入改变标题样式 */
+.form-box:hover .sign-box>>>.title {
+  /* color: rgba(17, 39, 59, 0.5); */
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, .8);
+}
+
+.form-box:hover .login-box>>>.title {
+  text-shadow: 0px 0px 7px rgba(255, 255, 255, .8);
+}
+
+.el-form-item>>>.el-input__inner {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .form-box {
+    width: calc(80vw);
+    margin-left: calc(-40vw);
+  }
+
+  .change-sign {
+    bottom: 15px;
+    right: 10px;
+  }
+
+  .change-login {
+    top: 12px;
+    left: 10px;
+  }
+
+  .to-login {
+    top: 0;
+    clip-path: polygon(0 0, 0 50%, 50% 0);
+  }
+
+  .to-sign {
+    bottom: 0;
+    clip-path: polygon(100% 60%, 50% 100%, 100% 100%);
+  }
+}
+</style>

@@ -1,0 +1,84 @@
+html, body ,#app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #222;
+    /* 页面统一颜色 */
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+a:-webkit-any-link{
+    text-decoration: none;
+}
+
+ul,li {
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    margin-left: 0px;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+/* span, p {
+    font-size: 14px;
+} */
+
+/* 评分所用的字体 */
+@font-face {
+    font-family: DINCond-Bold;
+    src: url("../font/DINCond-Bold.otf");
+}
