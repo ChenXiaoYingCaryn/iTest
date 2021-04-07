@@ -8,7 +8,8 @@
       <div class="detail">
         <div class="title">{{item.video_title}}</div>
         <div class="author">{{item.user_name}}</div>
-        <div class="date">{{item.create_time}}</div>
+        <div class="info">{{view_counts}}</div>
+        <div class="info">{{this.calculateTimeDiff(item.create_time)}}</div>
       </div>
     </div>
   </div>
@@ -21,6 +22,7 @@ export default {
   },
   data () {
     return {
+      view_counts: '100万次观看'
     }
   },
   name: 'video-recommend',
@@ -46,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .container:first-child{
     margin-top: 76px;
   }
@@ -59,17 +61,18 @@ export default {
   }
   .movie-item .cover {
     position: relative;
-    width: 166px;
+    max-width: 165px;
+    min-width: 165px;
     overflow: hidden;
     background: #000;
   }
   .movie-item:hover .cover img {
     opacity: .7;
     transform: scale(1.25, 1.25);
-
   }
   .movie-item .cover img {
     width: 100%;
+    height: 100%;
     transition: transform ease .25s;
   }
   .movie-item .cover .duration {
@@ -99,20 +102,34 @@ export default {
     -moz-box-orient: vertical;
   }
   .movie-item .detail .author{
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1em;
   }
-  .movie-item .detail .date {
-    display: inline-block;
-    padding: 3px 6px;
+  .movie-item .detail .info {
+    display: block;
     line-height: 1em;
-    background-color: #FFCF40;
-    color: #fff;
     font-size: 12px;
     border-radius: 2px;
+    padding-top: 5px;
   }
   .movie-item .detail .data.hot {
     background-color: #ff6060;
   }
 
+  @media screen and (max-width: 1120px) {
+    .movie-item .detail .title {
+      max-width: 100%;
+      color: #000;
+      font-size: 16px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+    }
+
+    .container:first-child{
+      margin-top: 20px;
+    }
+  }
 </style>

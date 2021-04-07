@@ -11,7 +11,7 @@
         </div>
         <div class="content-right">
           <a href="#" class="video-up">{{item.user_name}}</a>
-          <div class="video-uptime">{{item.create_time}}</div>
+          <div class="video-uptime">{{this.calculateTimeDiff(item.create_time)}}</div>
         </div>
       </div>
     </div>
@@ -28,57 +28,21 @@ export default {
     return {
       video_title: '',
       user_id: '',
-      create_time: '',
-      videoTimeDiff: ''
+      create_time: ''
     }
   },
   created () {
     this.simplifyViews()
-    // this.calculateTimeDiff()
   },
   methods: {
     simplifyViews: function () {
       if (this.videoViews > 9999) { this.videoViews = Math.floor(this.videoViews / 10000) + '万' }
     },
-    calculateTimeDiff: function () {
-      const newTime = new Date()
-      const updateTime = new Date(this.create_time)
-      const timeDiff = newTime.getTime() - updateTime.getTime()
-      const dayDiff = timeDiff / (24 * 3600 * 1000)
-
-      if (dayDiff >= 7) {
-        const weekDiff = dayDiff / 7
-        if (weekDiff >= 4) {
-          const monthDiff = dayDiff / 30
-          if (monthDiff >= 12) {
-            this.videoTimeDiff = Math.floor(monthDiff / 12) + '年前'
-            return
-          }
-          this.videoTimeDiff = Math.floor(monthDiff) + '个月前'
-          return
-        }
-        this.videoTimeDiff = Math.floor(weekDiff) + '周前'
-      } else if (dayDiff < 1) {
-        const hourDiff = dayDiff * 24
-        if (hourDiff < 1) {
-          const minuteDiff = hourDiff * 60
-          if (minuteDiff < 3) {
-            this.videoTimeDiff = '刚刚'
-            return
-          }
-          this.videoTimeDiff = Math.floor(minuteDiff) + '分钟前'
-          return
-        }
-        this.videoTimeDiff = Math.floor(hourDiff) + '小时前'
-      } else {
-        this.videoTimeDiff = Math.floor(dayDiff) + '天前'
-      }
-    },
     goPlay (videoId) {
       this.$router.push({
         path: '/play',
         query: {
-          dogv: videoId
+          dogv: videoId // 视频号，类似b站的bv号
         }
       })
     }

@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <!-- 评论输入模块 -->
     <div v-clickoutside="hideReplyBtn" @click="inputFocus" class="my-reply">
       <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>
@@ -19,7 +18,7 @@
       <el-avatar class="header-img" :size="40" :src="item.headImg"></el-avatar>
       <div class="author-info">
         <span class="author-name">{{item.name}}</span>
-        <span class="author-time">{{item.time}}</span>
+        <span class="author-time">{{item.create_time}}</span>
       </div>
       <!-- 评论操作图标 -->
       <div class="icon-btn">
@@ -79,7 +78,7 @@ export default {
         id: 19870621,
         headImg: 'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
         comment: '视频不错，支持！',
-        time: '2019年9月16日 18:43',
+        time: '2021-03-07T22:57:32.000+0000',
         inputShow: false
       }
       ]
@@ -123,32 +122,6 @@ export default {
     },
     onDivInput: function (e) {
       this.replyComment = e.target.innerHTML
-    },
-    dateStr (date) {
-      // 获取js 时间戳
-      var time = new Date().getTime()
-      time = parseInt((time - date) / 1000)
-      // 存储转换值
-      var s
-      if (time < 60 * 10) { // 十分钟内
-        return '刚刚'
-      } else if ((time < 60 * 60) && (time >= 60 * 10)) {
-        // 超过十分钟少于1小时
-        s = Math.floor(time / 60)
-        return s + '分钟前'
-      } else if ((time < 60 * 60 * 24) && (time >= 60 * 60)) {
-        // 超过1小时少于24小时
-        s = Math.floor(time / 60 / 60)
-        return s + '小时前'
-      } else if ((time < 60 * 60 * 24 * 30) && (time >= 60 * 60 * 24)) {
-        // 超过1天少于30天内
-        s = Math.floor(time / 60 / 60 / 24)
-        return s + '天前'
-      } else {
-        // 超过30天ddd
-        // var date = new Date(parseInt(date))
-        return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
-      }
     }
   }
 }

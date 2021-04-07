@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
-    <el-row class="wrapper" type="flex" justify="center">
+    <el-row class="wrapper" type="flex" justify="space-between">
       <el-col>
         <p>
-          <img height="150px" alt="logo" src="../assets/justlogo.png" />
+          <img class="logoimg" alt="logo" src="../assets/Itest2.png" />
         </p>
       </el-col>
       <el-col>
@@ -36,6 +36,9 @@
 <script>
 export default {
   name: 'foot',
+  created: function () {
+    this.calculateTimeDiff()
+  },
   methods: {
     warn: function () {
       this.$message.warning('此功能正在施工！')
@@ -76,5 +79,16 @@ export default {
 
 .footer p {
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.wrapper  .logoimg {
+  height: 150px;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper .logoimg {
+    height: 100px;
+  }
 }
 </style>

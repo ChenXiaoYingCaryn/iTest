@@ -33,7 +33,7 @@ export default {
     getVideoList: function () {
       this.$http({
         method: 'get',
-        url: '/index/video/queryVideo/0/4'
+        url: '/index/video/queryVideo/0/10'
       }).then(
         ({ data: res }) => {
           this.videoList = res.data
@@ -57,17 +57,14 @@ export default {
 
 <style scoped>
 /* grid布局，在页面缩小后，推荐模块移动到播放模块下面 */
-.container {
-    /* background-color: #302f2d; */
-}
 
 .wrapper {
     margin: 0 auto;
-    width: 1200px;
+    width: 1120px;
     /* background-color: aqua; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 1fr;
 }
 
 .video-play {
@@ -89,7 +86,7 @@ export default {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
     /* background-color: aqua; */
 }
 
@@ -97,7 +94,7 @@ export default {
     display: inline-block;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1120px) {
     .wrapper {
         width: 90%;
         grid-template-rows: auto;
