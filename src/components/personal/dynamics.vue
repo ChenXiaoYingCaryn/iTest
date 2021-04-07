@@ -22,7 +22,7 @@ export default {
         margin: 3px auto;
         width: 750px;
         height: 75px;
-        background-color: #e1e2e2;
+        background-color: #fff;
         display: grid;
         grid-template-columns: 1fr 5fr;
     }

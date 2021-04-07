@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
     .personal{
-        background-color: #E1E2E2;
+        background-color: #fff;
         width: 750px;
         height: 150px;
         display: grid;
@@ -64,7 +64,7 @@ export default {
     }
     .el-button{
         color: #006CFF;
-        background-color: #E1E2E2;
+        background-color: #fff;
         border-color:#006CFF;
     }
     .el-button {

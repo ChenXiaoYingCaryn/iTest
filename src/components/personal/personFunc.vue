@@ -29,12 +29,12 @@ export default {
 
 <style scoped>
     .personFunc{
-        background-color:#E1E2E2 ;
+        background-color:#fff ;
         width: 750px;
         height: auto;
         margin: 6px auto;
     }
     .el-menu{
-        background-color: #E1E2E2;
+        background-color: #fff ;
     }
 </style>

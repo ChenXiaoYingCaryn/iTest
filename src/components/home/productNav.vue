@@ -1,9 +1,9 @@
 <template>
     <div class="proNav">
-        <el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button>
-        <el-button @click="all"><img src="./home-img/电脑.png" alt="" width="100%"></el-button>
-        <el-button @click="all"><img src="./home-img/平板.png" alt="" width="100%"></el-button>
-        <el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button>
+        <div><el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button></div>
+        <div><el-button @click="all"><img src="./home-img/平板.png" alt="" width="100%"></el-button></div>
+        <div><el-button @click="all"><img src="./home-img/电脑.png" alt="" width="100%"></el-button></div>
+        <div><el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button></div>
     </div>
 </template>
 
@@ -20,25 +20,36 @@ export default {
 
 <style scoped>
     .proNav{
-        width: 80%;
-        margin: 2% auto;
+        width: 1200px;
+        margin: 30px auto;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: #E1E2E2;
+        grid-template-columns: 310px 310px 310px 310px ;
+        background-color: #fff;
+    }
+    .proNav div{
+      justify-self: center;
+      background-origin: content-box;
+      background-size: contain;
+      background-color: #fff;
+
+    }
+    .proNav div:nth-child(1){
+      background-image: url('./home-img/3.png');
+    }
+    .proNav div:nth-child(2){
+      background-image: url('./home-img/4.png');
+    }
+    .proNav div:nth-child(3){
+      background-image: url('./home-img/5.png');
     }
     .el-button{
-        background-color: #E1E2E2;
+        background-color: #fff;
         border: none;
+        transition: all 0.5s;
+        transform-origin: 30px 30px;
     }
    .el-button:hover{
-    border: none;
-    background-color: #E1E2E2;
-    -webkit-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    transform: translateY(-5px);
-    /* -webkit-box-shadow: 0 0 6px #999; */
-    /* box-shadow: 0 0 6px #999; */
-    -webkit-transition: all .5s ease-out;
-    transition: all .5s ease-out;
+    transform: translateX(-60px);
+    background-color: transparent;
    }
 </style>

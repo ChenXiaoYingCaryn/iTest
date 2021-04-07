@@ -3,7 +3,7 @@
     <el-row class="wrapper" type="flex" justify="center">
       <el-col>
         <p>
-          <img height="150px" alt="logo" src="../assets/Itest2.png" />
+          <img height="150px" alt="logo" src="../assets/justlogo.png" />
         </p>
       </el-col>
       <el-col>
@@ -12,8 +12,8 @@
         <p><a href="#" @click="warn">联系我们</a></p>
         <p><a href="#" @click="warn">服务条款</a></p>
         <p><a href="#" @click="warn">用户协议</a></p>
-        <p><a href="#" @click="warn">隐私政策</a></p>
-        <p><a href="#" @click="warn">加入我们</a></p>
+        <!-- <p><a href="#" @click="warn">隐私政策</a></p>
+        <p><a href="#" @click="warn">加入我们</a></p> -->
       </el-col>
       <el-col>
         <p class="title">服务</p>

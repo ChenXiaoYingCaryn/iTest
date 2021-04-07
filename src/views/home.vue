@@ -1,13 +1,17 @@
 <template>
     <div class="home">
         <!-- 导航栏 -->
-        <top-nav></top-nav>
-        <functionNav></functionNav>
+        <!-- 第一版 -->
+        <!-- <top-nav></top-nav>
+        <functionNav></functionNav> -->
+
+        <!-- 第二版 -->
+        <new-top-nav></new-top-nav>
 
         <!-- 轮播图 -->
         <div class="block">
             <!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
-            <el-carousel height="570px">
+            <el-carousel height="600px">
                 <el-carousel-item v-for="item in bannerBox" :key="item.image_id">
                     <img v-bind:src="item.image_url" width="100%">
                 </el-carousel-item>
@@ -18,7 +22,11 @@
         <product-nav></product-nav>
 
         <!-- 热门产品推荐 -->
-        <hot-game></hot-game>
+        <!-- 第一版 -->
+        <!-- <hot-game></hot-game> -->
+
+        <!-- 第二版 -->
+        <hot-products></hot-products>
 
         <!-- 专区 -->
         <special :videoPhoneList="videoPhoneList" :rankingPhoneList="rankingPhoneList" :videoPartName="videoPhoneName"></special>
@@ -33,17 +41,19 @@
 </template>
 
 <script>
-import functionNav from '../components/home/functionNav.vue'
-import HotGame from '../components/home/hotGame.vue'
+// import functionNav from '../components/home/functionNav.vue'
+// import HotGame from '../components/home/hotGame.vue'
 import special from '../components/special.vue'
 import info from '../components/home/info.vue'
 import productNav from '../components/home/productNav'
-import TopNav from '../components/topNav.vue'
+// import TopNav from '../components/topNav.vue'
 import foot from '../components/foot.vue'
+import NewTopNav from '../components/home/new-top-nav.vue'
+import HotProducts from '../components/home/hot-products.vue'
 
 export default {
   name: 'home',
-  components: { functionNav, HotGame, special, info, productNav, TopNav, foot },
+  components: { special, info, productNav, foot, NewTopNav, HotProducts },
   data () {
     return {
       bannerBox: [],
@@ -117,7 +127,7 @@ export default {
       width: 100%;
       margin: 0 auto;
       /* background-color: #302F2D; */
-      background-color: #E1E2E2;
+      background-color: #fff;
 
   }
   .el-carousel-item h3 {

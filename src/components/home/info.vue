@@ -84,13 +84,10 @@ export default {
 
 <style scoped>
     .infoContainer{
-        width: 80%;
+        width: 1440px;
         margin: 0 auto;
         display: grid;
         grid-template-rows: 1fr 5fr;
-        /* place-items: center center; */
-        /* background-color: #302F2D; */
-        background-color: #E1E2E2;
         grid-row-gap: 10px;
     }
     .infoTitleContainer{
@@ -103,13 +100,10 @@ export default {
         font-weight: 900;
         font-size: 26px;
         margin: 5px 0;
-        /* border: #EFCD6D solid 2px; */
         padding: 15px 20px;
-        /* border-radius: 10px; */
     }
     .infoTitle a span{
         float: right;
-        color: #999999;
     }
     .infoTitle a span:hover{
         color: #686464;
@@ -127,9 +121,9 @@ export default {
     .specialInfo{
         display: grid;
         grid-template-rows: 1fr 4fr;
-        /* border: #EFCD6D solid 2px; */
         padding: 15px 20px;
-        border-radius: 10px;
+        border: none;
+        /* border-radius: 10px; */
         place-items: center center;
         grid-row-gap: 10px;
 
@@ -141,7 +135,7 @@ export default {
         font-weight: 600;
         padding: 10px 60px;
         margin: 30px 0;
-        background-color: #BD9764;
+        /* background-color: #BD9764; */
     }
     .specialInfoContent{
         display: grid;
@@ -153,9 +147,15 @@ export default {
         padding: 15px 20px;
         display: grid;
         grid-template-columns: 1fr 4fr;
-        background-color: #E1E2E2;
+        background-color: #F5F5F5;
         color: #686464;
+        border-radius: 15px;
         grid-column-gap: 15px;
+        transition: all 0.4s;
+    }
+    .infoItem:hover{
+        background-color: blanchedalmond;
+        color: black;
     }
     .itemPic{
         width: 110px;

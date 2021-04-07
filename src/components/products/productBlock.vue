@@ -1,7 +1,7 @@
 <template>
     <div class="productBlock">
         <el-button>
-        <img v-bind:src="picSrc" width="100%">
+          <img v-bind:src="picSrc" width="100%">
         <!-- <span>产品名</span> -->
         </el-button>
     </div>
