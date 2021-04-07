@@ -62,6 +62,7 @@ export default {
   .movie-item .cover {
     position: relative;
     max-width: 165px;
+    min-width: 165px;
     overflow: hidden;
     background: #000;
   }

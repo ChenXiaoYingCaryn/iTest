@@ -13,6 +13,7 @@ const partition = () => import('../views/partition.vue')
 const person = () => import('../views/person.vue')
 const info = () => import('../views/info.vue')
 const changeInfo = () => import('../views/changeInfo.vue')
+const articles = () => import('../views/articles.vue')
 
 Vue.use(VueRouter)
 
@@ -84,6 +85,11 @@ const router = new VueRouter({
       path: '/changeInfo',
       name: '/changeInfo',
       component: changeInfo
+    },
+    {
+      path: '/articles',
+      name: '/articles',
+      component: articles
     },
     {
       path: '/*',

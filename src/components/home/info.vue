@@ -12,7 +12,7 @@
                     <div class="specialInfoTitle"><span>手机</span></div>
                     <div class="specialInfoContent">
                         <a href="#" v-for="item in phoneArtBox" :key="item.art_id">
-                            <div class="infoItem" >
+                            <div class="infoItem" @click="goArticle">
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%">
                                 </div>
@@ -25,7 +25,7 @@
                     <div class="specialInfoTitle"><span>电脑</span></div>
                     <div class="specialInfoContent">
                         <a href="#" v-for="item in computerArtBox" :key="item.art_id">
-                            <div class="infoItem">
+                            <div class="infoItem" @click="goArticle(item.art_id)">
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%" >
                                 </div>
@@ -38,7 +38,7 @@
                     <div class="specialInfoTitle"><span>平板</span></div>
                     <div class="specialInfoContent">
                         <a href="#" v-for="item in padArtBox" :key="item.art_id">
-                            <div class="infoItem">
+                            <div class="infoItem" >
                                 <div class="itemPic"><img v-bind:src="item.art_image" width="100%" height="100%"></div>
                                 <div class="itemTxt"><span class="twoRow">{{item.art_title}}</span></div>
                             </div>
@@ -77,6 +77,9 @@ export default {
     async getPadArt () {
       const { data: res } = await this.$http.get('index/article/pad/query/0/3')
       this.padArtBox = res.data
+    },
+    goArticle (artId) {
+      console.log('art_id is ' + artId)
     }
   }
 }

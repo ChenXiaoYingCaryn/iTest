@@ -19,19 +19,18 @@
           class="fa fa-bookmark fa-2x"></i>&nbsp;收藏</div>
       <div class="tool-item" @click="clickedForward" style="border-bottom: 3px solid Transparent;"><i
           class="fa fa-share-alt fa-2x"></i>转发</div>
+      <div class="tool-item"><i
+          class="fa fa-ellipsis-v fa-2x"></i></div>
     </div>
     <!-- up主信息 -->
     <div class="up">
       <div class="avatar"><img :src="this.videoInfo.user_image" alt=""></div>
       <span>{{this.videoInfo.user_name}}</span>
+      <el-button>关注</el-button>
     </div>
     <div class="video-text-box">
       <p>
-        <el-collapse>
-          <el-collapse-item title="展开查看视频简介">
-            {{this.videoInfo.video_introduction}}
-          </el-collapse-item>
-        </el-collapse>
+        {{this.videoInfo.video_introduction}}
       </p>
     </div>
   </div>
@@ -104,7 +103,7 @@ export default {
 <style scoped>
 .title {
   overflow: hidden;
-  margin: 15px 0 1px 0;
+  margin-top: 15px;
   /* 解决文字溢出 */
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -136,7 +135,20 @@ export default {
 .tool-bar .tool-item {
   margin-right: 5%;
   cursor: pointer;
-  color: #909090;
+  color: #757575;
+  font-size: 14px;
+}
+
+.tool-bar .tool-item:first-child{
+  margin-left: 1%;
+}
+
+.tool-bar .tool-item:nth-last-child(2){
+  margin-right: auto;
+}
+
+.tool-bar .tool-item:nth-last-child(1){
+  margin-right: 1%;
 }
 
 .tool-bar .clicked-style {
@@ -146,13 +158,15 @@ export default {
 
 .up {
   display: flex;
+  align-items: center;
 }
 
 .up span {
   color: #909090;
   font-size: 16px;
   align-items: center;
-  margin-left: 5px;
+  margin-left: 10px;
+  flex-grow: 2;
 }
 
 .up .avatar {
@@ -167,17 +181,30 @@ export default {
   max-height: 100%;
 }
 
-.video-text-box {
-  padding-left: 55px;
+.up .el-button {
+  height: 60%;
+  color: rgb(230, 230, 230);;
+  background-color: #c00;
+  border: 0px;
+  float: right;
 }
 
-.video-text-box >>> .el-collapse-item__wrap {
-  border-top-color: #FFCF40 !important;
+.video-text-box {
+  padding-left: 60px;
+}
+
+.video-text-box p {
+  font-size: 12px;
+  margin: 10px 0;
 }
 
 @media screen and (max-width:768px) {
   #player {
     height: 300px;
   }
+  .title {
+  -webkit-line-clamp: 2;
+  }
+
 }
 </style>
