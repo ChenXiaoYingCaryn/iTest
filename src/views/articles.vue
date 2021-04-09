@@ -1,20 +1,25 @@
 <template>
   <div id="article-wrapper">
-    <div id="article-title">
+    <new-top-nav></new-top-nav>
+    <!-- <div id="article-title">
       <h1>{{art_data.art_title}}</h1>
       <el-button class="title-btn" size="small" style="margin: 10px">评论</el-button>
     </div>
-    <article-layer :art_data="art_data"></article-layer>
+    <article-layer :art_data="art_data"></article-layer> -->
+    <new-article :art_data="art_data"></new-article>
+    <foot></foot>
   </div>
 </template>
 
 <script>
-import ArticleLayer from '../components/article/article-layer.vue'
+// import ArticleLayer from '../components/article/article-layer.vue'
+import Foot from '../components/foot.vue'
+import NewTopNav from '../components/home/new-top-nav.vue'
+import NewArticle from '../components/article/new-article.vue'
 export default {
-  components: { ArticleLayer },
+  components: { NewTopNav, Foot, NewArticle },
   name: 'articles',
   props: {
-    articleId: String
   },
   data () {
     return {
@@ -42,7 +47,7 @@ export default {
     getAriticleInfo () {
       this.$http({
         method: 'get',
-        url: '/index/article/searchArticleById/' + this.articleId
+        url: '/index/article/searchArticleById/' + this.$route.query.it // 将传进来的文章号进行拼串并发送请求
       }).then(
         ({ data: res }) => {
           this.art_data = res.data
@@ -60,7 +65,9 @@ export default {
 <style scoped>
 #article-wrapper {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  height: auto;
+  background-color: #F4F5F5;
 }
 
 /* 标题 */

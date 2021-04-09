@@ -8,18 +8,13 @@
              <!-- 选项卡 -->
             <el-tabs v-model="activeName" @tab-click="handleClick" class="tabs">
                 <el-tab-pane label="手机" name="active">
-                    <product></product>
-                    <product></product>
-                    <product></product>
-                    <product></product>
-                    <product></product>
-                    <product></product>
+                    <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in phonePic" :key="item.type_id"></product>
                 </el-tab-pane>
                 <el-tab-pane label="电脑" name="">
-                    <product></product>
+                    <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in computerPic" :key="item.type_id"></product>
                 </el-tab-pane>
                 <el-tab-pane label="平板" name="">
-                    <product></product>
+                <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in padPic" :key="item.type_id"></product>
                 </el-tab-pane>
             </el-tabs>
         </div>
@@ -42,7 +37,7 @@ export default {
       padPic: []
     }
   },
-  props: ['picSrc'],
+  props: ['picSrc', 'productName', 'productPrice'],
   methods: {
     handleClick (tab, event) {
       console.log(tab, event)

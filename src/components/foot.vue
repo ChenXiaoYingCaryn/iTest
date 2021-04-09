@@ -3,7 +3,7 @@
     <el-row class="wrapper" type="flex" justify="space-between">
       <el-col>
         <p>
-          <img class="logoimg" alt="logo" src="../assets/Itest2.png" />
+          <img class="logoimg" alt="logo" src="../components/home/home-img/footLogo.png" />
         </p>
       </el-col>
       <el-col>

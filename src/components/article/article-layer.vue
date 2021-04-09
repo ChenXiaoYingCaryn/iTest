@@ -1,13 +1,15 @@
 <template>
     <div id="layer-wrapper">
         <div id="article-creator">
-            <el-avatar class="creator-avatar" shape="square" :size="80"></el-avatar>
-            <span class="name">名字</span>
-            <span class="create-time">发布时间</span>
+            <el-avatar class="creator-avatar" shape="square" :size="80" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"></el-avatar>
+            <span class="name">CuiFlower</span>
+            <span class="create-time">{{this.calculateTimeDiff(art_data.create_time)}}</span>
             <el-button size="small" class="creator-btn">关注</el-button>
         </div>
-        <div id="article-content">{{art_data.art_text}}</div>
-        <!-- <img src="" alt=""> -->
+        <div id="article-content">
+          {{art_data.art_text}}
+          <div><img :src="art_data.art_image" alt=""></div>
+        </div>
     </div>
 </template>
 
@@ -56,7 +58,6 @@ export default {
 
 /* 文章内容 */
 #article-content {
-  height: 1000px;
   padding: 20px;
   border-left: 1px solid #edeef2;
   border-right: 1px solid #edeef2;
@@ -84,7 +85,14 @@ export default {
   font-size: 12px;
 }
 
-@media screen and (max-width: 1000px) {
+#article-content div{
+  margin: 30px auto;
+  width: 500px;
+}
+#article-content div img{
+  width: 500px;
+}
+@media screen and (max-width: 1440px) {
     #article-creator {
         grid-column-start: 1;
         grid-column-end: 3;

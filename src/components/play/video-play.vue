@@ -3,7 +3,7 @@
     <!-- 视频标题 -->
     <h2 class="title">{{this.videoInfo.video_title}}</h2>
     <div class="video-info">
-      <span>{{this.videoInfo.videoViews}}播放</span>
+      <span>10万播放</span>
       <span>{{this.calculateTimeDiff(videoInfo.create_time)}}</span>
     </div>
     <!-- 播放器 -->

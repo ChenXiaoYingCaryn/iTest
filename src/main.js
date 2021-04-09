@@ -34,7 +34,7 @@ Vue.use(VueCoreVideoPlayer, {
 })
 
 // 接口地址
-axios.defaults.baseURL = 'http://106.53.135.86:10000/'
+axios.defaults.baseURL = 'http://159.75.110.59:10000/'
 
 Vue.prototype.calculateTimeDiff = function (createTime) {
   let videoTimeDiff = ''

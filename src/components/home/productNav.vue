@@ -3,7 +3,7 @@
         <div><el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button></div>
         <div><el-button @click="all"><img src="./home-img/平板.png" alt="" width="100%"></el-button></div>
         <div><el-button @click="all"><img src="./home-img/电脑.png" alt="" width="100%"></el-button></div>
-        <div><el-button @click="all"><img src="./home-img/手机.png" alt="" width="100%"></el-button></div>
+        <div><el-button @click="all"><img src="./home-img/newT3.png" alt="" width="100%"></el-button></div>
     </div>
 </template>
 
@@ -28,6 +28,7 @@ export default {
     }
     .proNav div{
       justify-self: center;
+      align-self: center;
       background-origin: content-box;
       background-size: contain;
       background-color: #fff;

@@ -1,16 +1,17 @@
 <template>
     <div class="product">
-        <img src="../home/home-img/手机.png" alt="">
+        <img v-bind:src="picSrc">
         <div class="product-info">
-            <p class="product-name"> SamSung TabS7+</p>
-            <p class="product-price">￥6999</p>
+            <p class="product-name" v-text="productName"></p>
+            <p class="product-price" v-text="productPrice"></p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'product'
+  name: 'product',
+  props: ['picSrc', 'productName', 'productPrice']
 }
 </script>
 
@@ -31,12 +32,12 @@ export default {
         transform: translateY(-10px);
     }
     .product img{
-        width: 150px;
+        width: 130px;
         transition: all .4s;
     }
     .product img:hover{
         /* transform: rotateZ(360deg); */
-        transform: translateZ(35px);
+        transform: translateZ(25px);
     }
     .product-info{
         align-self: flex-start;

@@ -162,10 +162,6 @@ export default {
   /* background-color: yellow; */
 }
 
-.right-box {
-  /* background-color: #EFCD6D; */
-}
-
 /* 产品评分 */
 .score {
   font-size: 50px;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="logo"><img src="../assets/Itest.png" alt=""></div>
+    <div class="logo"><img src="../components/home/home-img/newT3.png" alt=""></div>
     <div class="form-box">
       <div class="box-base login-box" :class="showSign?'retate-sign':''">
         <login-form></login-form>
@@ -51,11 +51,11 @@ export default {
   /* 获取屏幕宽度和高度 */
   position: relative;
   overflow: hidden;
-  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
+  background: url("../assets/loginback2.jpg") center center / cover no-repeat fixed;
 }
 
 .logo {
-  margin: 10px auto;
+  margin: 100px auto;
   height: 250px;
   width: 250px;
 }
@@ -75,7 +75,7 @@ export default {
   z-index: -1;
   margin: -30px;
   filter: blur(10px);
-  background: url("../../img/tec.jpg") center center / cover no-repeat fixed;
+  background: url("../assets/loginback2.jpg") center center / cover no-repeat fixed;
 
 }
 
@@ -97,7 +97,7 @@ export default {
 /* 跳转按钮背景色 */
 .form-box:hover .to-sign {
   height: 200px;
-  background-color: rgba(239, 205, 109, .8);
+  background-color: rgba(233, 227, 213, .8);
 }
 
 .form-box:hover .to-login {
@@ -111,7 +111,7 @@ export default {
 }
 
 .form-box:hover .sign-box {
-  background-color: rgba(239, 205, 109, .8);
+  background-color: rgba(233, 227, 213, 0.8);
 }
 
 .box-base {

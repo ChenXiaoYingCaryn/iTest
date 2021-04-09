@@ -29,9 +29,9 @@
         <hot-products></hot-products>
 
         <!-- 专区 -->
-        <special :videoPhoneList="videoPhoneList" :rankingPhoneList="rankingPhoneList" :videoPartName="videoPhoneName"></special>
-        <special :videoPhoneList="videoPadList" :rankingPhoneList="rankingPadList" :videoPartName="videoPadName"></special>
-        <special :videoPhoneList="videoLaptopList" :rankingPhoneList="rankingLaptopList" :videoPartName="videoLaptopName"></special>
+        <special :videoPhoneList="videoPhoneList" :rankingList="rankingPhoneList" :videoPartName="videoPhoneName"></special>
+        <special :videoPhoneList="videoPadList" :rankingList="rankingPadList" :videoPartName="videoPadName"></special>
+        <special :videoPhoneList="videoLaptopList" :rankingList="rankingLaptopList" :videoPartName="videoLaptopName"></special>
         <!-- 资讯专栏 -->
         <info></info>
 
@@ -80,9 +80,9 @@ export default {
     this.getPadVideo()
     this.getLaptopVideo()
 
-    this.getRankingPhonePic()
-    this.getRankingPadPic()
-    this.getRankingLaptopPic()
+    this.getRankingPhone()
+    this.getRankingPad()
+    this.getRankingLaptop()
   },
   methods: {
     async getSlideImges () {
@@ -106,15 +106,15 @@ export default {
       this.videoLaptopName = res.msg
     },
 
-    async getRankingPhonePic () {
+    async getRankingPhone () {
       const { data: res } = await this.$http.get('score/rankingPhoneList')
       this.rankingPhoneList = res.data
     },
-    async getRankingPadPic () {
+    async getRankingPad () {
       const { data: res } = await this.$http.get('score/rankingPadList')
       this.rankingPadList = res.data
     },
-    async getRankingLaptopPic () {
+    async getRankingLaptop () {
       const { data: res } = await this.$http.get('score/rankingLaptopList')
       this.rankingLaptopList = res.data
     }
@@ -144,5 +144,8 @@ export default {
 
   .el-carousel-item:nth-child(2n+1) {
      background-color: #d3dce6;
+  }
+  .block{
+    z-index: 1;
   }
 </style>

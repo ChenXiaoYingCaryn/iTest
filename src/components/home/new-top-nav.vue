@@ -18,12 +18,15 @@
                 </el-input>
             </div>
             <div class="login">
-                <div @click="toLogin" style="cursor: pointer;">登录 / 注册</div>
+                <!-- <div @click="toLogin" style="cursor: pointer;">登录 / 注册</div> -->
                 <!-- <div class="had-login">
                     <el-avatar :size="size" :src="avatarSrc">Bear</el-avatar>
                     <span>动态</span>
                     <span>收藏</span>
                 </div> -->
+                <div @click="toPerson" style="cursor: pointer;">
+                    <img src="./home-img/Bear.jpg" alt="">
+                </div>
             </div>
             <div class="update">
                 <el-button type="primary" icon="el-icon-upload2">发布动态</el-button>
@@ -51,6 +54,9 @@ export default {
     },
     toLogin () {
       this.$router.push('/login')
+    },
+    toPerson () {
+      this.$router.push('/person')
     }
   }
 }
@@ -58,11 +64,12 @@ export default {
 <style scoped>
     .new-top-nav{
         margin: 10px auto;
+        padding-bottom: 10px;
         min-width: 980px;
         height: 56px;
         display: grid;
         align-items: center;
-        background-color: white;
+        background-color: #fff;
     }
     .container{
         margin: 0 auto;
@@ -78,6 +85,11 @@ export default {
     .logo a img{
         object-fit: contain;
     }
+    .login div img{
+        width: 56px;
+        object-fit: contain;
+        border-radius: 100%;
+    }
     .button{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -87,6 +99,7 @@ export default {
         margin: 0 auto;
         font-size: 18px;
         font-weight: 700;
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     }
     .search{
         display: grid;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <top-nav></top-nav>
+    <new-top-nav></new-top-nav>
     <!-- 顶部图片 -->
     <div class="banner">
       <div class="top-img"></div>
@@ -13,7 +13,7 @@
       <!-- 评价列表 -->
       <div id="review"><review-list></review-list></div>
       <!-- 推荐产品 -->
-      <recommendations></recommendations>
+      <!-- <recommendations></recommendations> -->
     </div>
     <foot></foot>
   </div>
@@ -21,13 +21,12 @@
 
 <script>
 import Foot from '../components/foot.vue'
+import NewTopNav from '../components/home/new-top-nav.vue'
 import MarkingIndent from '../components/marking/marking-indent.vue'
-import Recommendations from '../components/marking/recommendations.vue'
 import Relatedvideo from '../components/marking/related-video.vue'
 import ReviewList from '../components/marking/review-list.vue'
-import topNav from '../components/topNav.vue'
 export default {
-  components: { topNav, Relatedvideo, ReviewList, Recommendations, MarkingIndent, Foot },
+  components: { Relatedvideo, ReviewList, MarkingIndent, Foot, NewTopNav },
   name: 'marking',
   data () {
     return {

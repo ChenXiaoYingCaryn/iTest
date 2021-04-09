@@ -1,6 +1,6 @@
 <template>
     <div class="changeinfo">
-        <top-nav></top-nav>
+        <new-top-nav></new-top-nav>
         <personal-info></personal-info>
         <person-info-page></person-info-page>
     </div>
@@ -9,13 +9,14 @@
 <script>
 import PersonalInfo from '../components/personal/personalInfo.vue'
 import PersonInfoPage from '../components/personal/personInfoPage.vue'
-import TopNav from '../components/topNav.vue'
+import NewTopNav from '../components/home/new-top-nav'
+// import TopNav from '../components/topNav.vue'
+
 export default {
   name: 'changeInfo',
-  components: { PersonInfoPage, TopNav, PersonalInfo }
+  components: { PersonInfoPage, PersonalInfo, NewTopNav }
 }
-</script>
-
+</script>,
     <style scoped>
 
 </style>

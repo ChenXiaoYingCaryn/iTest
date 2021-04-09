@@ -11,8 +11,8 @@
                 <div class="specialInfo">
                     <div class="specialInfoTitle"><span>手机</span></div>
                     <div class="specialInfoContent">
-                        <a href="#" v-for="item in phoneArtBox" :key="item.art_id">
-                            <div class="infoItem" >
+                        <a v-for="item in phoneArtBox" :key="item.art_id">
+                            <div class="infoItem" @click="goArticle(item.art_id)" >
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%">
                                 </div>
@@ -24,8 +24,8 @@
                  <div class="specialInfo">
                     <div class="specialInfoTitle"><span>电脑</span></div>
                     <div class="specialInfoContent">
-                        <a href="#" v-for="item in computerArtBox" :key="item.art_id">
-                            <div class="infoItem">
+                        <a v-for="item in computerArtBox" :key="item.art_id">
+                            <div class="infoItem" @click="goArticle(item.art_id)">
                                 <div class="itemPic">
                                     <img v-bind:src="item.art_image" width="100%" height="100%" >
                                 </div>
@@ -37,8 +37,8 @@
                  <div class="specialInfo">
                     <div class="specialInfoTitle"><span>平板</span></div>
                     <div class="specialInfoContent">
-                        <a href="#" v-for="item in padArtBox" :key="item.art_id">
-                            <div class="infoItem">
+                        <a v-for="item in padArtBox" :key="item.art_id">
+                            <div class="infoItem" @click="goArticle(item.art_id)">
                                 <div class="itemPic"><img v-bind:src="item.art_image" width="100%" height="100%"></div>
                                 <div class="itemTxt"><span class="twoRow">{{item.art_title}}</span></div>
                             </div>
@@ -77,6 +77,14 @@ export default {
     async getPadArt () {
       const { data: res } = await this.$http.get('index/article/pad/query/0/3')
       this.padArtBox = res.data
+    },
+    goArticle (articleId) {
+      this.$router.push({
+        path: '/articles',
+        query: {
+          it: articleId // 文章号
+        }
+      })
     }
   }
 }
@@ -144,6 +152,7 @@ export default {
         grid-row-gap: 10px;
     }
     .infoItem{
+        cursor: pointer;
         padding: 15px 20px;
         display: grid;
         grid-template-columns: 1fr 4fr;
