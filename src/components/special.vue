@@ -3,8 +3,8 @@
         <!-- 手机 -->
         <div class="videoAdvise">
             <div class="specialTitle">
-                <a @click="more"><span style="cursor:pointer">{{this.videoPartName}}</span></a>
-                <a @click="more"><span style="cursor:pointer">更多>></span></a>
+                <a><span style="cursor:pointer">{{this.videoPartName}}</span></a>
+                <a><span style="cursor:pointer">更多>></span></a>
             </div>
             <div class="specialVideo">
                 <div class="related-video-item" v-for="item in videoPhoneList" :key="item.video_id">
@@ -47,7 +47,7 @@ export default {
   },
   created () {
     this.showData()
-    this.getRankingPhone()
+    // this.getRankingPhone()
   },
   methods: {
     more () {
@@ -113,24 +113,6 @@ export default {
         margin: 5px 0;
         align-self: center;
     }
-    /* .Rankingpic{
-        width: 90%;
-        display: grid;
-    } */
-    /* .el-carousel-item{
-        display: grid;
-        place-items: center center;
-    }
-    .el-carousel-item img{
-        object-fit: contain;
-    }
-   .el-carousel-item:nth-child(2n) {
-    background-color: #99a9bf;
-   }
-
-  .el-carousel-item:nth-child(2n+1) {
-    background-color: #d3dce6;
-   } */
     .el-collapse{
         width: 270px;
     }

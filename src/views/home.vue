@@ -41,12 +41,9 @@
 </template>
 
 <script>
-// import functionNav from '../components/home/functionNav.vue'
-// import HotGame from '../components/home/hotGame.vue'
 import special from '../components/special.vue'
 import info from '../components/home/info.vue'
 import productNav from '../components/home/productNav'
-// import TopNav from '../components/topNav.vue'
 import foot from '../components/foot.vue'
 import NewTopNav from '../components/home/new-top-nav.vue'
 import HotProducts from '../components/home/hot-products.vue'

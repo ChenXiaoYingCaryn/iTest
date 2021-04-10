@@ -1,14 +1,14 @@
 <template>
-    <div class="new-top-nav">
+    <div class="fish-top-nav">
         <div class="container">
-            <div class="logo" @click="toHome">
-                <a href="#"><img src="./home-img/newT3.png" alt="logo" width="100%" height="100%"></a>
+            <div class="logo" @click="toFishHome">
+                <a href="#"><img src="./海智科技鱼病检测.png" alt="logo" width="100%" height="100%"></a>
             </div>
             <div class="button">
-                <div @click="tofish" style="cursor: pointer;">手机</div>
-                <div @click="toProducts" style="cursor: pointer;">电脑</div>
-                <div @click="toProducts" style="cursor: pointer;">平板</div>
-                <div @click="toProducts" style="cursor: pointer;">全部产品</div>
+                <div @click="toFishVideo" style="cursor: pointer;">视频</div>
+                <div @click="toFishArticle" style="cursor: pointer;">文章</div>
+                <div @click="toFishPhotoWall" style="cursor: pointer;">图片</div>
+                <a href="http://192.168.43.165:8080"><div style="cursor: pointer;">鱼病检测</div></a>
             </div>
             <div class="search">
                 <el-input
@@ -24,12 +24,12 @@
                     <span>动态</span>
                     <span>收藏</span>
                 </div> -->
-                <div @click="toPerson" style="cursor: pointer;">
-                    <img src="./home-img/Bear.jpg" alt="">
+                <div style="cursor: pointer;">
+                    <img src="../home/home-img/Bear.jpg" alt="">
                 </div>
             </div>
             <div class="update">
-                <el-button type="primary" icon="el-icon-upload2">发布动态</el-button>
+                <el-button type="primary" icon="el-icon-upload2">鱼病检测</el-button>
                 <!-- <el-button type="primary" icon="el-icon-search">搜索</el-button> -->
             </div>
         </div>
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'new-top-nav',
+  name: 'fish-top-nav',
   data () {
     return {
       size: 'medium',
@@ -46,20 +46,17 @@ export default {
     }
   },
   methods: {
-    toHome () {
-      this.$router.push('/home')
-    },
-    toProducts () {
-      this.$router.push('/products')
-    },
-    toLogin () {
-      this.$router.push('/login')
-    },
-    toPerson () {
-      this.$router.push('/person')
-    },
-    tofish () {
+    toFishHome () {
       this.$router.push('/fishHome')
+    },
+    toFishVideo () {
+      this.$router.push('/fishVideo')
+    },
+    toFishArticle () {
+      this.$router.push('/fishArticle')
+    },
+    toFishPhotoWall () {
+      this.$router.push('/fishPhotoWall')
     }
   }
 }

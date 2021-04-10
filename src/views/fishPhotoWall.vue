@@ -1,19 +1,21 @@
 <template>
     <div class="products">
         <!-- 顶部栏 -->
-        <!-- <top-nav></top-nav> -->
-        <new-top-nav></new-top-nav>
+        <fish-top-nav></fish-top-nav>
         <div class="productsTab">
              <!-- 选项卡 -->
             <el-tabs v-model="activeName" @tab-click="handleClick" class="tabs">
-                <el-tab-pane label="手机" name="active">
+                <el-tab-pane label="皮肤病" name="active">
                     <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in phonePic" :key="item.type_id"></product>
                 </el-tab-pane>
-                <el-tab-pane label="电脑" name="">
+                <el-tab-pane label="鱼鳃病" name="">
                     <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in computerPic" :key="item.type_id"></product>
                 </el-tab-pane>
-                <el-tab-pane label="平板" name="">
-                <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in padPic" :key="item.type_id"></product>
+                <el-tab-pane label="消化道病" name="">
+                    <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in padPic" :key="item.type_id"></product>
+                </el-tab-pane>
+                <el-tab-pane label="内脏病" name="">
+                    <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in padPic" :key="item.type_id"></product>
                 </el-tab-pane>
             </el-tabs>
         </div>
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-import NewTopNav from '../components/home/new-top-nav.vue'
+import FishTopNav from '../components/fish/fish-top-nav.vue'
 import Product from '../components/products/product.vue'
 
 export default {
@@ -58,7 +60,7 @@ export default {
     this.getpadPic()
   },
   components: {
-    Product, NewTopNav
+    Product, FishTopNav
   }
 }
 </script>
@@ -70,8 +72,8 @@ export default {
         width: 100%;
     }
     .productsTab{
-        width: 1440px;
-        margin: 0 auto;
+        width: 1200px;
+        margin: 20px auto;
     }
     .el-tabs{
         display: grid;
@@ -90,6 +92,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         place-items: center center;
+        column-gap: 10px;
     }
     .el-tabs__active-bar{
       background-color: #7c7a7a !important;

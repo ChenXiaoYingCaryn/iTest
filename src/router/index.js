@@ -14,6 +14,10 @@ const person = () => import('../views/person.vue')
 const info = () => import('../views/info.vue')
 const changeInfo = () => import('../views/changeInfo.vue')
 const articles = () => import('../views/articles.vue')
+const fishHome = () => import('../views/fishHome.vue')
+const fishVideo = () => import('../views/fishVideo.vue')
+const fishArticle = () => import('../views/fishArticle.vue')
+const fishPhotoWall = () => import('../views/fishPhotoWall.vue')
 
 Vue.use(VueRouter)
 
@@ -92,13 +96,32 @@ const router = new VueRouter({
       component: articles
     },
     {
+      path: '/fishHome',
+      name: '/fishHome',
+      component: fishHome
+    },
+    {
+      path: '/fishVideo',
+      name: '/fishVideo',
+      component: fishVideo
+    },
+    {
+      path: '/fishArticle',
+      name: '/fishArticle',
+      component: fishArticle
+    }, {
+      path: '/fishPhotoWall',
+      name: '/fishPhotoWall',
+      component: fishPhotoWall
+    },
+    {
       path: '/*',
       name: 'error',
       component: error
     }
 
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior () {
     return {
       x: 0,
       y: 0
