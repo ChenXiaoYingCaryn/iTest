@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     async getFishVideo () {
-      const { data: res } = await this.$http.get('index/video/queryPhoneVideo/0/6')
+      const { data: res } = await this.$http.get('index/video/queryPhoneVideo/2/8')
       this.fishVideoList = res.data
     }
   }

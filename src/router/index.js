@@ -18,6 +18,7 @@ const fishHome = () => import('../views/fishHome.vue')
 const fishVideo = () => import('../views/fishVideo.vue')
 const fishArticle = () => import('../views/fishArticle.vue')
 const fishPhotoWall = () => import('../views/fishPhotoWall.vue')
+const fishText = () => ('../views/fishText.vue')
 
 Vue.use(VueRouter)
 
@@ -109,10 +110,16 @@ const router = new VueRouter({
       path: '/fishArticle',
       name: '/fishArticle',
       component: fishArticle
-    }, {
+    },
+    {
       path: '/fishPhotoWall',
       name: '/fishPhotoWall',
       component: fishPhotoWall
+    },
+    {
+      path: '/fishText',
+      name: '/fishText',
+      component: fishText
     },
     {
       path: '/*',

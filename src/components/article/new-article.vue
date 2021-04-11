@@ -44,9 +44,14 @@
 
             </div>
             <div class="iTest">
-                <img src="../home/home-img/article-right2.gif" alt="">
+                <!-- ITest -->
+                <!-- <img src="../home/home-img/article-right2.gif" alt="">
                 <img src="../home/home-img/article-right.gif" alt="">
-                <img src="../home/home-img/article-right3.gif" alt="">
+                <img src="../home/home-img/article-right3.gif" alt=""> -->
+                <!-- 鱼病 -->
+                <img src="../fish/fishText1.gif" alt="">
+                <img src="../fish/fishText2.gif" alt="">
+                <img src="../fish/fishText3.gif" alt="">
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@
                     <span>动态</span>
                     <span>收藏</span>
                 </div> -->
-                <div style="cursor: pointer;">
+                <div style="cursor: pointer;" class="avatar">
                     <img src="../home/home-img/Bear.jpg" alt="">
                 </div>
             </div>
@@ -136,5 +136,8 @@ export default {
         border: none;
         color: black;
         font-weight: 700;
+    }
+    .avatar{
+        padding-top: 5px;
     }
 </style>

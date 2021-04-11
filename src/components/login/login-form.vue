@@ -83,7 +83,7 @@ export default {
                 this.$message.success('登录成功！欢迎回到Itest！')
                 window.sessionStorage.setItem('token', res.msg)
                 this.getUserInfo(this.loginForm.user_id, window.sessionStorage.getItem('token'))
-                this.$router.push('/home')
+                this.$router.push('/fishHome')
               },
               ({ data: res }) => {
                 this.$message.warning('网络错误，请稍后重试！')

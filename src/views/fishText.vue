@@ -1,8 +1,5 @@
 <template>
   <div id="article-wrapper">
-    <!-- ITest -->
-    <!-- <new-top-nav></new-top-nav> -->
-    <!-- 鱼病 -->
     <fish-top-nav></fish-top-nav>
     <new-article :art_data="art_data"></new-article>
     <foot></foot>
@@ -10,19 +7,12 @@
 </template>
 
 <script>
-// import ArticleLayer from '../components/article/article-layer.vue'
 import Foot from '../components/foot.vue'
-// iTest
-// import NewTopNav from '../components/home/new-top-nav.vue'
 import NewArticle from '../components/article/new-article.vue'
-// 鱼病
-import fishTopNav from '../components/fish/fish-top-nav.vue'
+import FishTopNav from '../components/fish/fish-top-nav.vue'
 export default {
-  // 鱼病
-  components: { Foot, NewArticle, fishTopNav },
-  // ITest
-  // components: { NewTopNav, Foot, NewArticle },
-  name: 'articles',
+  components: { Foot, NewArticle, FishTopNav },
+  name: 'fishText',
   props: {
   },
   data () {
@@ -51,7 +41,7 @@ export default {
     getAriticleInfo () {
       this.$http({
         method: 'get',
-        url: '/index/article/searchArticleById/' + this.$route.query.it // 将传进来的文章号进行拼串并发送请求
+        url: '/index/fishText/searchArticleById/' + this.$route.query.it // 将传进来的文章号进行拼串并发送请求
       }).then(
         ({ data: res }) => {
           this.art_data = res.data

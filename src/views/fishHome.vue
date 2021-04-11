@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     async getSlideImges () {
-      const { data: res } = await this.$http.get('index/slideshow/query/0/4')
+      const { data: res } = await this.$http.get('index/slideshow/query/4/4')
       this.bannerBox = res.data
     },
     next () { // 往下切换

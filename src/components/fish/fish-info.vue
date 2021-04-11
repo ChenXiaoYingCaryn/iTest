@@ -22,7 +22,7 @@
                     </div>
                 </div>
                  <div class="specialInfo">
-                    <div class="specialInfoTitle"><span>鱼鳃病</span></div>
+                    <div class="specialInfoTitle"><span>消化道病</span></div>
                     <div class="specialInfoContent">
                         <a v-for="item in computerArtBox" :key="item.art_id">
                             <div class="infoItem" @click="goArticle(item.art_id)">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                  <div class="specialInfo">
-                    <div class="specialInfoTitle"><span>消化道病</span></div>
+                    <div class="specialInfoTitle"><span>鱼鳃病</span></div>
                     <div class="specialInfoContent">
                         <a v-for="item in padArtBox" :key="item.art_id">
                             <div class="infoItem" @click="goArticle(item.art_id)">
@@ -45,7 +45,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="specialInfo">
+                <!-- <div class="specialInfo">
                     <div class="specialInfoTitle"><span>内脏病</span></div>
                     <div class="specialInfoContent">
                         <a v-for="item in padArtBox" :key="item.art_id">
@@ -55,7 +55,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     async getPhoneArt () {
-      const { data: res } = await this.$http.get('index/article/phone/query/0/4')
+      const { data: res } = await this.$http.get('index/article/phone/query/1/3')
       this.phoneArtBox = res.data
     },
     async getComputerArt () {
@@ -96,6 +96,7 @@ export default {
           it: articleId // 文章号
         }
       })
+      console.log('123')
     }
   }
 }
@@ -134,7 +135,7 @@ export default {
     }
     .infoContent{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 10px;
     }
     .specialInfo{

@@ -1,10 +1,10 @@
 <template>
     <div class="product">
         <img v-bind:src="picSrc">
-        <div class="product-info">
+        <!-- <div class="product-info">
             <p class="product-name" v-text="productName"></p>
             <p class="product-price" v-text="productPrice"></p>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
         transform: translateY(-10px);
     }
     .product img{
-        width: 130px;
+        width: 200px;
         transition: all .4s;
     }
     .product img:hover{

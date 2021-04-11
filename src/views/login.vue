@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="logo"><img src="../components/home/home-img/newT3.png" alt=""></div>
+    <div class="logo"><img src="../components/fish/海智科技鱼病检测.png" alt=""></div>
     <div class="form-box">
       <div class="box-base login-box" :class="showSign?'retate-sign':''">
         <login-form></login-form>

@@ -8,10 +8,10 @@
                 <el-tab-pane label="皮肤病" name="active">
                     <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in phonePic" :key="item.type_id"></product>
                 </el-tab-pane>
-                <el-tab-pane label="鱼鳃病" name="">
+                <el-tab-pane label="消化道病" name="">
                     <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in computerPic" :key="item.type_id"></product>
                 </el-tab-pane>
-                <el-tab-pane label="消化道病" name="">
+                <el-tab-pane label="鱼鳃病" name="">
                     <product v-bind:picSrc="item.type_image" v-bind:productName="item.type_name" v-bind:productPrice="item.type_price" v-for="item in padPic" :key="item.type_id"></product>
                 </el-tab-pane>
                 <el-tab-pane label="内脏病" name="">
@@ -42,7 +42,7 @@ export default {
       console.log(tab, event)
     },
     async getPhonePic () {
-      const { data: res } = await this.$http.get('index/type/phone/0/12')
+      const { data: res } = await this.$http.get('index/type/phone/1/10')
       this.phonePic = res.data
     },
     async getComputerPic () {

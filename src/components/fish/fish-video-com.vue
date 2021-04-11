@@ -61,7 +61,7 @@ export default {
         margin: 0 0 20px 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr ;
         place-items: center center;
         grid-row-gap: 3%;
         grid-column-gap: 2%;
